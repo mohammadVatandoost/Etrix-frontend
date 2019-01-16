@@ -1,0 +1,31 @@
+.product-list {
+    width: 90%;margin: 1% auto;
+    direction: ltr;
+}
+.product-list h2 {
+    font-size: 125%;
+    font-weight: 700;
+}
+.product-list ul {
+    padding-left: 1%;
+}
+
+.each-list {
+    flex: 25%;
+    max-width: 25%;
+    align-self: flex-start;
+}
+
+@media (min-width: 300px) {
+    .product-list li {
+        padding-top: 1%;padding-bottom: 1%;
+    }
+}
+
+@media (min-width: 768px) {
+    .product-list li {
+        padding-top: 0;padding-bottom: 0.5%;
+    }
+}
+
+
