@@ -42,6 +42,7 @@ class FilterProducts extends Component {
     render() {
         let dataFilters ;
         let filterButton;
+        let filteredOptions;
         // data Filters
         let dataFiltersTemp = this.props.dataFilters;
         dataFilters = Object.keys(dataFiltersTemp).map((property,i) => {
@@ -66,6 +67,10 @@ class FilterProducts extends Component {
         });
         if(Object.keys(dataFiltersTemp).length > 1) {
             filterButton = <button onClick={this.filterComponent} hidden={this.props.loading} className="btn btn-primary buttonFilter">فیلتر</button>
+            filteredOptions = <ul className="flex-row">
+                <li className="margin-right-1"><button><i class="fa fa-times" aria-hidden="true"></i><span>speeds</span></button></li>
+                <li className="margin-right-1"><button><i class="fa fa-times" aria-hidden="true"></i><span>number of io</span></button></li>
+            </ul>
         }
         return (
             <AuxWrapper>
@@ -73,6 +78,8 @@ class FilterProducts extends Component {
              <br/>
              {filterButton}
              <br/><br/>
+             {filteredOptions}
+             <br/>
             </AuxWrapper>
         )
     }

@@ -22,7 +22,7 @@ class showSearchProductResult extends Component {
     state  = {
         searchKey: '', data: '', dataParts: [], dataCode: '', dataFilters: [],open: false, prices: {}, projects: [],
         tableHeaderS: '', loading: true, number: 1,loadingAddCart: true,productName: '', category: '',
-        projectName: null, multiCategory: [],
+        projectName: null, multiCategory: [], filters: ''
     }
 
     componentDidMount() {prices = {};counter = 0;
@@ -33,6 +33,10 @@ class showSearchProductResult extends Component {
         if(this.props.match.params.filter !== undefined) {
             console.log('showSearchProductResult componentDidMount filter not null');
             console.log(this.props.match.params.filter);
+            let temp = QueryString.parse(this.props.match.params.filter, {arrayFormat: 'bracket'});
+            console.log(temp);
+            console.log(QueryString.stringify(temp, {arrayFormat: 'bracket'}));
+            this.setState({filters: QueryString.parse(this.props.match.params.filter, {arrayFormat: 'bracket'})});
             url = url+"&filters=&"+this.props.match.params.filter
             // url = url+this.props.match.params.filter;
             // newURL["filter"] = QueryString.parse(this.props.match.params.filter)
@@ -66,13 +70,27 @@ class showSearchProductResult extends Component {
                 console.log("componentDidMount showSearchProductResult");
                 console.log(response);
                 // console.log(dataCode.partSearch);
-                if(response.data[0] === dataCode.partSearch) {
-                    // console.log("IS EQUAL");
-                    this.setState({dataCode: response.data[0],dataParts: response.data[2],dataFilters: response.data[3],tableHeaderS: response.data[5]});
-                } else if(response.data[0] === dataCode.partSearchMultiCategory) {
-                    this.setState({dataCode: response.data[0], multiCategory: response.data[1]});
-                    console.log("componentDidMount showSearchProductResult multiCategory");
-                } else { console.log("componentDidMount showSearchProductResult none of them"); }
+                if(response.data !== 320) {
+                    if (response.data[0] === dataCode.partSearch && response.data[2] !== dataCode.partNotFound) {
+                        // console.log("IS EQUAL");
+                        this.setState({
+                            dataCode: response.data[0],
+                            dataParts: response.data[2],
+                            dataFilters: response.data[3],
+                            tableHeaderS: response.data[5],
+                            category: response.data[6]
+                        });
+                    } else if (response.data[0] === dataCode.partSearchMultiCategory) {
+                        this.setState({dataCode: response.data[0], multiCategory: response.data[1]});
+                        console.log("componentDidMount showSearchProductResult multiCategory");
+                    } else if(response.data[2] === dataCode.partNotFound){
+                        this.setState({dataCode: dataCode.partNotFound});
+                        console.log("componentDidMount showSearchProductResult does not find any product");
+                    }
+                } else {
+                    console.log("componentDidMount showSearchProductResult does not find any product");
+                    // this.setState({dataCode: response.data[0]});
+                }
                 this.setState({loading: false});
             })
             .catch(err => {
@@ -90,7 +108,9 @@ class showSearchProductResult extends Component {
     filterComponent = (filters) => {
         console.log("filterComponent filters");
         console.log(filters);
-        console.log("filterComponent new packages");
+        console.log("filterComponent new fileters");
+        filters = {...filters, ...this.state.filters};
+        console.log(filters);
         // let urlParams = Object.keys(filters).map(function(k) {
         //     return encodeURIComponent(k) + '=' + encodeURIComponent(urlParams[k])
         // }).join('&')
@@ -99,7 +119,7 @@ class showSearchProductResult extends Component {
         console.log(stringified);
         console.log("filterComponent new packages parse");
         console.log(QueryString.parse(stringified));
-        let url = '/search/'+this.props.match.params.category+'/'+this.props.match.params.keyword+'/'+stringified;
+        let url = '/search/'+this.state.category.name+'/'+this.props.match.params.keyword+'/'+stringified;
         // url = url.replace('{',"%7B");
         // url = url.replace('}',"%7D");
         // let url = buildUrl('/search/'+this.state.dataParts[0].slug+'/'+this.props.match.params.keyword+'/', {
@@ -262,6 +282,10 @@ class showSearchProductResult extends Component {
             filterProduct = <FilterProducts filterComponent={this.filterComponent} tableHeaderS={this.state.tableHeaderS} dataFilters={this.state.dataFilters} loading={this.state.loading} />
         } else if(this.state.dataCode === dataCode.partSearchMultiCategory) {
             multiCAtegory = <MultiCategory category={this.state.multiCategory} cat={this.props.match.params.category} keyword={this.props.match.params.keyword} />
+        } else if(this.state.dataCode === dataCode.partNotFound) {
+            productsTble = <div className="margin-top-2">
+                <h2 className="text-center margin-top-2">قطعه ای با ویژگی های مورد نظر شما پیدا نشد</h2>
+            </div>
         }
         return(
             <div className="container table-responsive text-center searchResultContainer">
