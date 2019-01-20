@@ -39,6 +39,13 @@ class FilterProducts extends Component {
         this.props.filterComponent(temp);
     }
 
+    makeNiceNmae = (name) => {
+        if(name.includes("_")) {
+            name.split("_").join(" ");
+        }
+        return name;
+    }
+
     render() {
         let dataFilters ;
         let filterButton;
@@ -67,9 +74,19 @@ class FilterProducts extends Component {
         });
         if(Object.keys(dataFiltersTemp).length > 1) {
             filterButton = <button onClick={this.filterComponent} hidden={this.props.loading} className="btn btn-primary buttonFilter">فیلتر</button>
+
+        }
+        if(Object.keys(this.props.filtered).length > 0) {
+            console.log("filters");
+            console.log(this.props.filtered);
+            console.log(this.props.filteredHeaders);
+            let filtered = Object.keys(this.props.filtered).map((property,i) => {
+                return (
+                    <li className="margin-right-1"><button onClick={()=>{ this.props.removeFilter(property)} }> <i class="fa fa-times" aria-hidden="true"></i> <span> {this.makeNiceNmae(this.props.filteredHeaders[property])} </span></button></li>
+                );
+            });
             filteredOptions = <ul className="flex-row">
-                <li className="margin-right-1"><button><i class="fa fa-times" aria-hidden="true"></i><span>speeds</span></button></li>
-                <li className="margin-right-1"><button><i class="fa fa-times" aria-hidden="true"></i><span>number of io</span></button></li>
+                {filtered}
             </ul>
         }
         return (

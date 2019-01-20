@@ -10,57 +10,57 @@ const cartADD = ( state, action ) => {
     let temp = state.cart ;let was = 0;let project = []; let projectPrices = state.projectsPrice;let length = state.cartLength;console.log("cartADD reducer :");
     console.log("cartADD reducers cart");console.log(state.cart);console.log(temp);
     for(let i=0;i<temp.length;i++) {
-       if(action.projectName === null) {
-           console.log("cartADD reducers projectName is null ");
-           // if(temp[i].length > 0) {
-           //     console.log("cartADD reducers array length ");
-           //     console.log(temp[i].length);
-               if (temp[i][0].project === null) {
-                   console.log("cartADD reducers find array of project null ");
-                   for (let j = 0; j < temp[i].length; j++) {
-                       // console.log("cart Add "+j+" : "+ temp[i][j].keyword );
-                       if (temp[i][j].keyword === action.productName) {
-                           temp[i][j].num = action.number + temp[i][j].num;
-                           was = 1;
-                           console.log("cartADD reducers was = 1 ");
-                       }
-                   }
-                   if (was === 0) {
-                       temp[i].push({
-                           keyword: action.productName,
-                           num: action.number,
-                           category: action.category,
-                           project: action.projectName,
-                           price: 0
-                       });
-                       length = length + 1;
-                       was = 1;
-                   }
-               }
-           // }
-       } else {
-           console.log("cartADD reducers projectName is not null ");
-           if (temp[i][0].project === action.projectName) {
-               console.log("cartADD reducers project founded ");
-               for (let j = 0; j < temp[i].length; j++) {
-                   if (temp[i][j].keyword === action.productName) {
-                       temp[i][j].num = action.number + temp[i][j].num;
-                       was = 1;
-                   }
-               }
-               if (was === 0) {
-                   temp[i].push({
-                       keyword: action.productName,
-                       num: action.number,
-                       category: action.category,
-                       project: action.projectName,
-                       price: 0
-                   });
-                   length = length + 1;
-                   was = 1;
-               }
-           }
-       }
+        if(action.projectName === null) {
+            console.log("cartADD reducers projectName is null ");
+            // if(temp[i].length > 0) {
+            //     console.log("cartADD reducers array length ");
+            //     console.log(temp[i].length);
+            if (temp[i][0].project === null) {
+                console.log("cartADD reducers find array of project null ");
+                for (let j = 0; j < temp[i].length; j++) {
+                    // console.log("cart Add "+j+" : "+ temp[i][j].keyword );
+                    if (temp[i][j].keyword === action.productName) {
+                        temp[i][j].num = action.number + temp[i][j].num;
+                        was = 1;
+                        console.log("cartADD reducers was = 1 ");
+                    }
+                }
+                if (was === 0) {
+                    temp[i].push({
+                        keyword: action.productName,
+                        num: action.number,
+                        category: action.category,
+                        project: action.projectName,
+                        price: 0
+                    });
+                    length = length + 1;
+                    was = 1;
+                }
+            }
+            // }
+        } else {
+            console.log("cartADD reducers projectName is not null ");
+            if (temp[i][0].project === action.projectName) {
+                console.log("cartADD reducers project founded ");
+                for (let j = 0; j < temp[i].length; j++) {
+                    if (temp[i][j].keyword === action.productName) {
+                        temp[i][j].num = action.number + temp[i][j].num;
+                        was = 1;
+                    }
+                }
+                if (was === 0) {
+                    temp[i].push({
+                        keyword: action.productName,
+                        num: action.number,
+                        category: action.category,
+                        project: action.projectName,
+                        price: 0
+                    });
+                    length = length + 1;
+                    was = 1;
+                }
+            }
+        }
     }
     if(was === 0) {
         console.log("cartADD reducer  new Project ");
@@ -73,6 +73,38 @@ const cartADD = ( state, action ) => {
     localStorage.setItem('cart', JSON.stringify(temp));
     console.log("cartADD reducer : ");console.log(temp);
     return updateObject( state, { cart: temp, cartLength: length, projectsPrice: projectPrices} );
+};
+
+const userCartChangeNum = ( state, action ) => {
+    let temp = state.cart ;
+    // console.log("cartChangeNum reducers cart");console.log(state.cart);console.log(temp);
+    for(let i=0;i<temp.length;i++) {
+        if(action.projectName === null) {
+            console.log("cartChangeNum reducers projectName is null ");
+            if (temp[i][0].project === null) {
+                console.log("cartChangeNum reducers find array of project null ");
+                for (let j = 0; j < temp[i].length; j++) {
+                    if (temp[i][j].keyword === action.productName) {
+                        temp[i][j].num = action.number;
+                    }
+                }
+            }
+            // }
+        } else {
+            console.log("cartADD reducers projectName is not null ");
+            if (temp[i][0].project === action.projectName) {
+                console.log("cartADD reducers project founded ");
+                for (let j = 0; j < temp[i].length; j++) {
+                    if (temp[i][j].keyword === action.productName) {
+                        temp[i][j].num = action.number;
+                    }
+                }
+            }
+        }
+    }
+    // localStorage.setItem('cart', JSON.stringify(temp));
+    console.log("userCartChangeNum reducer : ");console.log(temp);
+    return updateObject( state, { cart: temp} );
 };
 
 const updateCartPrices = (state, action) => {
@@ -163,6 +195,7 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.UPDATE_CART_PRICES: return updateCartPrices(state, action);
         case actionTypes.ADD_PRODUCT_PRICE: return addProductPrice(state, action);
         case actionTypes.GET_CATEGORIES: return getCategories(state, action);
+        case actionTypes.USER_CHANGE_PRODUCT_NUM_CART: return userCartChangeNum(state, action);
         default:
             return state;
     }

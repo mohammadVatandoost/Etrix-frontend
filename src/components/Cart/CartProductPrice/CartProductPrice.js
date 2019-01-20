@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { ClipLoader } from 'react-spinners';
 import axios from 'axios';
 import * as actions from '../../../store/actions/index';
 import { connect } from 'react-redux';
+import InputAddMinus from "../../InputAddMinus/InputAddMinus";
+import Alert from 'react-s-alert';
 import URLs from "../../../URLs";
 
 class CartProductPrice extends Component {
@@ -27,6 +28,54 @@ class CartProductPrice extends Component {
         //     });
     }
 
+    deleteFromCart = (productName,projectName) => {
+        if(this.props.token) {
+            console.log("removeFromCart with token");
+            axios.post(URLs.base_URL + URLs.user_cart_remove, {
+                token: this.props.token,
+                keyword: productName,
+                project: projectName
+            })
+                .then(response => {
+                    console.log("deleteFromCart function");
+                    console.log(response);
+                    this.props.restoreCart(response);
+                    Alert.success("از سبد خرید حذف شد", {
+                        position: 'bottom-right',
+                        effect: 'scale',
+                        beep: false,
+                        timeout: 4000,
+                        offset: 100
+                    });
+                })
+                .catch(err => {
+                    console.log("deleteFromCart");
+                    console.log(err);
+                    Alert.error('اختلالی پیش آمدعه است،دوباره امتحن کنید', {
+                        position: 'bottom-right',
+                        effect: 'scale',
+                        beep: false,
+                        timeout: 4000,
+                        offset: 100
+                    });
+                });
+        } else {
+            console.log("removeFromCart reducer without token");
+            this.props.removeFromCart(productName,projectName)
+        }
+    }
+
+    add = () => {
+       this.props.changeUserProductNumCart(this.props.keyword, this.props.num+1, this.props.project);
+    }
+
+    minus = () => {
+        if(this.props.num-1 > 0) {
+            this.props.changeUserProductNumCart(this.props.keyword, this.props.num - 1, this.props.project);
+        } else {
+           this.deleteFromCart(this.props.keyword, this.props.project);
+        }
+    }
 
     render() {
 
@@ -37,7 +86,7 @@ class CartProductPrice extends Component {
                     </button>
                 </td>
                 <td>{this.props.keyword}</td>
-                <td>{this.props.num}</td>
+                <td><InputAddMinus value={this.props.num} add={this.add} minus={this.minus} /></td>
                 <td>
                     <span>{this.props.price}</span>
                     {/*<ClipLoader size="50" color={'#123abc'} loading={this.state.loading}/>*/}
@@ -60,6 +109,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         checkAuthState: () => dispatch( actions.authCheckState() ),
+        changeUserProductNumCart: (productName, number, projectName) => dispatch(actions.changeNumProductCart(productName, number, projectName)),
         addProductPrice: (productName, productPrice) => dispatch( actions.addProductPrice(productName, productPrice) )
     };
 };

@@ -22,7 +22,7 @@ class showSearchProductResult extends Component {
     state  = {
         searchKey: '', data: '', dataParts: [], dataCode: '', dataFilters: [],open: false, prices: {}, projects: [],
         tableHeaderS: '', loading: true, number: 1,loadingAddCart: true,productName: '', category: '',
-        projectName: null, multiCategory: [], filters: ''
+        projectName: null, multiCategory: [], filters: '', filteredHeaders: ''
     }
 
     componentDidMount() {prices = {};counter = 0;
@@ -78,7 +78,7 @@ class showSearchProductResult extends Component {
                             dataParts: response.data[2],
                             dataFilters: response.data[3],
                             tableHeaderS: response.data[5],
-                            category: response.data[6]
+                            category: response.data[6], filteredHeaders: response.data[7]
                         });
                     } else if (response.data[0] === dataCode.partSearchMultiCategory) {
                         this.setState({dataCode: response.data[0], multiCategory: response.data[1]});
@@ -269,6 +269,15 @@ class showSearchProductResult extends Component {
         this.setState({projectName: temp});
     }
 
+    removeFilter = (fiterdPast) => {
+        let filters = this.state.filters;
+        delete filters[fiterdPast];
+        const stringified = QueryString.stringify(filters, {arrayFormat: 'bracket'});
+        let url = '/search/'+this.state.category.name+'/'+this.props.match.params.keyword+'/'+stringified;
+        this.props.history.push(url);
+        window.location.reload();
+    }
+
     render() {
         let productsTble;
         let projectsOption;let filterProduct;let multiCAtegory;
@@ -279,7 +288,7 @@ class showSearchProductResult extends Component {
                     return (<option value={project.name} key={project.name}>{project.name}</option>)
                 });
             }
-            filterProduct = <FilterProducts filterComponent={this.filterComponent} tableHeaderS={this.state.tableHeaderS} dataFilters={this.state.dataFilters} loading={this.state.loading} />
+            filterProduct = <FilterProducts removeFilter={this.removeFilter} filteredHeaders={this.state.filteredHeaders} filtered={this.state.filters} filterComponent={this.filterComponent} tableHeaderS={this.state.tableHeaderS} dataFilters={this.state.dataFilters} loading={this.state.loading} />
         } else if(this.state.dataCode === dataCode.partSearchMultiCategory) {
             multiCAtegory = <MultiCategory category={this.state.multiCategory} cat={this.props.match.params.category} keyword={this.props.match.params.keyword} />
         } else if(this.state.dataCode === dataCode.partNotFound) {

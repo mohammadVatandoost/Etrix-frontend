@@ -218,3 +218,10 @@ export const storeProductCategories = (categories) => {
         categories: categories
     }
 }
+
+export const changeNumProductCart = (productName,number,projectName) => {
+    return {
+        type: actionTypes.USER_CHANGE_PRODUCT_NUM_CART,
+        productName: productName, number: number, projectName: projectName
+    }
+}
