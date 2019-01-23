@@ -16,7 +16,7 @@ class Cart extends Component {
 
     state  = {
         prices: {}, loading: true, priceRequestSend: false, projects: [], open: false, projectName: null,
-        sumCart: 0
+        sumCart: 0, cart: []
     }
 
     componentDidMount() {

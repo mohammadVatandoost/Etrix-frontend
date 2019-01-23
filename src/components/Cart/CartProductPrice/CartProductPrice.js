@@ -9,7 +9,7 @@ import URLs from "../../../URLs";
 class CartProductPrice extends Component {
 
     state = {
-        price: 0, loading: true, number: 1
+        price: 0, loading: true, number: 1, keyword: ''
     }
     componentDidMount() {
         // axios.post(URLs.base_URL+URLs.product_get_price, {keyword: this.props.keyword})
@@ -26,6 +26,7 @@ class CartProductPrice extends Component {
         //         console.log("CartProductPrice price error");
         //         console.log(err);
         //     });
+        this.setState({price: this.props.price, number: this.props.num, keyword: this.props.keyword});
     }
 
     deleteFromCart = (productName,projectName) => {
@@ -67,6 +68,8 @@ class CartProductPrice extends Component {
 
     add = () => {
        this.props.changeUserProductNumCart(this.props.keyword, this.props.num+1, this.props.project);
+        console.log("cart add num");console.log(this.props.cart);
+        console.log("counterForChangeTrig");console.log(this.props.counterForChangeTrig);
     }
 
     minus = () => {
@@ -77,21 +80,29 @@ class CartProductPrice extends Component {
         }
     }
 
-    render() {
+    onChange =  (e) => {
+        console.log("onChange");
+        // console.log(e.target.value);
+        this.props.changeUserProductNumCart(this.props.keyword, e.target.value, this.props.project);
+    }
 
+    render() {
+        if(this.props.num > 1) {
+            console.log(this.props.keyword+"number change");
+        }
         return (
             <tr>
                 <td>
-                    <button onClick={() => this.props.deleteFromCart(this.props.keyword, this.props.project)}><i className="fa fa-trash" aria-hidden="true"></i>
+                    <button onClick={() => this.props.deleteFromCart(this.state.keyword, this.props.project)}><i className="fa fa-trash" aria-hidden="true"></i>
                     </button>
                 </td>
-                <td>{this.props.keyword}</td>
-                <td><InputAddMinus value={this.props.num} add={this.add} minus={this.minus} /></td>
+                <td>{this.state.keyword}</td>
+                <td><InputAddMinus onChange={this.onChange} min={1} placeholder="" value={this.state.number} add={this.add} minus={this.minus} /></td>
                 <td>
-                    <span>{this.props.price}</span>
+                    <span>{this.state.price}</span>
                     {/*<ClipLoader size="50" color={'#123abc'} loading={this.state.loading}/>*/}
                 </td>
-                <td><span> {parseInt(this.props.price) * parseInt(this.props.num)}</span></td>
+                <td><span> {parseInt(this.state.price) * parseInt(this.state.number)}</span></td>
             </tr>
         )
     }
@@ -102,7 +113,9 @@ const mapStateToProps = state => {
         isAuthenticated: state.auth.token !== null,
         userRole: state.auth.userRole,
         cartLength: state.cart.cartLength,
-        token: state.auth.token
+        token: state.auth.token,
+        cart: state.cart.cart,
+        counterForChangeTrig: state.cart.counterForChangeTrig
     };
 };
 

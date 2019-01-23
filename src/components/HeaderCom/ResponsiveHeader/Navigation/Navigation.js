@@ -104,6 +104,7 @@ class Navigation extends Component {
                     {/*</li>*/}
                     {/*<li className="list-group-item text-right"><a href="/">آموزش</a></li>*/}
                     {/*<li className="list-group-item text-right"><a href="/">مجله</a></li>*/}
+                    <li className="list-group-item text-right"><Link className="desktop-item-nav" to="/">خانه</Link></li>
                     <li className="list-group-item text-right"><Link className="desktop-item-nav" to="/لیست-محصولات">محصولات</Link></li>
                     <li className="list-group-item text-right"><Link className="desktop-item-nav" to="/online-conversion-calculator">محاسبه تبدیل</Link></li>
                     <li className="list-group-item text-right"><Link className="desktop-item-nav" to="/مجله">مجله</Link></li>

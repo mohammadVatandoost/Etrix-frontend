@@ -91,7 +91,7 @@ class Search extends Component {
         const { searchKey, suggestions } = this.state;
 
         const inputProps = {
-            placeholder: 'جست وجو ...',
+            placeholder: 'نام قطعه را جست و جو کنید...',
             value: searchKey,
             onChange: this.onChangeTest
         };

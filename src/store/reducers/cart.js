@@ -3,7 +3,7 @@ import { updateObject } from '../utility';
 
 const initialState = {
     cart: [], cartLength: 0, loading: false, errors: null, projectsPrice: [], productPrices: [], cartSumCost: 0,
-    categories: []
+    categories: [], counterForChangeTrig: 0
 };
 
 const cartADD = ( state, action ) => {
@@ -77,6 +77,8 @@ const cartADD = ( state, action ) => {
 
 const userCartChangeNum = ( state, action ) => {
     let temp = state.cart ;
+    console.log("userCartChangeNum reducer before: ");console.log(temp);
+    let counter = state.counterForChangeTrig ;
     // console.log("cartChangeNum reducers cart");console.log(state.cart);console.log(temp);
     for(let i=0;i<temp.length;i++) {
         if(action.projectName === null) {
@@ -86,14 +88,15 @@ const userCartChangeNum = ( state, action ) => {
                 for (let j = 0; j < temp[i].length; j++) {
                     if (temp[i][j].keyword === action.productName) {
                         temp[i][j].num = action.number;
+                        break;
                     }
                 }
             }
             // }
         } else {
-            console.log("cartADD reducers projectName is not null ");
+            console.log("userCartChangeNum reducers projectName is not null ");
             if (temp[i][0].project === action.projectName) {
-                console.log("cartADD reducers project founded ");
+                console.log("userCartChangeNum reducers project founded ");
                 for (let j = 0; j < temp[i].length; j++) {
                     if (temp[i][j].keyword === action.productName) {
                         temp[i][j].num = action.number;
@@ -103,8 +106,10 @@ const userCartChangeNum = ( state, action ) => {
         }
     }
     // localStorage.setItem('cart', JSON.stringify(temp));
-    console.log("userCartChangeNum reducer : ");console.log(temp);
-    return updateObject( state, { cart: temp} );
+    console.log("userCartChangeNum reducer after : ");console.log(temp);
+    counter = counter + 1 ;
+    if(counter === 200) {counter = 0;}
+    return updateObject( state, { cart: temp, counterForChangeTrig: counter} );
 };
 
 const updateCartPrices = (state, action) => {

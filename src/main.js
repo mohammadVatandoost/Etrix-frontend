@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AuxWrapper from './components/AuxWrapper/AuxWrapper';
-import SlideImage1 from './assets/Images/Slide1.jpg';
+import SlideImage1 from './assets/Images/Products.svg';
 import SlideImage2 from './assets/Images/category3.svg';
 import SlideImage3 from './assets/Images/delivery2.svg';
 import './App.css';

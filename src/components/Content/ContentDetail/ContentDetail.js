@@ -8,6 +8,7 @@ import ContentAuthor from "../ContentAuthor/ContentAuthor";
 import {stateToHTML} from 'draft-js-export-html';
 import URLs from '../../../URLs';
 import './ContentDetail.css';
+import {Helmet} from "react-helmet";
 
 class ContentDetail extends Component {
     state = {
@@ -76,7 +77,7 @@ class ContentDetail extends Component {
         // console.log(this.state.DraftEditor);
         // const editor = stateToHTML(this.state.DraftEditor);  className="flex-row space-around content-detail"
         return (
-          <div className="container">
+          <div className="container"  ref={el => (this.instance = el)}>
               {/*<div className="flex-item-2 flex-column">*/}
                   {/*/!*<ContentSmallSize/>*!/*/}
                   {/*/!*<ContentSmallSize/>*!/*/}
@@ -100,6 +101,39 @@ class ContentDetail extends Component {
               <br/>
               <br/>
               <br/>
+              <Helmet>
+                  <script type="application/ld+json">
+                      {`
+                          {
+                              "@context": "https://schema.org",
+                              "@type": "NewsArticle",
+                              "mainEntityOfPage": {
+                                  "@type": "WebPage",
+                                  "@id": "https://google.com/article"
+                              },
+                              "headline": `+this.state.brief.title+`,
+                              "image": [
+                                  `+this.state.brief.image+`
+                              ],
+                              "datePublished": `+this.state.brief.created_at+`,
+                              "dateModified": `+this.state.brief.updated_at+`,
+                              "author": {
+                                  "@type": "Person",
+                                  "name": `+this.state.brief.author+`
+                              },
+                              "publisher": {
+                                  "@type": "Organization",
+                                  "name": "Etrix",
+                                  "logo": {
+                                      "@type": "ImageObject",
+                                      "url": "https://google.com/logo.jpg"
+                                  }
+                              },
+                              "description": `+this.state.brief.abstract+`
+                          }`
+                      }
+                  </script>
+              </Helmet>
           </div>
         )
     }

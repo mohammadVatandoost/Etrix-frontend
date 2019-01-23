@@ -67,6 +67,9 @@ class Navigation extends Component {
         });
         return (
             <ul className="navbar-list-group text-light">
+                <li className="navbar-list-item">
+                    <Link to="/" className="navbar-list-item-link">خانه</Link>
+                </li>
                 <li className="navbar-list-item custom-dropdown" id="products">
                     <Link to="/لیست-محصولات" className="navbar-list-item-link custom-dropdown-toggler">
                         محصولات

@@ -5,10 +5,10 @@ import CartProductPrice from "../CartProductPrice/CartProductPrice";
 class CartProject extends Component {
 
     state = {
-        projectPrice: 0, loading: true,
+        projectPrice: 0, loading: true, project: []
     }
     componentDidMount() {
-
+        this.setState({project: this.props.project});
     }
 
     calculateProjectPrice = (cost) => {
@@ -21,13 +21,17 @@ class CartProject extends Component {
 
     render() {
         let projectPrice = 0;
-        let entry = this.props.project.map((list,j) => {
+        let entry = this.state.project.map((list,j) => {
             projectPrice = projectPrice + (parseInt(list.price) * parseInt(list.num));
             return (<CartProductPrice  key={j} calculateProjectPrice={this.calculateProjectPrice} deleteFromCart={this.props.deleteFromCart}  price={list.price} keyword={list.keyword} num={list.num} project={list.project} />);
         });
+        let projectName ;
+        if(this.state.project.length > 0) {
+            projectName = <h3>{this.state.project[0].project}</h3>;
+        }
         return (
             <div>
-                <h3>{this.props.project[0].project}</h3>
+                {projectName}
                 <table className="table table-striped">
                     <thead>
                     <th>حذف از سبد خرید</th><th>نام محصول</th><th>تعداد</th><th>قیمت واحد</th><th>قیمت مجموع</th>
