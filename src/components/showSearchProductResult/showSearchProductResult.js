@@ -26,10 +26,13 @@ class showSearchProductResult extends Component {
     }
 
     componentDidMount() {prices = {};counter = 0;
-        let url = URLs.base_URL+URLs.search_part_category+this.props.match.params.category+'&keyword='+this.props.match.params.keyword;
+        let url = URLs.base_URL+URLs.search_part_category+this.props.match.params.category;
         // let newURL = {
         //     category: this.props.match.params.category, keyword: this.props.match.params.keyword,
         // }
+        if(this.props.match.params.keyword !== undefined) {
+          url = url + +'&keyword='+this.props.match.params.keyword;
+        }
         if(this.props.match.params.filter !== undefined) {
             console.log('showSearchProductResult componentDidMount filter not null');
             console.log(this.props.match.params.filter);
@@ -71,8 +74,9 @@ class showSearchProductResult extends Component {
                 console.log(response);
                 // console.log(dataCode.partSearch);
                 if(response.data !== 320) {
-                    if (response.data[0] === dataCode.partSearch && response.data[2] !== dataCode.partNotFound) {
-                        // console.log("IS EQUAL");
+                    console.log("not 320");
+                    if ( (response.data[0] === dataCode.partSearch || response.data[0] === dataCode.partSearchCategory)&& response.data[2] !== dataCode.partNotFound) {
+                        console.log("IdataCode.partSearch");
                         this.setState({
                             dataCode: response.data[0],
                             dataParts: response.data[2],
@@ -281,7 +285,7 @@ class showSearchProductResult extends Component {
     render() {
         let productsTble;
         let projectsOption;let filterProduct;let multiCAtegory;
-        if(this.state.dataCode === dataCode.partSearch) {
+        if(this.state.dataCode === dataCode.partSearch || this.state.dataCode === dataCode.partSearchCategory) {
             productsTble = <ProductTable onOpenModal={this.onOpenModal} sort={this.sort} searchKey={this.state.searchKey} tableHeaderS={this.state.tableHeaderS} dataParts={this.state.dataParts} />;
             if(this.state.projects.length > 0) {
                 projectsOption = this.state.projects.map((project, i) => {

@@ -10,5 +10,6 @@ export default {
     productSearch: 10,
     componentSearch: 20,
     partSearchMultiCategory: 50,
-    partSearch: '30'
+    partSearch: 30,
+    partSearchCategory: 40
 }

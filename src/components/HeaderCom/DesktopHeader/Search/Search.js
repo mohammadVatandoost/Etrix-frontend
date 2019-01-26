@@ -45,7 +45,7 @@ class Search extends Component {
 
     searchHandler = (event) => {
         event.preventDefault();
-        const url = '/search/'+this.state.category+'/'+this.state.searchKey;
+        const url = '/search/'+'category='+this.state.category+'/'+this.state.searchKey;
         if(this.props.history.location.pathname.includes('search')) {
             this.props.history.push(url);
             window.location.reload();

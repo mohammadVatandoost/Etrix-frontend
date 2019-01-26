@@ -135,6 +135,7 @@ class RouteAPI extends Component {
                         <Route path="/لیست-محصولات" component={ProductListAccordin}/>
                         <Route path="/search/:category/:keyword/:filter" component={showSearchProductResult}/>
                         <Route path="/search/:category/:keyword" component={showSearchProductResult}/>
+                        <Route path="/search/:category" component={showSearchProductResult}/>
                         <Route path="/سبد-خرید" component={Cart}/>
                         <Route path="/online-conversion-calculator" component={Conversions}/>
                         <Route path="/Signup/:message" component={Signup}/>

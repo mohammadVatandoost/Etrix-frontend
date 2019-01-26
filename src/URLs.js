@@ -64,7 +64,7 @@ export default {
     send_cart_to_server: '/user/cart/add',
     react_search_url: 'http://localhost:80/search/',
     search_part: '/search-part?keyword=',
-    search_part_category: '/search-part-comp?category=',
+    search_part_category: '/search-part-comp?',
     product_get_price: '/get-price', // keyword => price
     admin_log_in: '/admin/login',
     admin_control_panel: '/admin/control-panel',

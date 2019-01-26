@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router';
-
+// import sitemap from 'react-router-sitemap
 export default (
     <Route>
         <Route path="/User/buy/Uncompleted/:factorNumber"/>

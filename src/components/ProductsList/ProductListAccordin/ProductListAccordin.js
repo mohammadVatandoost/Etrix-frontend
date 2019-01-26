@@ -52,7 +52,7 @@ class ProductListAccordin extends Component {
                             tempLastCategory = item.category[property].map(subcategory => {
                                 return (
                                     <li>
-                                        <Link to="/search/:category">{subcategory}</Link>
+                                        <Link to={"/search/category="+item.product+"&subcategory="+subcategory}>{subcategory}</Link>
                                     </li>
                                 )
                             });
@@ -72,7 +72,7 @@ class ProductListAccordin extends Component {
                         }
                         return (
                             <li>
-                                <Link to="/search/:category">{property}</Link>
+                                <Link to={"/search/category="+item.product+"&subcategory="+property}>{property}</Link>
                                 {subcategory2}
                             </li>
                         )
