@@ -31,7 +31,8 @@ class showSearchProductResult extends Component {
         //     category: this.props.match.params.category, keyword: this.props.match.params.keyword,
         // }
         if(this.props.match.params.keyword !== undefined) {
-          url = url + +'&keyword='+this.props.match.params.keyword;
+            console.log("componentDidMount() this.props.match.params.keyword:"+this.props.match.params.keyword );
+          url = url +'&keyword='+this.props.match.params.keyword;
         }
         if(this.props.match.params.filter !== undefined) {
             console.log('showSearchProductResult componentDidMount filter not null');
@@ -236,16 +237,29 @@ class showSearchProductResult extends Component {
          }
     }
 
-    onOpenModal = (productName,category,number) => {
-        console.log("showSearchProductResult open Modal");
-        console.log("category");console.log(category);
-        console.log("productName");console.log(productName);
-        console.log("number");console.log(number);
+    onOpenModal = (productName, category, number, price) => {
         if(this.props.token) {
+            console.log("showSearchProductResult open Modal without toke");
+            console.log("category");console.log(category);
+            console.log("productName");console.log(productName);
+            console.log("number");console.log(number);
+            console.log("price");console.log(price);
             this.setState({open: true});
             this.setState({productName: productName, category: category, number: number});
         } else {
-            this.addToCart(productName,category,number);
+            console.log("showSearchProductResult open Modal without toke");
+            console.log("category");console.log(category);
+            console.log("productName");console.log(productName);
+            console.log("number");console.log(number);
+            console.log("price");console.log(price);
+            this.props.addToCart(productName, number, price, null);
+            Alert.success('به سبد خرید اضافه شد', {
+                position: 'bottom-right',
+                effect: 'scale',
+                beep: false,
+                timeout: 4000,
+                offset: 100
+            });
         }
     };
 
@@ -286,7 +300,7 @@ class showSearchProductResult extends Component {
         let productsTble;
         let projectsOption;let filterProduct;let multiCAtegory;
         if(this.state.dataCode === dataCode.partSearch || this.state.dataCode === dataCode.partSearchCategory) {
-            productsTble = <ProductTable onOpenModal={this.onOpenModal} sort={this.sort} searchKey={this.state.searchKey} tableHeaderS={this.state.tableHeaderS} dataParts={this.state.dataParts} />;
+            productsTble = <ProductTable category={this.state.category.name} onOpenModal={this.onOpenModal} sort={this.sort} searchKey={this.state.searchKey} tableHeaderS={this.state.tableHeaderS} dataParts={this.state.dataParts} />;
             if(this.state.projects.length > 0) {
                 projectsOption = this.state.projects.map((project, i) => {
                     return (<option value={project.name} key={project.name}>{project.name}</option>)
@@ -331,7 +345,7 @@ class showSearchProductResult extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addToCart: (productName,number,category,projectName) => dispatch(actions.addToCart(productName,number,category,projectName)),
+        addToCart: (productName,number,price,projectName) => dispatch(actions.addToCart(productName,number,price,projectName)),
     };
 };
 

@@ -39,7 +39,7 @@ class SearchedProductPrice extends Component {
             <td >
                 <p>{this.props.unit_price}</p>
                 <input value={this.state.number} onChange={(e) => this.setState({number: e.target.value})} type="number" className="form-control" placeholder="1"/>
-                <button onClick={() => this.props.openModal(this.props.keyword,this.props.category,this.state.number)} className="btn btn-success" style={{margin: '5px'}}>خرید</button>
+                <button onClick={() => this.props.openModal(this.props.keyword, this.props.category, this.state.number, this.props.unit_price)} className="btn btn-success" style={{margin: '5px'}}>خرید</button>
                 {/*<ClipLoader color={'#123abc'} loading={this.state.loadingAddCart} />*/}
             </td>
         )

@@ -29,9 +29,8 @@ const cartADD = ( state, action ) => {
                     temp[i].push({
                         keyword: action.productName,
                         num: action.number,
-                        category: action.category,
                         project: action.projectName,
-                        price: 0
+                        price: action.price
                     });
                     length = length + 1;
                     was = 1;
@@ -52,9 +51,8 @@ const cartADD = ( state, action ) => {
                     temp[i].push({
                         keyword: action.productName,
                         num: action.number,
-                        category: action.category,
                         project: action.projectName,
-                        price: 0
+                        price: action.price
                     });
                     length = length + 1;
                     was = 1;
@@ -64,9 +62,9 @@ const cartADD = ( state, action ) => {
     }
     if(was === 0) {
         console.log("cartADD reducer  new Project ");
-        project.push({keyword: action.productName, num: action.number, category: action.category, project: action.projectName, price: 0});
+        project.push({keyword: action.productName, num: action.number, project: action.projectName, price: action.price});
         temp.push(project);
-        projectPrices.push({project: action.projectName, cost: 0});
+        projectPrices.push({project: action.projectName, cost: action.price});
         console.log("cartADD reducer  projectPrices: ");console.log(projectPrices);
         length = length + 1 ;
     }

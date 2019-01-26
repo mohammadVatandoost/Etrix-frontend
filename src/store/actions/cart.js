@@ -2,10 +2,11 @@ import * as actionTypes from './actionTypes';
 import axios from 'axios';
 import URLS from '../../URLs';
 
-export const addToCart = (productName,number,category,projectName) => {
+export const addToCart = (productName, number, price, projectName) => {
+    console.log("addToCart action");console.log(productName);console.log(number);console.log(price);console.log(projectName);
     return {
        type: actionTypes.ADD_TO_CART,
-       productName: productName, number: number, category: category, projectName: projectName
+       productName: productName, number: number, price: price, projectName: projectName
     }
 }
 

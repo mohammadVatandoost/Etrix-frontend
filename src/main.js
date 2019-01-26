@@ -64,7 +64,7 @@ class App extends Component {
               <div className="carousel-item active">
                 <img src={SlideImage1} className="img-fluid" alt="slide first"/>
                   <div className="carousel-text ml-auto w-100 h-100 text-right text-white m-0">
-                    <span className="m-4">جست و جو بین 20 هزار قطعه</span>
+                    <span className="m-4">جست و جوی پیشرفته میان 20 هزار قطعه</span>
                     {/*<button className="text-center btn btn-primary pt-lg-3 pb-lg-3 pr-lg-5 pl-lg-5*/}
                     {/*pt-md-2 pb-lg-2 pr-md-4 pl-md-4 pt-sm-1 pb-sm-1 pr-sm-2 pl-sm-2 pt-0 pb-0 pr-1 pl-1">مشاهده آموزش*/}
                     {/*</button>*/}
