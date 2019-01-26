@@ -12,6 +12,7 @@
     "babel-loader": "8.0.4",
     "babel-plugin-named-asset-import": "^0.3.0",
     "babel-preset-react-app": "^7.0.0",
+    "babel-register": "^6.26.0",
     "bfj": "6.1.1",
     "build-url": "^1.1.2",
     "case-sensitive-paths-webpack-plugin": "2.1.2",

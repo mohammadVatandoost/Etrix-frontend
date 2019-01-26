@@ -97,7 +97,10 @@ class CartProductPrice extends Component {
                     </button>
                 </td>
                 <td>{this.state.keyword}</td>
-                <td><InputAddMinus onChange={this.onChange} min={1} placeholder="" value={this.state.number} add={this.add} minus={this.minus} /></td>
+                <td>
+                    {this.state.number}
+                    {/*<InputAddMinus onChange={this.onChange} min={1} placeholder="" value={this.state.number} add={this.add} minus={this.minus} />*/}
+                </td>
                 <td>
                     <span>{this.state.price}</span>
                     {/*<ClipLoader size="50" color={'#123abc'} loading={this.state.loading}/>*/}

@@ -40,7 +40,7 @@ class ContainerSmallSize extends Component {
 
     render() {
         const contentsBrief = this.state.contents.map((obj) => {
-            return <ContentSmallSize id={obj.id} abstract={obj.abstract} category={obj.category} days={obj.days} key={obj.id} image={obj.image} product={obj.product} title={obj.title} />
+            return <ContentSmallSize updated_at={obj.updated_at}  created_at={obj.created_at} author={obj.author} id={obj.id} abstract={obj.abstract} category={obj.category} days={obj.days} key={obj.id} image={obj.image} product={obj.product} title={obj.title} />
         });
         return (
          <div className="text-center" style={{ marginTop: "1%"}}>

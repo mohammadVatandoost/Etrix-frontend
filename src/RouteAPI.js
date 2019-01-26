@@ -22,6 +22,7 @@ import RequireAuth from './components/require_auth/require_auth';
 import ContainerSmallSize from './components/Content/ContainerSmallSize/ContainerSmallSize';
 import VideoContentContainer from './components/Content/VideoContentContainer/VideoContentContainer';
 import ProductList from './components/ProductsList/ProductsList';
+import ProductListAccordin from './components/ProductsList/ProductListAccordin/ProductListAccordin';
 import Product from './components/ProductsList/Product/Product';
 import OrderConfirnation from  './components/User/OrderConfirmation/OrderConfirnation';
 import DynamicImport from './DynamicImport';
@@ -131,7 +132,7 @@ class RouteAPI extends Component {
                         <Route path="/googleLogin/:token" component={GoogleLogin}/>
                         <Route path="/google/:token" component={GoogleRegPass}/>
                         <Route path="/Product/:name" component={Product}/>
-                        <Route path="/لیست-محصولات" component={ProductList}/>
+                        <Route path="/لیست-محصولات" component={ProductListAccordin}/>
                         <Route path="/search/:category/:keyword/:filter" component={showSearchProductResult}/>
                         <Route path="/search/:category/:keyword" component={showSearchProductResult}/>
                         <Route path="/سبد-خرید" component={Cart}/>

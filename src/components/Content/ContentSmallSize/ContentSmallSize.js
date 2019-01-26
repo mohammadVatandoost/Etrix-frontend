@@ -1,6 +1,7 @@
 import React , {Component} from 'react';
 import { Link } from 'react-router-dom';
 import './ContentSmallSize.css';
+import {Helmet} from "react-helmet";
 
 class ContentSmallSize extends Component {
     render() {
@@ -18,6 +19,39 @@ class ContentSmallSize extends Component {
                <span><time>{this.props.days} روز</time></span>
               </div>
               </Link>
+              <Helmet>
+                  <script type="application/ld+json">
+                      {`
+                          {
+                              "@context": "https://schema.org",
+                              "@type": "NewsArticle",
+                              "mainEntityOfPage": {
+                                  "@type": "WebPage",
+                                  "@id": "https://google.com/article"
+                              },
+                              "headline": `+this.props.title+`,
+                              "image": [
+                                  `+this.props.image+`
+                              ],
+                              "datePublished": `+this.props.created_at+`,
+                              "dateModified": `+this.props.updated_at+`,
+                              "author": {
+                                  "@type": "Person",
+                                  "name": `+this.props.author+`
+                              },
+                              "publisher": {
+                                  "@type": "Organization",
+                                  "name": "Etrix",
+                                  "logo": {
+                                      "@type": "ImageObject",
+                                      "url": "https://google.com/logo.jpg"
+                                  }
+                              },
+                              "description": `+this.props.abstract+`
+                          }`
+                      }
+                  </script>
+              </Helmet>
           </article>
         )
     }
