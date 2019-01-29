@@ -43,6 +43,7 @@ class ProductListAccordin extends Component {
                     (item.product === "Static Control ESD Clean Room Products Static Control Clothing") || (item.product === "Test and Measurement") ||
                     (item.product === "Switches Slide Switches") || (item.product === "Switches Toggle Switches") ||
                     (item.product === "Tools") || (item.product === "Uncategorized Miscellaneous")
+                    || (item.product === "Line Protection Distribution Backups Power Distribution Surge Protectors")
                 ) ) {
                 let subcategory1;let subcategory2 = null;
                 if (Object.keys(item.category).length > 0) {
@@ -70,6 +71,7 @@ class ProductListAccordin extends Component {
                                 </li>
                             )
                         }
+                        if(!(property === "Surge Suppression ICs"))
                         return (
                             <li>
                                 <Link to={"/search/category="+item.product+"&subcategory="+property}>{property}</Link>
