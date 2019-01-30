@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchedProductPrice from '../SearchedProductPrice/SearchedProductPrice';
 import URLs from "../../../URLs";
+import './ProductsTable.css';
 
 class ProductsTable extends Component {
 
@@ -52,7 +53,7 @@ class ProductsTable extends Component {
             );
         });
         return (
-            <table className="table table-striped">
+            <table className="table table-striped table-responsive table-fixed">
                 <thead>
                 <tr>{tableHeads}</tr>
                 </thead>

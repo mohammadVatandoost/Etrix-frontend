@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import './showSearchProductResult.css';
 import URLs from "../../URLs";
 import styles from './custom-styling.css';
-import FilterProducts from './FilterProducts/FilterProducts';
+import FilterProducts from './FilterProducts/FilterProducts2';
 import ProductTable from './ProductsTable/ProductsTable';
 import MultiCategory from './MultiCategory/MultiCategory';
 import QueryString from 'query-string';
@@ -158,7 +158,7 @@ class showSearchProductResult extends Component {
                    console.log("add to cart function");
                    console.log(response);console.log("this.state.projectName");console.log(this.state.projectName);
                    if(response.data.code === 200) {
-                       this.props.addToCart(productName, number, category, this.state.projectName);
+                       // this.props.addToCart(productName, number, category, this.state.projectName);
                        Alert.success(response.data.body, {
                            position: 'bottom-right',
                            effect: 'scale',
@@ -238,16 +238,17 @@ class showSearchProductResult extends Component {
     }
 
     onOpenModal = (productName, category, number, price) => {
+        console.log("this.state.category");console.log(this.state.category);
         if(this.props.token) {
-            console.log("showSearchProductResult open Modal without toke");
+            console.log("showSearchProductResult open Modal with token");
             console.log("category");console.log(category);
             console.log("productName");console.log(productName);
             console.log("number");console.log(number);
             console.log("price");console.log(price);
             this.setState({open: true});
-            this.setState({productName: productName, category: category, number: number});
+            this.setState({productName: productName, number: number});
         } else {
-            console.log("showSearchProductResult open Modal without toke");
+            console.log("showSearchProductResult open Modal without token");
             console.log("category");console.log(category);
             console.log("productName");console.log(productName);
             console.log("number");console.log(number);
@@ -314,8 +315,9 @@ class showSearchProductResult extends Component {
                 <h2 className="text-center margin-top-2">قطعه ای با ویژگی های مورد نظر شما پیدا نشد</h2>
             </div>
         }
+        //  table-responsive
         return(
-            <div className="container table-responsive text-center searchResultContainer">
+            <div className="container text-center searchResultContainer">
                <div>
                 <ClipLoader loaderStyle={{size: '200'}} color={'#123abc'} loading={this.state.loading} />
                </div>
@@ -334,7 +336,7 @@ class showSearchProductResult extends Component {
                         </select>
                     </div>
                     <br/>
-                    <button onClick={()=> this.addToCart(this.state.productName, this.state.category, this.state.number)} className="btn btn-success horizontal-center">اضافه به سبد خرید</button>
+                    <button onClick={()=> this.addToCart(this.state.productName, this.state.category.name, this.state.number)} className="btn btn-success horizontal-center">اضافه به سبد خرید</button>
                     <br/>
                   </div>
                 </Modal>

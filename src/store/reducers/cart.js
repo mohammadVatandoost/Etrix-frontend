@@ -3,7 +3,7 @@ import { updateObject } from '../utility';
 
 const initialState = {
     cart: [], cartLength: 0, loading: false, errors: null, projectsPrice: [], productPrices: [], cartSumCost: 0,
-    categories: [], counterForChangeTrig: 0
+    categories: [], counterForChangeTrig: 0, randomKey: ''
 };
 
 const cartADD = ( state, action ) => {
@@ -174,7 +174,8 @@ const cartChangeNum = (state, action) => {
 
 const storeCart = (state, action) => {
     console.log("reducers cart storeCart");console.log(action.cart);console.log(action.cartLength);
-    return updateObject( state, { cart: action.cart, cartLength: action.cartLength, loading: false, errors: null} );
+    localStorage.setItem('cart', JSON.stringify(action.cart));
+    return updateObject( state, { cart: action.cart, cartLength: action.cartLength, loading: false, errors: null, randomKey: Math.random()} );
 };
 
 const setLoadingAndError = (state, action) => {

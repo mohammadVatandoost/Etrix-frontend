@@ -118,6 +118,7 @@ class Cart extends Component {
 
     render() {
         let cartList;let buyButton = null;let sum = null;let price = 0;
+          console.log("this.props.randomKey");console.log(this.props.randomKey);
           if(!this.props.cartLoading) {
             if(this.props.cartLength > 0){  //} else
                cartList = this.renderCartTable();
@@ -200,7 +201,8 @@ const mapStateToProps = state => {
         token: state.auth.token,
         projectsPrice: state.cart.projectsPrice,
         productPrices: state.cart.productPrices,
-        cartSumCost: state.cart.cartSumCost
+        cartSumCost: state.cart.cartSumCost,
+        randomKey: state.cart.randomKey
     };
 };
 

@@ -62,10 +62,18 @@ export const getCartFromServer = (token) => {
             .then(response => {
                 dispatch(setLoadingAndError(false, null));
                 let cartNumber = 0;
-                console.log("getCartFromServer response");console.log(response);
-                response.data.map((project, i) => {
-                    cartNumber = cartNumber + project.length;
-                });
+                // console.log("action2 getCartFromServer cartNumber");console.log(cartNumber);
+                console.log("action2 getCartFromServer response");console.log(response);
+                console.log(response.data);
+                for(let j=0;j<response.data.length;j++) {
+                    console.log("action2 getCartFromServer for" + j);
+                    // cartNumber = cartNumber + response.data[j].length();
+                }
+                // response.data.map((project, i) => {
+                //     cartNumber = cartNumber + project.length;
+                //     return;
+                // });
+                console.log("action2 getCartFromServer cartNumber");console.log(response.data.length);
                 dispatch(getCartSuccess(response.data, cartNumber));
             })
             .catch(err => {
@@ -83,6 +91,7 @@ export const getCartFromServer = (token) => {
 }
 
 export const getCartSuccess = (cart,cartLength) => {
+    console.log("action getCartSuccess");
     return {
         type: actionTypes.GET_CART_FROM_SERVER,
         cart: cart, cartLength: cartLength

@@ -46,6 +46,9 @@ li {
 .horizontal-center {display: block;margin: auto;}
 .flex-wrap {
   flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 2%
 }
 .flex-start-align {
   align-content: flex-start ;
@@ -89,7 +92,42 @@ li {
 .flex-item-12 {
   flex: 0 1 100%;
 }
-
+.flex-item-wrap-1 {
+  flex: 8.33333%;
+}
+.flex-item-wrap-2 {
+  flex: 16.66666%;
+}
+.flex-item-wrap-3 {
+  flex: 24.99999%;
+}
+.flex-item-wrap-4 {
+  flex: 33.33333%;
+}
+.flex-item-wrap-5 {
+  flex: 41.66666%;
+}
+.flex-item-wrap-6 {
+  flex: 50%;
+}
+.flex-item-wrap-7 {
+  flex: 58.33333%;
+}
+.flex-item-wrap-8 {
+  flex: 66.66666%;
+}
+.flex-item-wrap-9 {
+  flex: 74.99999%;
+}
+.flex-item-wrap-10 {
+  flex: 83.33333%;
+}
+.flex-item-wrap-11 {
+  flex: 91.66666%;
+}
+.flex-item-wrap-12 {
+  flex: 100%;
+}
 @media (min-width: 576px) {
   .flex-item-sm-1 {
     flex: 0 1 8.33333%;
@@ -190,7 +228,9 @@ li {
 .margin-top-2 {
   margin-top: 2%;
 }
-
+.margin-bottom-2 {
+  margin-bottom: 2%;
+}
 .margin-l-1 {
   margin: 1%;
 }
