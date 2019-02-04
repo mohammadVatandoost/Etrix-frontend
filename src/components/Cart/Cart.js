@@ -133,7 +133,7 @@ class Cart extends Component {
                } else {
                    buyButton = <Link to="/Signup/cart" className="btn btn-success">تکمیل سفارش</Link>;
                }
-           } else { cartList = <h1 className="text-center">سبد خرید شما خالی هست</h1>;}
+           } else { cartList = <h1 className="text-center margin-bottom-4 margin-top-4">سبد خرید شما خالی هست</h1>;}
           }
            let projectsOption;
         if(this.state.projects.length > 0) {

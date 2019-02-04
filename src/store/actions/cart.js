@@ -63,17 +63,18 @@ export const getCartFromServer = (token) => {
                 dispatch(setLoadingAndError(false, null));
                 let cartNumber = 0;
                 // console.log("action2 getCartFromServer cartNumber");console.log(cartNumber);
-                console.log("action2 getCartFromServer response");console.log(response);
+                console.log("action2 getCartFromServer response");console.log(URLS.base_URL+URLS.user_cart_read);console.log(response);
                 console.log(response.data);
                 for(let j=0;j<response.data.length;j++) {
-                    console.log("action2 getCartFromServer for" + j);
-                    // cartNumber = cartNumber + response.data[j].length();
+                    // console.log("action2 getCartFromServer for " + j );
+                    // console.log(response.data[j].length);
+                    cartNumber = cartNumber + response.data[j].length;
                 }
                 // response.data.map((project, i) => {
                 //     cartNumber = cartNumber + project.length;
                 //     return;
                 // });
-                console.log("action2 getCartFromServer cartNumber");console.log(response.data.length);
+                // console.log("action2 getCartFromServer cartNumber");console.log(response.data.length);
                 dispatch(getCartSuccess(response.data, cartNumber));
             })
             .catch(err => {
