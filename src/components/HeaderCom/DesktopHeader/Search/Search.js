@@ -116,7 +116,7 @@ class Search extends Component {
             }
         });
         return (
-        <div className="pt-1 mt-1 ml-5 pl-5 justify-content-center">
+        <div className="pt-1 mt-1 ml-5 pl-1 justify-content-center">
             <form onSubmit={this.searchHandler} className="form-inline">
                 <div id="desktopSearch" className="input-group">
                     <div className="input-group-prepend">

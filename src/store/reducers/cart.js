@@ -175,7 +175,7 @@ const cartChangeNum = (state, action) => {
 const storeCart = (state, action) => {
     console.log("reducers cart storeCart");console.log(action.cart);console.log(action.cartLength);
     localStorage.setItem('cart', JSON.stringify(action.cart));
-    return updateObject( state, { cart: action.cart, cartLength: action.cartLength, loading: false, errors: null, randomKey: Math.random()} );
+    return updateObject( state, { cart: action.cart, cartLength: action.cartLength, loading: false, errors: null } ); // randomKey: Math.random()
 };
 
 const setLoadingAndError = (state, action) => {

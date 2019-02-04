@@ -74,8 +74,8 @@ class showSearchProductResult extends Component {
                 console.log("componentDidMount showSearchProductResult");
                 console.log(response);
                 // console.log(dataCode.partSearch);
-                if(response.data !== 320) {
-                    console.log("not 320");
+                if(response.data !== dataCode.userNotAllowed) {
+                    // console.log("not 320");
                     if ( (response.data[0] === dataCode.partSearch || response.data[0] === dataCode.partSearchCategory)&& response.data[2] !== dataCode.partNotFound) {
                         console.log("IdataCode.partSearch");
                         this.setState({
@@ -87,13 +87,18 @@ class showSearchProductResult extends Component {
                         });
                     } else if (response.data[0] === dataCode.partSearchMultiCategory) {
                         this.setState({dataCode: response.data[0], multiCategory: response.data[1]});
-                        console.log("componentDidMount showSearchProductResult multiCategory");
+                        // console.log("componentDidMount showSearchProductResult multiCategory");
                     } else if(response.data[2] === dataCode.partNotFound){
                         this.setState({dataCode: dataCode.partNotFound});
-                        console.log("componentDidMount showSearchProductResult does not find any product");
+                        // console.log("componentDidMount showSearchProductResult does not find any product");
+                    } else if(response.data === dataCode.partNotFound) {
+                        this.setState({dataCode: dataCode.partNotFound});
+                        // console.log("componentDidMount showSearchProductResult response.data does not find any product");
+                    } else {
+                        console.log("componentDidMount showSearchProductResult does not be in any defined state");
                     }
                 } else {
-                    console.log("componentDidMount showSearchProductResult does not find any product");
+                    console.log("componentDidMount showSearchProductResult response.data !== dataCode.userNotAllowed does not be in any defined state");
                     // this.setState({dataCode: response.data[0]});
                 }
                 this.setState({loading: false});
@@ -311,8 +316,8 @@ class showSearchProductResult extends Component {
         } else if(this.state.dataCode === dataCode.partSearchMultiCategory) {
             multiCAtegory = <MultiCategory category={this.state.multiCategory} cat={this.props.match.params.category} keyword={this.props.match.params.keyword} />
         } else if(this.state.dataCode === dataCode.partNotFound) {
-            productsTble = <div className="margin-top-2">
-                <h2 className="text-center margin-top-2">قطعه ای با ویژگی های مورد نظر شما پیدا نشد</h2>
+            productsTble = <div className="margin-top-8 margin-bottom-8">
+                <h2 className="text-center margin-top-4 margin-bottom-4">قطعه ای برای عبارت  {this.props.match.params.keyword} پیدا نشد</h2>
             </div>
         }
         //  table-responsive
