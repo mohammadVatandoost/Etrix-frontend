@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const cartADD = ( state, action ) => {
-    let temp = state.cart ;let was = 0;let project = []; let projectPrices = state.projectsPrice;let length = state.cartLength;console.log("cartADD reducer :");
+    let temp = state.cart ;let was = 0;let project = []; let projectPrices = state.projectsPrice;let length = state.cartLength;
     console.log("cartADD reducers cart");console.log(state.cart);console.log(temp);
     for(let i=0;i<temp.length;i++) {
         if(action.projectName === null) {

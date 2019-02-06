@@ -128,6 +128,7 @@ export const authGoogle = (response) => {
                     localStorage.setItem('expirationDate', expirationDate);
                     localStorage.setItem('token', response.data.token);
                     localStorage.setItem('userData', JSON.stringify(response.data.userData));
+                    dispatch(CartActions.updateCart(response.data.token));
                     dispatch(authSuccess(response.data.token,response.data.userData));
                     dispatch(checkAuthTimeout(10000));
     };

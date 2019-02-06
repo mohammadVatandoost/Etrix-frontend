@@ -14,6 +14,7 @@ import FilterProducts from './FilterProducts/FilterProducts2';
 import ProductTable from './ProductsTable/ProductsTable';
 import MultiCategory from './MultiCategory/MultiCategory';
 import QueryString from 'query-string';
+import Pagination from '../Pagination/Pagination';
 
 let prices = {};let counter = 0;
 
@@ -22,7 +23,7 @@ class showSearchProductResult extends Component {
     state  = {
         searchKey: '', data: '', dataParts: [], dataCode: '', dataFilters: [],open: false, prices: {}, projects: [],
         tableHeaderS: '', loading: true, number: 1,loadingAddCart: true,productName: '', category: '',
-        projectName: null, multiCategory: [], filters: '', filteredHeaders: ''
+        projectName: null, multiCategory: [], filters: '', filteredHeaders: '', priceBuf: 0
     }
 
     componentDidMount() {prices = {};counter = 0;
@@ -150,7 +151,7 @@ class showSearchProductResult extends Component {
     //    let temp = this.state.number;temp[num] = e.target.value; this.setState({number: temp});
     // }
 
-    addToCart = (productName,category,number) => {
+    addToCart = (productName,price,number) => {
        if(this.props.token) {
            this.setState({loadingAddCart: true});
            console.log("number of products :");console.log(number);
@@ -163,6 +164,7 @@ class showSearchProductResult extends Component {
                    console.log("add to cart function");
                    console.log(response);console.log("this.state.projectName");console.log(this.state.projectName);
                    if(response.data.code === 200) {
+                       this.props.addToCart(productName, number, price, this.state.projectName);
                        // this.props.addToCart(productName, number, category, this.state.projectName);
                        Alert.success(response.data.body, {
                            position: 'bottom-right',
@@ -196,7 +198,7 @@ class showSearchProductResult extends Component {
                });
 
        } else {
-           this.props.addToCart(productName, number, category, null);
+           this.props.addToCart(productName, number, price, null);
            Alert.success('به سبد خرید اضافه شد', {
                position: 'bottom-right',
                effect: 'scale',
@@ -251,7 +253,7 @@ class showSearchProductResult extends Component {
             console.log("number");console.log(number);
             console.log("price");console.log(price);
             this.setState({open: true});
-            this.setState({productName: productName, number: number});
+            this.setState({productName: productName, number: number, priceBuf: price});
         } else {
             console.log("showSearchProductResult open Modal without token");
             console.log("category");console.log(category);
@@ -303,10 +305,11 @@ class showSearchProductResult extends Component {
     }
 
     render() {
-        let productsTble;
+        let productsTble , paginationResult;
         let projectsOption;let filterProduct;let multiCAtegory;
         if(this.state.dataCode === dataCode.partSearch || this.state.dataCode === dataCode.partSearchCategory) {
             productsTble = <ProductTable category={this.state.category.name} onOpenModal={this.onOpenModal} sort={this.sort} searchKey={this.state.searchKey} tableHeaderS={this.state.tableHeaderS} dataParts={this.state.dataParts} />;
+            paginationResult = <Pagination/>;
             if(this.state.projects.length > 0) {
                 projectsOption = this.state.projects.map((project, i) => {
                     return (<option value={project.name} key={project.name}>{project.name}</option>)
@@ -329,6 +332,7 @@ class showSearchProductResult extends Component {
                 {multiCAtegory}
                 {filterProduct}
                 {productsTble}
+                {paginationResult}
                 <Modal open={this.state.open} onClose={this.onCloseModal} center
                        classNames={{overlay: styles.customOverlay, modal: styles.customModal,}}>
                   <div className="select-project">
@@ -341,7 +345,7 @@ class showSearchProductResult extends Component {
                         </select>
                     </div>
                     <br/>
-                    <button onClick={()=> this.addToCart(this.state.productName, this.state.category.name, this.state.number)} className="btn btn-success horizontal-center">اضافه به سبد خرید</button>
+                    <button onClick={()=> this.addToCart(this.state.productName, this.state.priceBuf, this.state.number)} className="btn btn-success horizontal-center">اضافه به سبد خرید</button>
                     <br/>
                   </div>
                 </Modal>

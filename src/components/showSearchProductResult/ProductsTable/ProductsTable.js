@@ -41,7 +41,7 @@ class ProductsTable extends Component {
                 if(property === "unit_price") {
                     return ( <SearchedProductPrice key={property} unit_price={item['unit_price']} keyword={item['manufacturer_part_number']} category={this.props.category} openModal={this.props.onOpenModal} />)
                 } else if(property === "ld_image") {
-                    return ( <td key={property}><img  src={URLs.images_URL+item[property]} alt={item['manufacturer_part_number']} /></td> )
+                    return ( <td key={property}><img height="100" width="100" src={URLs.images_URL+item[property]} alt={item['manufacturer_part_number']} /></td> )
                 } else if(property === "datasheet") {
                     return ( <td key={property}><a href={URLs.datasheet_URL+item[property]}><i className="fa fa-file-text" aria-hidden="true"></i></a></td> )
                 } else if( !( (property === "hd_image") || (property === "slug") || (property === "name")  || (property === "original") || (property === "part_status") || (property === "persian_name"))) {
