@@ -9,10 +9,11 @@ import ContentSmallSize from './components/Content/ContentSmallSize/ContentSmall
 import VideoContent from './components/Content/VideoContent/VideoContent';
 import { Link } from 'react-router-dom';
 import URLs from './URLs';
+import ProductBriefInfoContainer from './components/showSearchProductResult/ProductBriefInfoContainer/ProductBriefInfoContainer';
 
 class App extends Component {
     state = {
-        contents: [], videos: []
+        contents: [], videos: [], lastProducts: []
     }
     componentDidMount() {
         axios.post(URLs.base_URL+'/home')
@@ -35,6 +36,16 @@ class App extends Component {
                 console.log('error get videos');
                 console.log(error);
             });
+        axios.get(URLs.base_URL+URLs.search_part_category+"category=Integrated Circuits ICs&subcategory=Microcontrollers")
+            .then((res) => {
+                console.log('res get last products');
+                console.log(res);
+                this.setState({lastProducts: res.data[2]});
+            })
+            .catch((error)=> {
+                console.log('error get last products');
+                console.log(error);
+            });
     }
 
   render() {
@@ -49,6 +60,13 @@ class App extends Component {
               return <VideoContent key={obj.id} url={obj.frame} title={obj.title}/>
           }
       });
+      let lastProducts ;
+      if(this.state.lastProducts.length > 0) {
+          let array4Product = [];
+          array4Product.push(this.state.lastProducts[0]);array4Product.push(this.state.lastProducts[1]);array4Product.push(this.state.lastProducts[2]);
+          array4Product.push(this.state.lastProducts[3]);
+          lastProducts = <ProductBriefInfoContainer products={array4Product} />
+      }
     return (
      <AuxWrapper>
         {/*  Slide Show  */}
@@ -92,8 +110,13 @@ class App extends Component {
           </div>
         </div>
        </div>
+         {/* Last Products */}
+         <section>
+             <h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین محصولات</h2>
+             {lastProducts}
+         </section>
          {/* Articles */}
-        <section>
+        <section style={{backgroundColor: "white"}}>
           <h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین مقالات</h2>
           <div className="flex space-around flex-wrap">
               {contentsBrief}
@@ -102,7 +125,7 @@ class App extends Component {
           <br/>
         </section>
          {/* Videos */}
-         <section style={{backgroundColor: "white"}}>
+         <section>
              <h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین ویدیوها</h2>
              <div className="flex space-around flex-wrap">
                  {videos}
@@ -111,7 +134,7 @@ class App extends Component {
              <br/>
          </section>
        {/*Show Features*/}
-       <section>
+       <section style={{backgroundColor: "white"}}>
        <div className="feature-container text-center mt-3 mb-3 mt-lg-5 mb-lg-5 mt-md-4 mb-md-4 mt-sm-3 mb-sm-3 mt-2 mb-2 container-fluid">
       <div className="row">
         <div className="feature-card col-lg-4 col-md-4 col-sm-6 col-12 p-lg-0 p-md-0 p-sm-2 pb-3">
