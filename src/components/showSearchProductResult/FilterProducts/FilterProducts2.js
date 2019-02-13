@@ -49,7 +49,7 @@ class FilterProducts2 extends Component {
     }
 
     render() {
-        let dataFilters, dataFilters2 ;
+        let dataFilters, dataFilters2, showMoreFilter ;
         let filterButton;
         let filteredOptions;
         // data Filters
@@ -100,7 +100,8 @@ class FilterProducts2 extends Component {
         });
         if(Object.keys(dataFiltersTemp).length > 1) {
             filterButton = <button onClick={this.filterComponent} hidden={this.props.loading} className="btn btn-primary buttonFilter">فیلتر</button>
-
+            showMoreFilter = <AuxWrapper><button onClick={() => {this.setState({showEtraFilter: !this.state.showEtraFilter})}} hidden={this.state.showEtraFilter} className="btn margin-bottom-2 margin-top-2"><img width="40" height="40" src={ArrowImageDown} /></button>
+                <button onClick={() => {this.setState({showEtraFilter: !this.state.showEtraFilter})}} hidden={!this.state.showEtraFilter} className="btn margin-bottom-2 margin-top-2"><img width="40" height="40" src={ArrowImageUp} /></button></AuxWrapper>
         }
         if(Object.keys(this.props.filtered).length > 0) {
             console.log("filters");
@@ -122,8 +123,7 @@ class FilterProducts2 extends Component {
                 {filterButton}
                 <br/>
                 {/*<hr/>*/}
-                <button onClick={() => {this.setState({showEtraFilter: !this.state.showEtraFilter})}} hidden={this.state.showEtraFilter} className="btn margin-bottom-2 margin-top-2"><img width="40" height="40" src={ArrowImageDown} /></button>
-                <button onClick={() => {this.setState({showEtraFilter: !this.state.showEtraFilter})}} hidden={!this.state.showEtraFilter} className="btn margin-bottom-2 margin-top-2"><img width="40" height="40" src={ArrowImageUp} /></button>
+                {showMoreFilter}
                 {/*<div >*/}
                 {/*</div>*/}
                 {filteredOptions}

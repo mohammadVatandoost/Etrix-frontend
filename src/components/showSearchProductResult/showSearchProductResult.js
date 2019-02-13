@@ -315,6 +315,7 @@ class showSearchProductResult extends Component {
                     return (<option value={project.name} key={project.name}>{project.name}</option>)
                 });
             }
+            // console.log("*******dataFilters");console.log(this.state.dataFilters);
             filterProduct = <FilterProducts removeFilter={this.removeFilter} filteredHeaders={this.state.filteredHeaders} filtered={this.state.filters} filterComponent={this.filterComponent} tableHeaderS={this.state.tableHeaderS} dataFilters={this.state.dataFilters} loading={this.state.loading} />
         } else if(this.state.dataCode === dataCode.partSearchMultiCategory) {
             multiCAtegory = <MultiCategory category={this.state.multiCategory} cat={this.props.match.params.category} keyword={this.props.match.params.keyword} />
