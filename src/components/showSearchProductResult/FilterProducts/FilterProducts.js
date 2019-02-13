@@ -51,6 +51,7 @@ class FilterProducts extends Component {
         let filterButton;
         let filteredOptions;
         // data Filters
+        console.log("********dataFiltersTemp");console.log(dataFiltersTemp);
         let dataFiltersTemp = this.props.dataFilters;
         dataFilters = Object.keys(dataFiltersTemp).map((property,i) => {
             let options =[];

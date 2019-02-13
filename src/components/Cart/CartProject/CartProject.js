@@ -8,7 +8,7 @@ class CartProject extends Component {
         projectPrice: 0, loading: true, project: []
     }
     componentDidMount() {
-        this.setState({project: this.props.project});
+        // this.setState({project: this.props.project});
     }
 
     calculateProjectPrice = (cost) => {
@@ -21,7 +21,10 @@ class CartProject extends Component {
 
     render() {
         let projectPrice = 0;
+        console.log("cart project render");
+        console.log(this.props.project);
         let entry = this.props.project.map((list,j) => {
+            // console.log("list");console.log(list);
             projectPrice = projectPrice + (parseInt(list.price) * parseInt(list.num));
             return (<CartProductPrice  key={j} calculateProjectPrice={this.calculateProjectPrice} deleteFromCart={this.props.deleteFromCart}  price={list.price} keyword={list.keyword} num={list.num} project={list.project} />);
         });

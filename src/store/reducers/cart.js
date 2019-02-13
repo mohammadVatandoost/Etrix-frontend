@@ -26,6 +26,7 @@ const cartADD = ( state, action ) => {
                     }
                 }
                 if (was === 0) {
+                    console.log("It is new product");
                     temp[i].push({
                         keyword: action.productName,
                         num: action.number,
@@ -62,7 +63,9 @@ const cartADD = ( state, action ) => {
     }
     if(was === 0) {
         console.log("cartADD reducer  new Project ");
+        console.log("temp");console.log(temp);
         project.push({keyword: action.productName, num: action.number, project: action.projectName, price: action.price});
+        console.log("project");console.log(project);
         temp.push(project);
         projectPrices.push({project: action.projectName, cost: action.price});
         console.log("cartADD reducer  projectPrices: ");console.log(projectPrices);
@@ -142,15 +145,17 @@ const addProductPrice = (state, action) => {
 
 const cartRemove = (state, action) => {
     let temp = state.cart; let cartLength = 0;// let projectsPrice = state.projectPrices;
+    console.log("cartRemove reducer : ");
+    console.log(temp);console.log(action.keyword);
     if(temp.length > 0) {
         temp[0] = temp[0].filter((el) => {
             return el.keyword !== action.keyword
         });
-        if(temp[0].length === 0) {temp = []} else {cartLength = temp[0].length;}
+        if(temp[0].length === 0) {temp = []; cartLength = 0;} else {cartLength = temp[0].length;}
         localStorage.setItem('cart', JSON.stringify(temp));
     }
     localStorage.setItem('cart', JSON.stringify(temp));
-    console.log("cartRemove reducer : ");console.log(temp);
+    console.log("cartRemove reducer cart result: ");console.log(temp);
     return updateObject( state, { cart: temp, cartLength: cartLength} );
 };
 

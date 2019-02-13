@@ -11,6 +11,7 @@ import authReducer from './store/reducers/auth';
 import cartReducer from './store/reducers/cart';
 import * as actions from './store/actions/index';
 import RouteAPI from './RouteAPI';
+import ScrollToTop from './ScrollToTop';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -34,7 +35,9 @@ export default class App extends Component {
         return (
             <Provider store={store}>
                 <Router history={createBrowserHistory()}>
-                    <RouteAPI/>
+                    <ScrollToTop>
+                      <RouteAPI/>
+                    </ScrollToTop>
                 </Router>
             </Provider>
         );

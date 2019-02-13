@@ -79,7 +79,6 @@ class Cart extends Component {
 
     renderCartTable = () => {
         console.log('renderCartTable');console.log(this.props.cart);
-
         let cartLsit = this.props.cart.map((project, i) => {
             // let entry = project.map((list,j) => {
             //     price = price + (parseInt(list.price) * parseInt(list.num));

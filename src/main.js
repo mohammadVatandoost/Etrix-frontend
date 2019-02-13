@@ -111,10 +111,10 @@ class App extends Component {
         </div>
        </div>
          {/* Last Products */}
-         <section>
-             <h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین محصولات</h2>
-             {lastProducts}
-         </section>
+         {/*<section>*/}
+             {/*<h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین محصولات</h2>*/}
+             {/*{lastProducts}*/}
+         {/*</section>*/}
          {/* Articles */}
         <section style={{backgroundColor: "white"}}>
           <h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین مقالات</h2>

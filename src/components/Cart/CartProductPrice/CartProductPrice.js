@@ -87,25 +87,25 @@ class CartProductPrice extends Component {
     }
 
     render() {
-        if(this.props.num > 1) {
-            console.log(this.props.keyword+"number change");
-        }
+        // if(this.props.num > 1) {
+        //     console.log(this.props.keyword+"number change");
+        // }
         return (
             <tr>
                 <td>
-                    <button onClick={() => this.props.deleteFromCart(this.state.keyword, this.props.project)}><i className="fa fa-trash" aria-hidden="true"></i>
+                    <button onClick={() => this.props.deleteFromCart(this.props.keyword, this.props.project)}><i className="fa fa-trash" aria-hidden="true"></i>
                     </button>
                 </td>
-                <td>{this.state.keyword}</td>
+                <td>{this.props.keyword}</td>
                 <td>
-                    {this.state.number}
+                    {this.props.num}
                     {/*<InputAddMinus onChange={this.onChange} min={1} placeholder="" value={this.state.number} add={this.add} minus={this.minus} />*/}
                 </td>
                 <td>
-                    <span>{this.state.price}</span>
+                    <span>{this.props.price}</span>
                     {/*<ClipLoader size="50" color={'#123abc'} loading={this.state.loading}/>*/}
                 </td>
-                <td><span> {parseInt(this.state.price) * parseInt(this.state.number)}</span></td>
+                <td><span> {parseInt(this.props.price) * parseInt(this.props.num)}</span></td>
             </tr>
         )
     }

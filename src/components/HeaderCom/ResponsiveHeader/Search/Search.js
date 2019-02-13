@@ -33,16 +33,43 @@ const theme = { input: 'form-control input-border', suggestionsContainer: 'auto-
 
 class Search extends Component {
     state  = {
-        searchKey: '',
-        redirect: false,
+        searchKey: '', searchSuggestion: [],
+        redirect: false, currentFocus: -1,
         category: 'all',
         value: '',
         suggestions: []
     }
 
+    componentDidMount() {
+        // console.log("componentDidMount DesktopHeader");
+        document.addEventListener('mousedown', this.handleClickOutside, false);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside, false);
+    }
+
+    handleClickOutside = (e) => {
+        if( (this.node !== null) && (typeof this.node !== 'undefined') ) {
+            if (!this.node.contains(e.target)) {
+                this.setState({searchSuggestion: [], currentFocus: -1});
+            }
+        }
+    }
     searchHandler = (event) => {
         event.preventDefault();
-        const url = '/search/'+this.state.category+'/'+this.state.searchKey;
+        const url = '/search/'+'category='+this.state.category+'/'+this.state.searchKey;
+        this.setState({searchSuggestion: [], currentFocus: -1});
+        this.changeUrl(url);
+    }
+
+    onClickSuggestion = (suggestionKey) => {
+        const url = '/search/'+'category='+this.state.category+'/'+suggestionKey;
+        this.setState({searchSuggestion: [], currentFocus: -1});
+        this.changeUrl(url);
+    }
+
+    changeUrl = (url) => {
         if(this.props.history.location.pathname.includes('search')) {
             this.props.history.push(url);
             window.location.reload();
@@ -56,6 +83,38 @@ class Search extends Component {
         this.setState({[e.target.name]: e.target.value});
     }
 
+    onKeySearchInput = (e) => {
+        console.log(e.keyCode)
+        if (e.keyCode === 38) {
+            /*If the arrow UP key is pressed,
+            decrease the currentFocus variable:*/
+            let currentFocus = this.state.currentFocus;
+            currentFocus--;
+            if (currentFocus < 0) {
+                currentFocus = this.state.searchSuggestion.length - 1;
+            }
+            // console.log(this.state.searchSuggestion);
+            this.setState({currentFocus: currentFocus, searchKey: this.state.searchSuggestion[currentFocus].name});
+            // console.log(currentFocus);
+        } else if (e.keyCode === 13) {
+            // /*If the enter key is pressed,*/
+            // if(this.state.currentFocus > -1) {
+            //     const url = '/search/'+'category='+this.state.category+'/'+this.state.searchSuggestion[this.state.currentFocus].name;
+            //     this.setState({searchSuggestion: [], currentFocus: -1});
+            //     this.changeUrl(url);
+            // }
+        } else if (e.keyCode === 40) {
+            let currentFocus = this.state.currentFocus;
+            // console.log(currentFocus);
+            currentFocus = currentFocus + 1;
+            // console.log(currentFocus);
+            if ((this.state.searchSuggestion.length-1) < (currentFocus)) {
+                currentFocus = 0;
+            }
+            // console.log(this.state.searchSuggestion);
+            this.setState({currentFocus: currentFocus, searchKey: this.state.searchSuggestion[currentFocus].name});
+        }
+    }
 
     onChangeTest = (event, { newValue }) => {
         if(newValue.length > 3) {
@@ -82,6 +141,30 @@ class Search extends Component {
             searchKey: newValue
         });
     };
+
+    onChangeInputSearch = (e) => {
+        this.setState({searchKey: e.target.value});
+        if(e.target.value.length > 3) {
+            // console.log(newValue);
+            let url = URLs.base_URL+URLs.search_part+e.target.value;
+            axios.get(url)
+                .then(response => {
+                    console.log(response);
+                    if(parseInt(response.data[0]) === dataCode.partSearch) {
+                        searchSug = [];
+                        response.data[1].map((item) => {
+                            searchSug.push({name: item.manufacturer_part_number});
+                            return null;
+                        });
+                        // console.log(searchSug);
+                        this.setState({searchSuggestion: searchSug});
+                    }
+                })
+                .catch(err => {
+                    console.log("header onChangeInputSearch error");console.log(err);
+                });
+        }
+    }
 
     onSuggestionsFetchRequested = ({ value }) => { this.setState({ suggestions: getSuggestions(value) }); };
 
@@ -114,8 +197,28 @@ class Search extends Component {
                 )
             }
         });
+        let inputSuggestion;
+        if(this.state.searchSuggestion.length >0 ) {
+            console.log("render search");console.log(this.state.searchSuggestion);
+            let arraySuggestion = this.state.searchSuggestion.map( (obj,i) => {
+                if(i === this.state.currentFocus) {
+                    return ( <div className="autocomplete-active-responsive" key={i} onClick={() => {
+                        this.onClickSuggestion(obj.name);
+                    }}>
+                        <strong>{obj.name.substr(0, this.state.searchKey.length)}</strong>{obj.name.substr(this.state.searchKey.length)}
+                    </div> )
+                } else {
+                    return ( <div key={i} onClick={() => {
+                        this.onClickSuggestion(obj.name);
+                    }}>
+                        <strong>{obj.name.substr(0, this.state.searchKey.length)}</strong>{obj.name.substr(this.state.searchKey.length)}
+                    </div> )
+                }
+            });
+            inputSuggestion = <div className="autocomplete-items-responsive">{arraySuggestion}</div>
+        }
         return (
-            <div className="col-12 d-flex justify-content-center p-1 bg-dark">
+            <div className="col-12 d-flex justify-content-center p-1 bg-dark search-responsive">
                 <form onSubmit={this.searchHandler} className="form-inline" id="responsiveSearch">
                     <div className="input-group">
                         <div className="input-group-prepend">
@@ -123,14 +226,18 @@ class Search extends Component {
                                 <span className="fa fa-search"></span>
                             </button>
                         </div>
-                        <Autosuggest theme={theme}
-                                     suggestions={suggestions}
-                                     onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-                                     onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-                                     getSuggestionValue={getSuggestionValue}
-                                     renderSuggestion={renderSuggestion}
-                                     inputProps={inputProps}
-                        />
+                        <div className="autocomplete-responsive" ref={node => this.node = node}>
+                            <input onKeyDown={this.onKeySearchInput} value={this.state.searchKey} onChange={this.onChangeInputSearch} type="text" placeholder="نام قطعه را جست و جو کنید..." />
+                            {inputSuggestion}
+                        </div>
+                        {/*<Autosuggest theme={theme}*/}
+                                     {/*suggestions={suggestions}*/}
+                                     {/*onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}*/}
+                                     {/*onSuggestionsClearRequested={this.onSuggestionsClearRequested}*/}
+                                     {/*getSuggestionValue={getSuggestionValue}*/}
+                                     {/*renderSuggestion={renderSuggestion}*/}
+                                     {/*inputProps={inputProps}*/}
+                        {/*/>*/}
                         <div className="input-group-append p-0 responsive-search-select">
                             <select className="form-control m-0 pr-4 search-responsive-size" dir="rtl" value={this.state.category} onChange={this.onChange} name="category">
                                 <option value="all" dir="rtl">همه</option>

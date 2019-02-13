@@ -71,7 +71,7 @@ class DesktopHeader extends Component {
         if(this.props.isAuthenticated) {
             authLinks = (
                 <ul className="breadcrumb">
-                    <li className="mr-lg-5 mr-md-3">
+                    <li className="mr-lg-4 mr-md-3">
                         <Link to="/سبد-خرید" className="border border-1 rounded pl-2 pr-2 pt-1 pb-1 shopping-cart-border-color">
                             <span className="badge">{this.props.cartLength}</span>
                             <img src={ShoppingCart} alt="سبد خرید" className="img-fluid" width="29"/>
@@ -103,7 +103,7 @@ class DesktopHeader extends Component {
         } else {
             authLinks = (
                 <ul className="breadcrumb">
-                    <li className="mr-lg-5 mr-md-3">
+                    <li className="mr-lg-4 mr-md-3">
                         <Link to="/سبد-خرید" className="border border-1 rounded pl-2 pr-2 pt-2 pb-2 shopping-cart-border-color">
                             <span className="badge">{this.props.cartLength}</span><span> سبد خرید </span>
                             <img src={ShoppingCart} alt="سبد خرید" className="img-fluid" width="29"/>
