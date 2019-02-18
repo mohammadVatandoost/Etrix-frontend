@@ -22,7 +22,7 @@ class ProductBuy extends Component {
                 <div className="flex-row">
                     <input type="number" className="form-control col-md-4 col-sm-5" name="email" value={this.state.number} onChange={this.numberChange}
                            placeholder="0"/>
-                    <button className="btn btn-success margin-right-1">خرید</button>
+                    <button onClick={() => this.props.onOpenModal(this.props.productName, this.state.number, this.props.unit_price)} className="btn btn-success margin-right-1">خرید</button>
                 </div>
                 <p style={{fontSize: "20px", direction: "ltr"}}>{this.state.number} * {this.props.unit_price} = {parseInt(this.state.number)*parseInt(this.props.unit_price)}</p>
             </div>
