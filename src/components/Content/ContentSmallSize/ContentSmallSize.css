@@ -11,7 +11,7 @@
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
     .ContentSmallSize {
         flex: 0 1 calc(50% - 1em);
     }
@@ -19,6 +19,14 @@
 @media screen and (max-width: 600px) {
     .ContentSmallSize {
         flex: 0 1 calc(100% - 1em);
+    }
+}
+@media screen and (max-width: 414px) {
+    .ContentSmallSize h3 {
+        font-size: 1.3rem;
+}
+    .ContentSmallSize P {
+        font-size: 1rem;
     }
 }
 

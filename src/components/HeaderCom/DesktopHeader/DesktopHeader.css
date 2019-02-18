@@ -16,44 +16,8 @@ body, html {
     -moz-transition: background-color ease .2s;
     -ms-transition: background-color ease .2s;
     -o-transition: background-color ease .2s;
-    transition: background-color ease .2s; }
-
-.carousel-container {
-    z-index: 0; }
-
-.custom-dropdown {
-    z-index: 1; }
-
-.carousel-container .carousel-indicators li {
-    cursor: pointer; }
-
-.carousel-container .carousel-text {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background: linear-gradient(-90deg, #171717, transparent); }
-
-.carousel-text button {
-    position: absolute;
-    left: 75%;
-    top: 60%;
-    -webkit-transform: translate(-25%, -40%);
-    -moz-transform: translate(-25%, -40%);
-    -ms-transform: translate(-25%, -40%);
-    -o-transform: translate(-25%, -40%);
-    transform: translate(-25%, -40%); }
-
-.carousel-container .carousel-text span {
-    font-family: "Calibri Light";
-    position: absolute;
-    width: 40%;
-    top: 0;
-    right: 0;
-    font-size: 2.5vw;
-    font-weight: bold; }
+    transition: background-color ease .2s;
+}
 
 .feature-text {
     font-size: large;

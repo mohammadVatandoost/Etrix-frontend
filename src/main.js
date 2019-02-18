@@ -119,7 +119,7 @@ class App extends Component {
              {/*{lastProducts}*/}
          {/*</section>*/}
          {/* Articles */}
-        <section style={{backgroundColor: "white"}}>
+        <section className="mainPageSection" style={{backgroundColor: "white"}}>
           <h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین مقالات</h2>
           <div className="flex space-around flex-wrap">
               {contentsBrief}
@@ -128,7 +128,7 @@ class App extends Component {
           <br/>
         </section>
          {/* Videos */}
-         <section>
+         <section className="mainPageSection">
              <h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین ویدیوها</h2>
              <div className="flex space-around flex-wrap">
                  {videos}
@@ -137,7 +137,7 @@ class App extends Component {
              <br/>
          </section>
        {/*Show Features*/}
-       <section style={{backgroundColor: "white"}}>
+       <section className="mainPageSection" style={{backgroundColor: "white"}}>
        <div className="feature-container text-center mt-3 mb-3 mt-lg-5 mb-lg-5 mt-md-4 mb-md-4 mt-sm-3 mb-sm-3 mt-2 mb-2 container-fluid">
       <div className="row">
         <div className="feature-card col-lg-4 col-md-4 col-sm-6 col-12 p-lg-0 p-md-0 p-sm-2 pb-3">
