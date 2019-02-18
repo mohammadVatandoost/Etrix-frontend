@@ -77,7 +77,7 @@ class showSearchProductResult extends Component {
                 // console.log(dataCode.partSearch);
                 if(response.data !== dataCode.userNotAllowed) {
                     // console.log("not 320");
-                    if ( (response.data[0] === dataCode.partSearch || response.data[0] === dataCode.partSearchCategory)&& response.data[2] !== dataCode.partNotFound) {
+                    if ( (parseInt(response.data[0]) === dataCode.partSearch || response.data[0] === dataCode.partSearchCategory)&& response.data[2] !== dataCode.partNotFound) {
                         console.log("IdataCode.partSearch");
                         this.setState({
                             dataCode: response.data[0],
@@ -307,7 +307,7 @@ class showSearchProductResult extends Component {
     render() {
         let productsTble , paginationResult;
         let projectsOption;let filterProduct;let multiCAtegory;
-        if(this.state.dataCode === dataCode.partSearch || this.state.dataCode === dataCode.partSearchCategory) {
+        if(parseInt(this.state.dataCode) === dataCode.partSearch || this.state.dataCode === dataCode.partSearchCategory) {
             productsTble = <ProductTable category={this.state.category.name} onOpenModal={this.onOpenModal} sort={this.sort} searchKey={this.state.searchKey} tableHeaderS={this.state.tableHeaderS} dataParts={this.state.dataParts} />;
             paginationResult = <Pagination/>;
             if(this.state.projects.length > 0) {

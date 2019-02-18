@@ -131,7 +131,7 @@ class RouteAPI extends Component {
                         <Route path="/Logout" component={RequireAuth(this.Logout,null)}/>
                         <Route path="/googleLogin/:token" component={GoogleLogin}/>
                         <Route path="/google/:token" component={GoogleRegPass}/>
-                        <Route path="/Product/:name" component={Product}/>
+                        <Route path="/Product/:keyword" component={Product}/>
                         <Route path="/لیست-محصولات" component={ProductListAccordin}/>
                         <Route path="/search/:category/:keyword/:filter" component={showSearchProductResult}/>
                         <Route path="/search/:category/:keyword" component={showSearchProductResult}/>

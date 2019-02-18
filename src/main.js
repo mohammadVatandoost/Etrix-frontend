@@ -10,6 +10,7 @@ import VideoContent from './components/Content/VideoContent/VideoContent';
 import { Link } from 'react-router-dom';
 import URLs from './URLs';
 import ProductBriefInfoContainer from './components/showSearchProductResult/ProductBriefInfoContainer/ProductBriefInfoContainer';
+import dataCode from './dataCode';
 
 class App extends Component {
     state = {
@@ -40,7 +41,9 @@ class App extends Component {
             .then((res) => {
                 console.log('res get last products');
                 console.log(res);
-                this.setState({lastProducts: res.data[2]});
+                if(parseInt(res.data[0]) === dataCode.partSearch) {
+                  this.setState({lastProducts: res.data[2]});
+                }
             })
             .catch((error)=> {
                 console.log('error get last products');

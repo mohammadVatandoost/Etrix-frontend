@@ -23,6 +23,7 @@ const FLAVOURS = [
     { label: 'خازن', value: 'خازن' },
     { label: 'مقاومت', value: 'مقاومت' },
     { label: 'آنالوگ', value: 'آنالوگ' },
+    { label: 'سیستم های نهفته', value: 'سیستم های نهفته' },
 ];
 
 const text = 'Click on the + button below and insert "/images/canada-landscape-small.jpg" to add the landscape image. Alternativly you can use any image url on the web.';
