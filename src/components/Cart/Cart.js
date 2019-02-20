@@ -11,6 +11,8 @@ import './Cart.css';
 import CartProject from './CartProject/CartProject';
 import Modal from 'react-responsive-modal';
 import styles from './custom-styling.css';
+import AuxWrapper from "../AuxWrapper/AuxWrapper";
+import CardWrapper from '../CardWrapper/CardWrapper';
 
 class Cart extends Component {
 
@@ -117,6 +119,7 @@ class Cart extends Component {
 
     render() {
         let cartList;let buyButton = null;let sum = null;let price = 0;
+        let cartCard;
           // console.log("this.props.randomKey");console.log(this.props.randomKey);
           if(!this.props.cartLoading) {
             if(this.props.cartLength > 0){  //} else
@@ -126,13 +129,24 @@ class Cart extends Component {
                         price = price + (parseInt(list.price) * parseInt(list.num));
                     });
                  });
-               sum = <h2>جمع کل : {price} تومان</h2>;
+                sum = <AuxWrapper><h2>جمع کل : {price} تومان</h2><h2>هزینه ارسال : وابسته به آدرس شماست</h2></AuxWrapper>;
                if(this.props.token) {
-                   buyButton = <Link to="/User/SetFactorInfo" className="btn btn-success">تکمیل سفارش</Link>;
+                   buyButton = <Link to="/User/SetFactorInfo" className="btn btn-success">ادامه تکمیل سفارش</Link>;
                } else {
-                   buyButton = <Link to="/Signup/cart" className="btn btn-success">تکمیل سفارش</Link>;
+                   buyButton = <Link to="/Signup/cart" className="btn btn-success">ادامه تکمیل سفارش</Link>;
                }
-           } else { cartList = <h1 className="text-center margin-bottom-4 margin-top-4">سبد خرید شما خالی هست</h1>;}
+                cartCard =<AuxWrapper>
+                    <h1 className="text-right">سبد خرید</h1>
+                  <div className="row cart-card">
+                    <div className="col-md-8 col-sm-12">
+                        <CardWrapper>{cartList}</CardWrapper>
+                    </div>
+                    <div className="col-md-4 col-sm-12 text-center">
+                        <CardWrapper><div className="text-center">{sum}{buyButton}</div></CardWrapper>
+                    </div>
+                  </div>
+                </AuxWrapper>
+           } else { cartCard = <h1 className="text-center margin-bottom-4 margin-top-4">سبد خرید شما خالی هست</h1>;}
           }
            let projectsOption;
         if(this.state.projects.length > 0) {
@@ -141,20 +155,15 @@ class Cart extends Component {
             });
         }
         return(
-            <div className="container table-responsive text-center searchResultContainer">
+            <div className="container table-responsive text-center cart-card-Container">
                 <br/>
-                <br/>
-                {cartList}
-                {sum}
-                <br/>
-                {/*<button style={{marginLeft: "2%"}} hidden={!this.props.token} onClick={this.onOpenModal} className="btn btn-primary">آپلود فایل اکسل BOM</button>*/}
-                {buyButton}
+                {cartCard}
                 <br/><br/>
                 <ClipLoader size="200" color={'#123abc'} loading={this.props.cartLoading} />
                 <Modal open={this.state.open} onClose={this.onCloseModal} center
                        classNames={{overlay: styles.customOverlay, modal: styles.customModal,}}>
                     <div className="select-project">
-                        <h3 className="text-center"> انتخاب پروژه</h3>
+                        <h3 className="text-center">انتخاب پروژه</h3>
                         <form method="post" action={URLs.base_URL+URLs.cm_add_image}  encType="multipart/form-data">
                             <input hidden type="text" name="token" value={this.props.token} />
                             <br/>

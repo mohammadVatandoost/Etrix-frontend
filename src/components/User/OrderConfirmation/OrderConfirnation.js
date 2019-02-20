@@ -4,6 +4,7 @@ import CardWrapper from "../../CardWrapper/CardWrapper";
 import URLs from "../../../URLs";
 import axios from 'axios';
 import OrderProject from './OrderProject/OrderProject';
+import './OrderConfirnation.css';
 
 class OrderConfirnation extends Component {
     state = {
@@ -54,25 +55,38 @@ class OrderConfirnation extends Component {
         });
 
         return (
-            <div className="container" style={{direction: 'rtl'}}>
-                <CardWrapper>
-                    <h1 className="text-center">پیش فاکتور</h1>
-                    <hr/>
-                    <br/>
-                    <h3 className="text-right"> شماره فاکتور: {this.state.factorNumber}</h3>
-                    <br/>
-                    {orderList}
-                    <h3 className="text-center">هزینه کل قطعات : {this.state.priceAllProjects} تومان</h3>
-                    <h3 className="text-center">هزینه ارسال سفارش : {this.state.postPrice} تومان</h3>
-                    <br/>
-                    <h3 className="text-center">مبلغ پرداختی سفارش : {parseInt(this.state.postPrice) + parseInt(this.state.priceAllProjects)} تومان</h3>
-                    <br/>
-                    <form action={URLs.base_URL+URLs.user_cart_confirm} method="post">
-                     <input name="token" hidden value={this.props.token} />
-                     <button type="submit" className="btn btn-success" style={{display: 'block', margin: 'auto'}}>پرداخت</button>
-                    </form>
-                </CardWrapper>
-                <br/><br/><br/><br/>
+            <div className="container order-confirmation" style={{direction: 'rtl'}}>
+                <br/>
+                <h1 className="text-right">پرداخت</h1>
+               <div className="row">
+                   <div className="col-md-8 col-sm-12">
+                       <CardWrapper>
+                       {orderList}
+                       </CardWrapper>
+                   </div>
+                   <div className="col-md-4 col-sm-12">
+                       <CardWrapper>
+                        <h2 className="text-center">هزینه کل قطعات : {this.state.priceAllProjects} تومان</h2>
+                        <h2 className="text-center">هزینه ارسال سفارش : {this.state.postPrice} تومان</h2>
+                        {/*<br/>*/}
+                        <h2 className="text-center">مبلغ پرداختی سفارش : {parseInt(this.state.postPrice) + parseInt(this.state.priceAllProjects)} تومان</h2>
+                        {/*<br/>*/}
+                        <form action={URLs.base_URL+URLs.user_cart_confirm} method="post">
+                           <input name="token" hidden value={this.props.token} />
+                           <button type="submit" className="btn btn-success" style={{display: 'block', margin: 'auto'}}>پرداخت</button>
+                        </form>
+                       </CardWrapper>
+                   </div>
+               </div>
+                {/*<CardWrapper>*/}
+                    {/*/!*<h1 className="text-center">پیش فاکتور</h1>*!/*/}
+                    {/*<br/>*/}
+                    {/*<h3 className="text-right"> شماره فاکتور: {this.state.factorNumber}</h3>*/}
+                    {/*<br/>*/}
+                   {/**/}
+                {/*</CardWrapper>*/}
+                {/*<br/><br/>*/}
+                <br/><br/>
             </div>
         )
     }

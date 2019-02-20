@@ -1,0 +1,23 @@
+.order-confirmation h1 {
+    margin-right: 4%;
+}
+.order-confirmation h2{
+    font-size: 1.2rem;
+    padding: 1%;
+}
+
+@media only screen and (max-width: 768px) {
+    .order-confirmation h2 {
+        font-size: 1rem;
+        padding: 1%;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    .order-confirmation h1 {
+        font-size: 1.8rem;
+    }
+    .order-confirmation .card-wrapper {
+        margin-top: 20px !important;
+    }
+}

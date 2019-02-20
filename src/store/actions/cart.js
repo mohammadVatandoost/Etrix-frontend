@@ -1,6 +1,7 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 import URLS from '../../URLs';
+import { isArray, isObject } from '../utility';
 
 export const addToCart = (productName, number, price, projectName) => {
     console.log("addToCart action");console.log(productName);console.log(number);console.log(price);console.log(projectName);
@@ -65,17 +66,34 @@ export const getCartFromServer = (token) => {
                 // console.log("action2 getCartFromServer cartNumber");console.log(cartNumber);
                 console.log("action2 getCartFromServer response");console.log(URLS.base_URL+URLS.user_cart_read);console.log(response);
                 console.log(response.data);
-                for(let j=0;j<response.data.length;j++) {
-                    // console.log("action2 getCartFromServer for " + j );
-                    // console.log(response.data[j].length);
-                    cartNumber = cartNumber + response.data[j].length;
+                let cart = response.data;
+                if(isArray(cart)) {
+                    console.log("action2 getCartFromServer response is array");
+                    for (let j = 0; j < cart.length; j++) {
+                        // console.log("action2 getCartFromServer for " + j );
+                        // console.log(response.data[j].length);
+                        cartNumber = cartNumber + cart[j].length;
+                    }
+                } else if(isObject(cart)) {
+                    console.log("action2 getCartFromServer response is object");
+                    let tempCart = [];
+                    Object.keys(cart).map((property) => {
+                        tempCart.push(cart[property])   ;
+                    });
+                    console.log(tempCart);
+                    cart = tempCart;
+                    for (let j = 0; j < cart.length; j++) {
+                        // console.log("action2 getCartFromServer for " + j );
+                        // console.log(response.data[j].length);
+                        cartNumber = cartNumber + cart[j].length;
+                    }
                 }
                 // response.data.map((project, i) => {
                 //     cartNumber = cartNumber + project.length;
                 //     return;
                 // });
                 // console.log("action2 getCartFromServer cartNumber");console.log(response.data.length);
-                dispatch(getCartSuccess(response.data, cartNumber));
+                dispatch(getCartSuccess(cart, cartNumber));
             })
             .catch(err => {
                 // console.log("getCartFromServer err");console.log(err);

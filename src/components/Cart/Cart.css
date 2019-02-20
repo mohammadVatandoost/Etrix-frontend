@@ -1,9 +1,49 @@
-
+.cart-card-Container h1 {
+    margin-right: 4%;
+}
+.cart-card h2 {
+    padding: 1%;
+    font-size: 1.2rem;
+}
 .cart-responsive-font {
     font-size: 150%;
 }
+
 @media (max-width: 576px) {
     .cart-responsive-font {
         font-size: 75%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .cart-card-Container h3 {
+        font-size: 125%;
+    }
+    .cart-card-Container th {
+        padding: 0.4rem;
+    }
+    .cart-card-Container td {
+        font-size: 0.8rem;
+        /*word-break:break-all;*/
+    }
+    .cart-card h2 {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    .carousel-item img {
+        height: 200px;
+    }
+    .mainPageSection h2 {
+        font-size: 1.8rem;
+    }
+    .carousel-text span {
+        font-size: 1.3rem !important;
+    }
+    .cart-card-Container .card-wrapper {
+        margin-top: 20px !important;
+    }
+    .cart-card-Container h1 {
+        font-size: 2rem;
     }
 }

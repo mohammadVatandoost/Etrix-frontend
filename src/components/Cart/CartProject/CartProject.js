@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import * as actions from '../../../store/actions/index';
 import { connect } from 'react-redux';
 import CartProductPrice from "../CartProductPrice/CartProductPrice";
+import './CartProject.css';
+
 class CartProject extends Component {
 
     state = {
@@ -30,14 +32,14 @@ class CartProject extends Component {
         });
         let projectName ;
         if(this.props.project.length > 0) {
-            projectName = <h3>{this.props.project[0].project}</h3>;
+            projectName = <h3 className="text-center">{this.props.project[0].project}</h3>;
         }
         return (
-            <div>
+            <div className="cart-project">
                 {projectName}
                 <table className="table table-striped">
                     <thead>
-                    <th>حذف از سبد خرید</th><th>نام محصول</th><th>تعداد</th><th>قیمت واحد</th><th>قیمت مجموع</th>
+                    <th>حذف</th><th>نام</th><th>تعداد</th><th>قیمت واحد</th><th>قیمت مجموع</th>
                     </thead>
                     <tbody>
                     {entry}

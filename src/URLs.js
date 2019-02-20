@@ -50,7 +50,7 @@ export default {
     get_products_form_two_category: '/categoryMenu', // localhost/api/category-menu?category=Clock_Timing&num=1
 }
 
-//
+
 // export default {
 //     base_URL: 'http://localhost:80/api',
 //     images_URL: 'http://localhost/files/partImages/',

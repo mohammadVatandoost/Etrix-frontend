@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProductPrice from '../ProductPrice/ProductPrice';
+import './OrderProject.css';
 
 class OrderProject extends Component {
 
@@ -24,7 +25,7 @@ class OrderProject extends Component {
             return (<ProductPrice keyword={list.keyword} num={list.num} price={list.price} />);
         });
         return (
-            <div>
+            <div className="OrderProject">
                 <h3>{this.props.project[0].project} </h3>
                 <table className="table table-striped">
                     <thead>

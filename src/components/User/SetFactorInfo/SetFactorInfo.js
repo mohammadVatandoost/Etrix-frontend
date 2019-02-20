@@ -6,6 +6,7 @@ import axios from 'axios';
 import InlineError from '../../messages/InlineError';
 import { ClipLoader } from 'react-spinners';
 import { Redirect } from 'react-router-dom';
+import './SetFactorInfo.css';
 
 class SetFactorInfo extends Component {
     state = {
@@ -124,52 +125,103 @@ class SetFactorInfo extends Component {
             return <Redirect to="/User/OrderConfirnation" />;
         }
         return (
-            <div className="container" style={{direction: 'rtl'}}>
+            <div className="container setFactor-info" style={{direction: 'rtl'}}>
                 {/*<SterProcess/>*/}
-                <CardWrapper>
-                    <h1 className="text-center">وارد کردن اطلاعات خریدار</h1>
-                    {/*<form method="post" action={URLs.base_URL+URLs.user_cart_confirm}>*/}
-                        <h2>شماره فاکتور : {this.state.number} </h2>
-                        <input name="token" value={this.props.token} hidden />
-                        <div className="row">
-                            <div className="col-lg-4 col-md-5 col-sm-10 margin-1">
-                                <select className="form-control" value={this.state.chosenProvince} onChange={this.selectChange}>
-                                    <option value={null}>لطفا استان خود را انتخاب کنید</option>
-                                    {province}
-                                </select>
+                <br/>
+                <h1 className="text-right">اطلاعات گیرنده</h1>
+                <div className="row">
+                    <div className="col-md-8 col-sm-12">
+                        <CardWrapper>
+                            {/*<h2>شماره فاکتور : {this.state.number} </h2>*/}
+                            <input name="token" value={this.props.token} hidden />
+                            <div className="row">
+                                <div className="col-lg-4 col-md-5 col-sm-10 margin-1">
+                                    <select className="form-control" value={this.state.chosenProvince} onChange={this.selectChange}>
+                                        <option value={null}>لطفا استان خود را انتخاب کنید</option>
+                                        {province}
+                                    </select>
+                                </div>
+                                <div className="col-lg-4 col-md-5 col-sm-10 margin-1">
+                                    <select className="form-control" value={this.state.chosenCity} onChange={this.selectChange2}>
+                                        <option value={null}>لطفا شهر خود را انتخاب کنید</option>
+                                        {cities}
+                                    </select>
+                                </div>
                             </div>
-                            <div className="col-lg-4 col-md-5 col-sm-10 margin-1">
-                                <select className="form-control" value={this.state.chosenCity} onChange={this.selectChange2}>
-                                    <option value={null}>لطفا شهر خود را انتخاب کنید</option>
-                                    {cities}
-                                </select>
+                            {errors.chosenProvince && <InlineError text={errors.chosenProvince} />}
+                            <br/>
+                            {errors.chosenCity && <InlineError text={errors.chosenCity} />}
+                            <div className="form-group">
+                                <label>آدرس</label>
+                                <input name="address" value={data.address} onChange={this.onChange} type="text" className="form-control"/>
+                                {errors.address && <InlineError text={errors.address} />}
                             </div>
-                        </div>
-                        {errors.chosenProvince && <InlineError text={errors.chosenProvince} />}
-                        <br/>
-                        {errors.chosenCity && <InlineError text={errors.chosenCity} />}
-                        <div className="form-group">
-                            <label>آدرس</label>
-                            <input name="address" value={data.address} onChange={this.onChange} type="text" className="form-control"/>
-                            {errors.address && <InlineError text={errors.address} />}
-                        </div>
-                        <div className="form-group">
-                            <label>کد پستی</label>
-                            <input name="codePost" value={data.codePost} onChange={this.onChange} type="text" className="form-control"/>
-                            {errors.codePost && <InlineError text={errors.codePost} />}
-                        </div>
-                        <div className="form-group">
-                            <label>شماره تلفن</label>
-                            <input name="phone" value={data.phone} onChange={this.onChange} type="text" className="form-control"/>
-                            {errors.phone && <InlineError text={errors.phone} />}
-                        </div>
-                        {/*<div className="form-group">*/}
-                            {/*<h3>مبلغ پرداختی سفارش : {this.state.price} تومان</h3>*/}
+                            <div className="form-group">
+                                <label>کد پستی</label>
+                                <input name="codePost" value={data.codePost} onChange={this.onChange} type="text" className="form-control"/>
+                                {errors.codePost && <InlineError text={errors.codePost} />}
+                            </div>
+                            <div className="form-group">
+                                <label>شماره تلفن</label>
+                                <input name="phone" value={data.phone} onChange={this.onChange} type="text" className="form-control"/>
+                                {errors.phone && <InlineError text={errors.phone} />}
+                            </div>
+                        </CardWrapper>
+                    </div>
+                    <div className="col-md-4 col-sm-12 text-center">
+                        <CardWrapper>
+                            <div className=" text-center">
+                                <h2>جمع کل : {this.state.price} تومان</h2>
+                                <h2>هزینه ارسال : 10 هزار تومان</h2>
+                                <button  hidden={this.state.loading} onClick={this.sendData} className="btn btn-success">ادامه تکمیل سفارش</button>
+                                <ClipLoader loaderStyle={{size: '200'}} color={'#123abc'} loading={this.state.loading} />
+                             </div>
+                        </CardWrapper>
+                    </div>
+                </div>
+                {/*<CardWrapper>*/}
+                    {/*/!*<form method="post" action={URLs.base_URL+URLs.user_cart_confirm}>*!/*/}
+                        {/*<h2>شماره فاکتور : {this.state.number} </h2>*/}
+                        {/*<input name="token" value={this.props.token} hidden />*/}
+                        {/*<div className="row">*/}
+                            {/*<div className="col-lg-4 col-md-5 col-sm-10 margin-1">*/}
+                                {/*<select className="form-control" value={this.state.chosenProvince} onChange={this.selectChange}>*/}
+                                    {/*<option value={null}>لطفا استان خود را انتخاب کنید</option>*/}
+                                    {/*{province}*/}
+                                {/*</select>*/}
+                            {/*</div>*/}
+                            {/*<div className="col-lg-4 col-md-5 col-sm-10 margin-1">*/}
+                                {/*<select className="form-control" value={this.state.chosenCity} onChange={this.selectChange2}>*/}
+                                    {/*<option value={null}>لطفا شهر خود را انتخاب کنید</option>*/}
+                                    {/*{cities}*/}
+                                {/*</select>*/}
+                            {/*</div>*/}
                         {/*</div>*/}
-                        <button  hidden={this.state.loading} onClick={this.sendData} className="btn btn-primary">ثبت</button>
-                        <ClipLoader loaderStyle={{size: '200'}} color={'#123abc'} loading={this.state.loading} />
-                    {/*</form>*/}
-                </CardWrapper>
+                        {/*{errors.chosenProvince && <InlineError text={errors.chosenProvince} />}*/}
+                        {/*<br/>*/}
+                        {/*{errors.chosenCity && <InlineError text={errors.chosenCity} />}*/}
+                        {/*<div className="form-group">*/}
+                            {/*<label>آدرس</label>*/}
+                            {/*<input name="address" value={data.address} onChange={this.onChange} type="text" className="form-control"/>*/}
+                            {/*{errors.address && <InlineError text={errors.address} />}*/}
+                        {/*</div>*/}
+                        {/*<div className="form-group">*/}
+                            {/*<label>کد پستی</label>*/}
+                            {/*<input name="codePost" value={data.codePost} onChange={this.onChange} type="text" className="form-control"/>*/}
+                            {/*{errors.codePost && <InlineError text={errors.codePost} />}*/}
+                        {/*</div>*/}
+                        {/*<div className="form-group">*/}
+                            {/*<label>شماره تلفن</label>*/}
+                            {/*<input name="phone" value={data.phone} onChange={this.onChange} type="text" className="form-control"/>*/}
+                            {/*{errors.phone && <InlineError text={errors.phone} />}*/}
+                        {/*</div>*/}
+                        {/*/!*<div className="form-group">*!/*/}
+                            {/*/!*<h3>مبلغ پرداختی سفارش : {this.state.price} تومان</h3>*!/*/}
+                        {/*/!*</div>*!/*/}
+                        {/*<button  hidden={this.state.loading} onClick={this.sendData} className="btn btn-primary">ثبت</button>*/}
+                        {/*<ClipLoader loaderStyle={{size: '200'}} color={'#123abc'} loading={this.state.loading} />*/}
+                    {/*/!*</form>*!/*/}
+                {/*</CardWrapper>*/}
                 <br/><br/><br/><br/>
             </div>
         )
