@@ -5,6 +5,7 @@ import URLs from "../../../URLs";
 import axios from 'axios';
 import OrderProject from './OrderProject/OrderProject';
 import './OrderConfirnation.css';
+import { isObject } from '../../../store/utility';
 
 class OrderConfirnation extends Component {
     state = {
@@ -19,10 +20,18 @@ class OrderConfirnation extends Component {
         axios.post(URLs.base_URL+URLs.user_get_pre_factor, {token: this.props.token})
             .then(response => {
                 console.log("OrderConfirnation response");console.log(response);
-                if(response.data.cart.length>0) {
+                let cart = response.data.cart;
+                if(isObject(cart)) {
+                    let tempCart = [];
+                    Object.keys(cart).map((property) => {
+                        tempCart.push(cart[property])   ;
+                    });
+                    cart = tempCart;
+                }
+                if (cart.length > 0) {
                     this.setState({
                         address: response.data.address,
-                        projects: response.data.cart,
+                        projects: cart,
                         city: response.data.city,
                         factorNumber: response.data.number,
                         province: response.data.province,
