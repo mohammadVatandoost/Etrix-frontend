@@ -52,8 +52,8 @@ class Navigation extends Component {
         } else {
             authlink = (
                <AuxWrapper>
-                <li className="list-group-item text-right"><Link to="ورود/">ورود</Link></li>
-                <li className="list-group-item text-right"><Link to="/ثبت-نام">ثبت نام</Link></li>
+                <li className="list-group-item text-right"><Link to="login/">ورود</Link></li>
+                <li className="list-group-item text-right"><Link to="/register">ثبت نام</Link></li>
                </AuxWrapper>
             );
         }
@@ -105,10 +105,10 @@ class Navigation extends Component {
                     {/*<li className="list-group-item text-right"><a href="/">آموزش</a></li>*/}
                     {/*<li className="list-group-item text-right"><a href="/">مجله</a></li>*/}
                     <li className="list-group-item text-right"><Link className="desktop-item-nav" to="/">خانه</Link></li>
-                    <li className="list-group-item text-right"><Link className="desktop-item-nav" to="/لیست-محصولات">محصولات</Link></li>
+                    <li className="list-group-item text-right"><Link className="desktop-item-nav" to="/products">محصولات</Link></li>
                     <li className="list-group-item text-right"><Link className="desktop-item-nav" to="/online-conversion-calculator">محاسبه تبدیل</Link></li>
-                    <li className="list-group-item text-right"><Link className="desktop-item-nav" to="/مجله">مجله</Link></li>
-                    <li className="list-group-item text-right"><Link className="desktop-item-nav" to="/ویدیوها">ویدیوها</Link></li>
+                    <li className="list-group-item text-right"><Link className="desktop-item-nav" to="/magazine">مجله</Link></li>
+                    <li className="list-group-item text-right"><Link className="desktop-item-nav" to="/videos">ویدیوها</Link></li>
                     {/*<li className="list-group-item text-right"><a href="/">فوت پرینت</a></li>*/}
                     {authlink}
                 </ul>

@@ -58,44 +58,396 @@ class FilterProducts2 extends Component {
             if(i<4) {
             let options =[];
             dataFiltersTemp[property].map((item) => {options.push({label: item,value: item}); return null; } );
-            return (
-                <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
-                    <p style={{textAlign: 'center',fontSize: '125%'}}>{property.split('_').join(' ')}</p>
-                    <Select
-                        closeOnSelect
-                        disabled={false}
-                        isMulti
-                        onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
-                        options={options}
-                        placeholder=""
-                        removeSelected
-                        simpleValue
-                        value={this.state.filters[property]}
-                    />
-                </div>
-            );
+                if(property === "unit_price")  {
+
+                } else if(property === "ld_image") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>عکس</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "datasheet") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>دیتاشیت</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "manufacturer_part_number") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>نام قطعه</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "quantity_available") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>تعداد موجود</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "manufacturer") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>سازنده</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "description") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>توضیح</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "packaging") {
+
+                } else if(property === "series") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>سری قطعه</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "core_processor") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>هسته پردازنده</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "speed") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>سرعت</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "operating_temperature") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>دمای کاری</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>{property.split('_').join(' ')}</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                }
             }
         });
         dataFilters2 = Object.keys(dataFiltersTemp).map((property,i) => {
             if(i>3) {
                 let options =[];
                 dataFiltersTemp[property].map((item) => {options.push({label: item,value: item}); return null; } );
-                return (
-                    <div  hidden={!this.state.showEtraFilter} className="col-lg-3 col-md-4 col-sm-12" key={i}>
-                        <p style={{textAlign: 'center',fontSize: '125%'}}>{property.split('_').join(' ')}</p>
-                        <Select
-                            closeOnSelect
-                            disabled={false}
-                            isMulti
-                            onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
-                            options={options}
-                            placeholder=""
-                            removeSelected
-                            simpleValue
-                            value={this.state.filters[property]}
-                        />
-                    </div>
-                );
+                if(property === "unit_price")  {
+
+                } else if(property === "ld_image") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>عکس</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "datasheet") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>دیتاشیت</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "manufacturer_part_number") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>نام قطعه</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "quantity_available") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>تعداد موجود</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "manufacturer") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>سازنده</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "description") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>توضیح</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "packaging") {
+
+                } else if(property === "series") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>سری قطعه</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "core_processor") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>هسته پردازنده</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "speed") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>سرعت</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else if(property === "operating_temperature") {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>دمای کاری</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                } else {
+                    return (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
+                            <p style={{textAlign: 'center',fontSize: '125%'}}>{property.split('_').join(' ')}</p>
+                            <Select
+                                closeOnSelect
+                                disabled={false}
+                                isMulti
+                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
+                                options={options}
+                                placeholder=""
+                                removeSelected
+                                simpleValue
+                                value={this.state.filters[property]}
+                            />
+                        </div>
+                    );
+                }
             }
         });
         if(Object.keys(dataFiltersTemp).length > 1) {

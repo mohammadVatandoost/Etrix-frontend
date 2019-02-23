@@ -69,7 +69,7 @@ class ResponsiveHeader extends Component {
                         <h1 className="res-header pt-2"><Link to="/" className="text-light">ETRIX</Link></h1>
                     </div>
                     <div className="shopping-cart-div p-1 mr-5">
-                        <Link to="/سبد-خرید" style={{fontSize: '22px'}}
+                        <Link to="/basket" style={{fontSize: '22px'}}
                               className="border border-1 pl-1 pr-1 pt-1 pb-1 rounded shopping-cart-border-color">
                             <span className="badge" style={{color: 'white'}}>{this.props.cartLength}</span>
                             <img src={ShoppingCart} alt="سبد خرید" className="img-fluid" width="25"/>

@@ -18,7 +18,8 @@
 }
 @media screen and (max-width: 600px) {
     .ContentSmallSize {
-        flex: 0 1 calc(100% - 1em);
+        flex: 0 1 calc(100% - 1.5em);
+        margin-bottom: 4%;
     }
 }
 @media screen and (max-width: 414px) {

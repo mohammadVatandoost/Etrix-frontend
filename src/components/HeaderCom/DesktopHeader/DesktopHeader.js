@@ -72,7 +72,7 @@ class DesktopHeader extends Component {
             authLinks = (
                 <ul className="breadcrumb">
                     <li className="mr-lg-4 mr-md-3">
-                        <Link to="/سبد-خرید" className="border border-1 rounded pl-2 pr-2 pt-1 pb-1 shopping-cart-border-color">
+                        <Link to="/basket" className="border border-1 rounded pl-2 pr-2 pt-1 pb-1 shopping-cart-border-color">
                             <span className="badge">{this.props.cartLength}</span>
                             <img src={ShoppingCart} alt="سبد خرید" className="img-fluid" width="29"/>
                         </Link>
@@ -104,13 +104,13 @@ class DesktopHeader extends Component {
             authLinks = (
                 <ul className="breadcrumb">
                     <li className="mr-lg-4 mr-md-3">
-                        <Link to="/سبد-خرید" className="border border-1 rounded pl-2 pr-2 pt-2 pb-2 shopping-cart-border-color">
+                        <Link to="/basket" className="border border-1 rounded pl-2 pr-2 pt-2 pb-2 shopping-cart-border-color">
                             <span className="badge">{this.props.cartLength}</span><span> سبد خرید </span>
                             <img src={ShoppingCart} alt="سبد خرید" className="img-fluid" width="29"/>
                         </Link>
                     </li>
-                    <li className="breadcrumb-item" style={{color: 'white'}}><Link to="/ورود">ورود</Link></li>
-                    <li className="breadcrumb-item"><Link to="/ثبت-نام">ثبت نام</Link></li>
+                    <li className="breadcrumb-item" style={{color: 'white'}}><Link to="/login">ورود</Link></li>
+                    <li className="breadcrumb-item"><Link to="/register">ثبت نام</Link></li>
                 </ul>
             );
         }

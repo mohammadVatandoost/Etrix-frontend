@@ -5,7 +5,7 @@ import {Helmet} from "react-helmet";
 
 class ContentSmallSize extends Component {
     render() {
-        const link = "/مجله/"+this.props.id+"/"+this.props.title.replace(" ","-");
+        const link = "/magazine/"+this.props.id+"/"+this.props.title.replace(" ","-");
         return (
           <article className="ContentSmallSize">
               <Link to={link}>

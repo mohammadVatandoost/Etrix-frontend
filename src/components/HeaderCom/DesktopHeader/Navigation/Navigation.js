@@ -71,7 +71,7 @@ class Navigation extends Component {
                     <Link to="/" className="navbar-list-item-link">خانه</Link>
                 </li>
                 <li className="navbar-list-item custom-dropdown" id="products">
-                    <Link to="/لیست-محصولات" className="navbar-list-item-link custom-dropdown-toggler">
+                    <Link to="/products" className="navbar-list-item-link custom-dropdown-toggler">
                         محصولات
                     </Link>
                     {/*<ul className="custom-dropdown-menu product-list-nav">*/}
@@ -92,10 +92,10 @@ class Navigation extends Component {
                     <Link to="/online-conversion-calculator" className="navbar-list-item-link">محاسبه تبدیل</Link>
                 </li>
                 <li className="navbar-list-item">
-                    <Link to="/مجله" className="navbar-list-item-link">مجله</Link>
+                    <Link to="/magazine" className="navbar-list-item-link">مجله</Link>
                 </li>
                 <li className="navbar-list-item">
-                    <Link to="/ویدیوها" className="navbar-list-item-link">ویدیوها</Link>
+                    <Link to="/videos" className="navbar-list-item-link">ویدیوها</Link>
                 </li>
                 {/*<li className="navbar-list-item">*/}
                 {/*<a className="navbar-list-item-link">*/}

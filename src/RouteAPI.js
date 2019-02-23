@@ -132,18 +132,18 @@ class RouteAPI extends Component {
                         <Route path="/googleLogin/:token" component={GoogleLogin}/>
                         <Route path="/google/:token" component={GoogleRegPass}/>
                         <Route path="/Product/:keyword" component={Product}/>
-                        <Route path="/لیست-محصولات" component={ProductListAccordin}/>
+                        <Route path="/products" component={ProductListAccordin}/>
                         <Route path="/search/:category/:keyword/:filter" component={showSearchProductResult}/>
                         <Route path="/search/:category/:keyword" component={showSearchProductResult}/>
                         <Route path="/search/:category" component={showSearchProductResult}/>
-                        <Route path="/سبد-خرید" component={Cart}/>
+                        <Route path="/basket" component={Cart}/>
                         <Route path="/online-conversion-calculator" component={Conversions}/>
                         <Route path="/Signup/:message" component={Signup}/>
-                        <Route path="/ثبت-نام" component={Signup}/>
-                        <Route path="/ورود" component={this.Login}/>
-                        <Route path="/مجله/:id/:title" component={this.ContentDetail}/>
-                        <Route path="/ویدیوها" component={VideoContentContainer}/>
-                        <Route path="/مجله" component={ContainerSmallSize}/>
+                        <Route path="/register" component={Signup}/>
+                        <Route path="/login" component={this.Login}/>
+                        <Route path="/magazine/:id/:title" component={this.ContentDetail}/>
+                        <Route path="/videos" component={VideoContentContainer}/>
+                        <Route path="/magazine" component={ContainerSmallSize}/>
                         <Route path="/ContentManagerPanel" component={RequireAuth(this.ContentManagerPanel,'cm')}/>
                         <Route path="/AdminLogIn" component={this.AdminLogIn}/>
                         <Route path="/AdminControlPanel" component={RequireAuth(this.AdminControlPanel,'admin')}/>
