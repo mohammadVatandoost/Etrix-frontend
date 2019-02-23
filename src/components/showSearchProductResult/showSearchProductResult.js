@@ -328,7 +328,7 @@ class showSearchProductResult extends Component {
         return(
             <div className="container text-center searchResultContainer">
                <div>
-                <ClipLoader loaderStyle={{size: '200'}} color={'#123abc'} loading={this.state.loading} />
+                <ClipLoader  sizeUnit={"px"} size={300} color={'#123abc'} loading={this.state.loading} />
                </div>
                 {multiCAtegory}
                 {filterProduct}

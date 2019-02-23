@@ -52,82 +52,23 @@ class FilterProducts2 extends Component {
         let dataFilters, dataFilters2, showMoreFilter ;
         let filterButton;
         let filteredOptions;
+        let filterOptions = 4
         // data Filters
         let dataFiltersTemp = this.props.dataFilters;
         dataFilters = Object.keys(dataFiltersTemp).map((property,i) => {
-            if(i<4) {
+            if(i<filterOptions) {
             let options =[];
             dataFiltersTemp[property].map((item) => {options.push({label: item,value: item}); return null; } );
                 if(property === "unit_price")  {
-
+                    filterOptions = filterOptions + 1 ;
                 } else if(property === "ld_image") {
-                    return (
-                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
-                            <p style={{textAlign: 'center',fontSize: '125%'}}>عکس</p>
-                            <Select
-                                closeOnSelect
-                                disabled={false}
-                                isMulti
-                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
-                                options={options}
-                                placeholder=""
-                                removeSelected
-                                simpleValue
-                                value={this.state.filters[property]}
-                            />
-                        </div>
-                    );
+                    filterOptions = filterOptions + 1 ;
                 } else if(property === "datasheet") {
-                    return (
-                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
-                            <p style={{textAlign: 'center',fontSize: '125%'}}>دیتاشیت</p>
-                            <Select
-                                closeOnSelect
-                                disabled={false}
-                                isMulti
-                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
-                                options={options}
-                                placeholder=""
-                                removeSelected
-                                simpleValue
-                                value={this.state.filters[property]}
-                            />
-                        </div>
-                    );
+                    filterOptions = filterOptions + 1 ;
                 } else if(property === "manufacturer_part_number") {
-                    return (
-                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
-                            <p style={{textAlign: 'center',fontSize: '125%'}}>نام قطعه</p>
-                            <Select
-                                closeOnSelect
-                                disabled={false}
-                                isMulti
-                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
-                                options={options}
-                                placeholder=""
-                                removeSelected
-                                simpleValue
-                                value={this.state.filters[property]}
-                            />
-                        </div>
-                    );
+                    filterOptions = filterOptions + 1 ;
                 } else if(property === "quantity_available") {
-                    return (
-                        <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
-                            <p style={{textAlign: 'center',fontSize: '125%'}}>تعداد موجود</p>
-                            <Select
-                                closeOnSelect
-                                disabled={false}
-                                isMulti
-                                onChange={(selectedOption) => {let temp = this.state.filters;temp[property] = selectedOption;this.setState({filters: temp});console.log(temp);}}
-                                options={options}
-                                placeholder=""
-                                removeSelected
-                                simpleValue
-                                value={this.state.filters[property]}
-                            />
-                        </div>
-                    );
+                    filterOptions = filterOptions + 1 ;
                 } else if(property === "manufacturer") {
                     return (
                         <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
@@ -163,7 +104,7 @@ class FilterProducts2 extends Component {
                         </div>
                     );
                 } else if(property === "packaging") {
-
+                    filterOptions = filterOptions + 1 ;
                 } else if(property === "series") {
                     return (
                         <div className="col-lg-3 col-md-4 col-sm-12" key={i}>
@@ -252,8 +193,9 @@ class FilterProducts2 extends Component {
                 }
             }
         });
-        dataFilters2 = Object.keys(dataFiltersTemp).map((property,i) => {
-            if(i>3) {
+        if(this.state.showEtraFilter) {
+          dataFilters2 = Object.keys(dataFiltersTemp).map((property,i) => {
+            if(i> (filterOptions - 1)) {
                 let options =[];
                 dataFiltersTemp[property].map((item) => {options.push({label: item,value: item}); return null; } );
                 if(property === "unit_price")  {
@@ -450,6 +392,7 @@ class FilterProducts2 extends Component {
                 }
             }
         });
+        }
         if(Object.keys(dataFiltersTemp).length > 1) {
             filterButton = <button onClick={this.filterComponent} hidden={this.props.loading} className="btn btn-primary buttonFilter">فیلتر</button>
             showMoreFilter = <AuxWrapper><button onClick={() => {this.setState({showEtraFilter: !this.state.showEtraFilter})}} hidden={this.state.showEtraFilter} className="btn margin-bottom-2 margin-top-2"><img width="40" height="40" src={ArrowImageDown} /></button>

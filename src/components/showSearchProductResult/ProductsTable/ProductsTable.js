@@ -71,11 +71,11 @@ class ProductsTable extends Component {
             if(temp === null) {
                 if( !((property === "packaging") || (property === "hd_image") || (property === "slug") || (property === "name") || (property === "type") || (property === "original") || (property === "part_status") || (property === "persian_name"))) {
                    if(property === "manufacturer") {
-                       return (   <th key={property + '2'} style={{paddingBottom: '52px'}}><p>سازنده</p></th> );
+                       return (   <th key={property + '2'}><p>سازنده</p></th> );
                    } else if(property === "minimum_quantity") {
-                       return (   <th key={property + '2'} style={{paddingBottom: '52px'}}><p>حداقل تعداد قابل سفارش</p></th> );
+                       return (   <th key={property + '2'} style={{ minWidth: '110px'}}><p>حداقل تعداد قابل سفارش</p></th> );
                    } else {
-                       return (   <th key={property + '2'} style={{paddingBottom: '52px'}}><p>{property.split("_").join(" ")}</p></th> );
+                       return (   <th key={property + '2'}><p>{property.split("_").join(" ")}</p></th> );
                    }
                 }
             } else {  return temp; }
