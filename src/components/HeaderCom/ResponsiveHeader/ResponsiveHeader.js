@@ -62,9 +62,9 @@ class ResponsiveHeader extends Component {
     }
     render() {
         return (
-        <div className="navbar-sticky-container d-block d-lg-none col-12 p-0">
+        <div className="navbar-sticky-container background-black d-lg-none col-12 p-0">
             <div className="fixed-navbar-top">
-                <div className="d-flex justify-content-between bg-dark  pl-2 pr-2 pt-1 pb-1">
+                <div className="d-flex justify-content-between background-black  pl-2 pr-2 pt-1 pb-1">
                     <div className="flex-grow-1">
                         <h1 className="res-header pt-2"><Link to="/" className="text-light">ETRIX</Link></h1>
                     </div>

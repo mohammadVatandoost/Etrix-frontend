@@ -218,7 +218,7 @@ class Search extends Component {
             inputSuggestion = <div className="autocomplete-items-responsive">{arraySuggestion}</div>
         }
         return (
-            <div className="col-12 d-flex justify-content-center p-1 bg-dark search-responsive">
+            <div className="col-12 d-flex justify-content-center p-1 background-black search-responsive">
                 <form onSubmit={this.searchHandler} className="form-inline" id="responsiveSearch">
                     <div className="input-group">
                         <div className="input-group-prepend">
