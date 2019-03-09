@@ -1,25 +1,42 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import URLs from '../../URLs';
+import React, {Component} from 'react';
+import Step from './Step/Step';
 import './StepProcess.css';
-class StepProcess extends Component {
-    state = {
-    }
 
-    componentDidMount() {
-    }
+class StepProcess extends Component {
+
 
     render() {
-
+        let steps;
+        if(parseInt(this.props.number) === 1) {
+            steps = <ul className="nav process-model more-icon-preocess" role="tablist">
+                <Step active="process-model-active" text="سبد خرید" icon="fa-search"/>
+                <Step active="" text="اطلاعات ارسال"  icon="fa-search"/>
+                <Step active="" text="پرداخت"  icon="fa-search"/>
+            </ul>;
+        } else if(parseInt(this.props.number) === 2) {
+            steps = <ul className="nav process-model more-icon-preocess" role="tablist">
+                <Step active="process-model-active" text="سبد خرید" icon="fa-search"/>
+                <Step active="process-model-active" text="اطلاعات ارسال"  icon="fa-search"/>
+                <Step active="" text="پرداخت"  icon="fa-search"/>
+            </ul>;
+        } else {
+            steps = <ul className="nav process-model more-icon-preocess" role="tablist">
+                <Step active="process-model-active" text="سبد خرید" icon="fa-search"/>
+                <Step active="process-model-active" text="اطلاعات ارسال"  icon="fa-search"/>
+                <Step active="process-model-active" text="پرداخت"  icon="fa-search"/>
+            </ul>;
+        }
         return (
-            <div className="step-container">
-                <input type="checkbox" id="step-1" name="toggler" />
-                <div className="step-dot one">Ready</div>
-                <input type="checkbox" id="step-2" name="toggler" checked/>
-                <div className="step-dot two">Set</div>
-            </div>
-            )
+            <section className="design-process-section" id="process-tab" style={{direction: 'rtl'}} >
+                <div className="container">
+                    <div className="row">
+                        <div className="col-xs-12 margin-auto">
+                            {steps}
+                        </div>
+                    </div>
+                </div>
+            </section>
+          )
     }
 }
 

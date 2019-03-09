@@ -13,6 +13,7 @@ import Modal from 'react-responsive-modal';
 import styles from './custom-styling.css';
 import AuxWrapper from "../AuxWrapper/AuxWrapper";
 import CardWrapper from '../CardWrapper/CardWrapper';
+import StepProcess from '../StepProcess/StepProcess';
 
 class Cart extends Component {
 
@@ -156,6 +157,8 @@ class Cart extends Component {
         }
         return(
             <div className="container table-responsive text-center cart-card-Container">
+                <br/>
+                <StepProcess/>
                 <br/>
                 {cartCard}
                 <br/><br/>

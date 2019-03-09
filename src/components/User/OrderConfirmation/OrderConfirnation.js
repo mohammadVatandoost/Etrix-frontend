@@ -4,6 +4,7 @@ import CardWrapper from "../../CardWrapper/CardWrapper";
 import URLs from "../../../URLs";
 import axios from 'axios';
 import OrderProject from './OrderProject/OrderProject';
+import StepProcess from '../../StepProcess/StepProcess';
 import './OrderConfirnation.css';
 import { isObject } from '../../../store/utility';
 
@@ -65,6 +66,8 @@ class OrderConfirnation extends Component {
 
         return (
             <div className="container order-confirmation" style={{direction: 'rtl'}}>
+                <br/>
+                <StepProcess number="3" />
                 <br/>
                 <h1 className="text-right">پرداخت</h1>
                <div className="row">

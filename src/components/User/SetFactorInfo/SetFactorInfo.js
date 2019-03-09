@@ -7,6 +7,7 @@ import InlineError from '../../messages/InlineError';
 import { ClipLoader } from 'react-spinners';
 import { Redirect } from 'react-router-dom';
 import './SetFactorInfo.css';
+import StepProcess from '../../StepProcess/StepProcess'
 
 class SetFactorInfo extends Component {
     state = {
@@ -127,6 +128,8 @@ class SetFactorInfo extends Component {
         return (
             <div className="container setFactor-info" style={{direction: 'rtl'}}>
                 {/*<SterProcess/>*/}
+                <br/>
+                <StepProcess number="2" />
                 <br/>
                 <h1 className="text-right">اطلاعات گیرنده</h1>
                 <div className="row">
