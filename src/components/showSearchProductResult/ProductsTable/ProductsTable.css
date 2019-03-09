@@ -89,11 +89,6 @@
     width: 150%;;
     height: 30px;
     overflow-y: auto;
-<<<<<<< HEAD
-    position: fixed;
-    bottom: 5px;
-    z-index: 111111;
-=======
 
     z-index: 111111;
 }
@@ -101,7 +96,6 @@
 .fl-scroll-position-fixed {
     position: fixed;
     bottom: 5px;
->>>>>>> 1d53aa2eb5c1f1df6451fc12cf6c426684b19ca7
 }
 
 .fl-scroll div {
@@ -115,11 +109,5 @@
     margin-top: -10px;
     width: 200%;
     background-image: linear-gradient(to right, red , yellow);
-<<<<<<< HEAD
-    
-}
-=======
->>>>>>> 1d53aa2eb5c1f1df6451fc12cf6c426684b19ca7
-
 }
 
