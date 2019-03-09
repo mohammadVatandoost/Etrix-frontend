@@ -5,7 +5,7 @@
     list-style: none;
     padding: 0;
     position: relative;
-    width: 400px;
+    width: 800px;
     max-width:900px;
     margin: auto;
     display: block;
@@ -21,9 +21,9 @@
     height: 4px;
     margin: 0 auto;
     position: absolute;
-    right: 50px;
+    right: 150px;
     top: 33px;
-    width: 75%;
+    width: 65%;
     z-index: -3;
 }
 .process-model li.visited::after {
@@ -82,7 +82,7 @@
 
 }
 .process-model li p {
-    font-size: 14px;
+    font-size: 18px;
     margin-top: 11px;
 }
 .process-model.contact-us-tab li.visited a, .process-model.contact-us-tab li.visited p {
@@ -96,44 +96,109 @@
 .process-model.contact-us-tab li.visited i {
     border-color: #e5e5e5;
 }
+.active-after {
+    z-index: -2 !important;
+}
+.process-model li .active-after::after {
+    background: #57b87b none repeat scroll 0 0;
+    bottom: 0;
+    display: block;
+    content: "";
+    width:73.5%;
+    height: 4px;
+    left: 100px !important;
+    margin-top: -89px;
+    margin-left: 0%;
+    margin-right: 63%;
+    z-index: -2 !important;
+}
 
 
-@media screen and (max-width: 560px) {
+.process-model li .active-after2::after {
+    background: #57b87b none repeat scroll 0 0;
+    bottom: 0;
+    display: block;
+    content: "";
+    width:73.5%;
+    height: 4px;
+    left: 100px !important;
+    margin-top: -89px;
+    margin-left: 0%;
+    margin-right: 63%;
+    z-index: -2 !important;
+}
+
+
+@media screen and (max-width:769px){
+    .process-model {
+        width: 600px;
+    }
+
+    .process-model li .active-after::after {
+        width:66%;
+        left: 100px !important;
+        margin-top: -89px;
+        margin-left: 0%;
+        margin-right: 67%;
+    }
+    
+    
+    .process-model li .active-after2::after {
+        width:66%;
+        left: 100px !important;
+        margin-top: -89px;
+        margin-left: 0%;
+        margin-right: 67%;
+    }
+
+    .process-model li::after{
+        right: 120px;
+        top: 33px;
+        z-index: -3;
+    }
+}
+@media screen and (max-width: 576px) {
     .more-icon-preocess.process-model li span {
         font-size: 23px;
         height: 50px;
         line-height: 46px;
         width: 50px;
     }
-    .more-icon-preocess.process-model li::after {
-        top: 24px;
+
+    .process-model {
+        width: 500px;
+    }
+
+    .process-model li .active-after::after {
+        width:60%;
+        margin-right: 70%;
+    }
+    
+    .process-model li .active-after2::after {
+        width:60%;
+        margin-right: 70%;
     }
 }
 
 @media screen and (max-width:415px){
 
-    .more-icon-preocess.process-model li::after {
-        top: 34px
-    }
-
-    .process-model li::after{
-        height: 4px;
-        right: 50px;
-        top: 33px;
-        /* width: 35%; */
-        z-index: -3;
-    }
-
     .process-model {
-        padding: 0;
+        width: 380px;padding: 0;
         margin: 0 auto ;
     }
-
-    #content , #reporting {
-        display: none
+    .process-model li .active-after::after {
+        width:45%;
+        margin-right: 77%;
     }
-
-
+    .process-model li .active-after2::after {
+        width:45%;
+        margin-right: 77%;
+    }
+    
+    .process-model li::after{
+        right: 80px;
+        top: 33px;
+    }
 
 }
 
@@ -153,17 +218,22 @@
         text-align: center;
     }
 
-    .design-process-content {
-        margin: auto;
-        margin-right:7.5%;
+    .process-model {
+        width: 300px;padding: 0;
+        margin: 0 auto ;
     }
+    .process-model li .active-after::after {
+        width:32%;
+        margin-right: 84%;
+    }
+    .process-model li .active-after2::after {
+        width:32%;
+        margin-right: 84%;
+    }
+   
 }
 
 @media screen and (max-width:320px) {
-
-    .process-model li {
-        width: 25.6%;
-    }
 
     .process-model li::after{
         width: 45%;

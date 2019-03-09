@@ -66,9 +66,7 @@ class OrderConfirnation extends Component {
 
         return (
             <div className="container order-confirmation" style={{direction: 'rtl'}}>
-                <br/>
                 <StepProcess number="3" />
-                <br/>
                 <h1 className="text-right">پرداخت</h1>
                <div className="row">
                    <div className="col-md-8 col-sm-12">

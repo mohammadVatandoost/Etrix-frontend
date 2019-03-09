@@ -128,9 +128,7 @@ class SetFactorInfo extends Component {
         return (
             <div className="container setFactor-info" style={{direction: 'rtl'}}>
                 {/*<SterProcess/>*/}
-                <br/>
                 <StepProcess number="2" />
-                <br/>
                 <h1 className="text-right">اطلاعات گیرنده</h1>
                 <div className="row">
                     <div className="col-md-8 col-sm-12">

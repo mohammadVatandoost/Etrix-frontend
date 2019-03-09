@@ -157,9 +157,7 @@ class Cart extends Component {
         }
         return(
             <div className="container table-responsive text-center cart-card-Container">
-                <br/>
                 <StepProcess number="1"/>
-                <br/>
                 {cartCard}
                 <br/><br/>
                 <ClipLoader size="200" color={'#123abc'} loading={this.props.cartLoading} />
