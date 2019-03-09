@@ -11,6 +11,16 @@
     /*height: 100%;*/
     /*height: 100%;*/
     /*max-height: 700px;*/
+    /*table-layout: fixed;*/
+}
+.table-custom-design {
+    display: block;
+    width: 100%;
+}
+
+.table-custom-design thead {
+    background-color: #040404;
+    color: white;
 }
 .table-fixed thead {
     /*display: block;*/
@@ -31,6 +41,33 @@
 }
 .table-fixed th {
     /*display: block;float: right;*/
+}
+.table-sticky-header {
+    top: 0px;
+    position: fixed;
+}
+.fl-scroll {
+    width: 984px;
+    left: 20px;
+    border-bottom: solid 32px white;
+    bottom: 0;
+    height: 35px;
+    overflow: auto;
+    position: fixed;
+    font-size: 0;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.fl-scroll div {
+    font-size: 0;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    height: 1px;
+    overflow: hidden;
+    width: 2177px;
 }
 
 

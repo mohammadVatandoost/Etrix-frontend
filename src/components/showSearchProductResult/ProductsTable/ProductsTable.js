@@ -1,19 +1,48 @@
 import React, { Component } from 'react';
 import SearchedProductPrice from '../SearchedProductPrice/SearchedProductPrice';
 import URLs from "../../../URLs";
+import AuxWrapper from '../../AuxWrapper/AuxWrapper';
 import './ProductsTable.css';
 import { Link } from 'react-router-dom';
 
 class ProductsTable extends Component {
 
     state = {
+        showFixedHeader: false
     }
 
     componentDidMount() {
+        document.addEventListener('scroll', this.trackScrolling);
+    }
 
+    componentWillUnmount() {
+        document.removeEventListener('scroll', this.trackScrolling);
+    }
+
+    trackScrolling = () => {
+        const wrappedElement = document.getElementById('table-header');
+        if (this.isBottom(wrappedElement)) {
+            console.log('header bottom reached');
+            // document.removeEventListener('scroll', this.trackScrolling);
+        }
+    };
+
+    isBottom = (el) => {
+        // console.log('table header');console.log(el.getBoundingClientRect().bottom);
+        // console.log('window.innerHeight');console.log(window.innerHeight);
+        // console.log('window.scrollY');console.log(window.scrollY);
+        if(0 > el.getBoundingClientRect().bottom) {
+            this.setState({showFixedHeader: true});
+            console.log("showFixedHeader true");
+        } else {
+            this.setState({showFixedHeader: false});
+            console.log("showFixedHeader false");
+        }
+        return el.getBoundingClientRect().bottom <= window.innerHeight;
     }
 
     render() {
+        let fixedHeader;
         // dataTables
         let tableHeads = Object.keys(this.props.dataParts[0]).map((property) => {
             let temp = null;
@@ -98,14 +127,33 @@ class ProductsTable extends Component {
             return (
                 <tr key={i}>{entry}</tr>
             );
+
         });
+
+        // show fixed header table-responsive
+        if(this.state.showFixedHeader) {
+            console.log("this.state.showFixedHeader render true");
+            fixedHeader = <div className="stickyTableHeader">
+                <table className="table table-striped table-custom-design table-sticky-header">
+                    <thead>
+                    <tr>{tableHeads}</tr>
+                    </thead>
+                </table>
+            </div>;
+        }
         return (
-            <table className="table table-striped table-responsive table-fixed">
-                <thead>
-                <tr>{tableHeads}</tr>
+           <AuxWrapper>
+            <table className="table table-striped table-custom-design">
+                <thead id="table-header">
+                  <tr>{tableHeads}</tr>
                 </thead>
                 <tbody style={{direction: "ltr"}}>{dataParts}</tbody>
             </table>
+               {fixedHeader}
+            <div className="fl-scroll">
+                <div></div>
+            </div>
+           </AuxWrapper>
         )
     }
 }
