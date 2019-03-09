@@ -10,6 +10,7 @@ import 'draft-js-focus-plugin/lib/plugin.css';
 import createFocusPlugin from 'draft-js-focus-plugin';
 import createColorBlockPlugin from './colorBlockPlugin/colorBlockPlugin';
 import 'draft-js-undo-plugin/lib/plugin.css';
+import 'draft-js-anchor-plugin/lib/plugin.css';
 import HeadlinesButton from './HeadlinesButton/HeadlinesButton';
 import AddImage from './AddImage/AddImage';
 import './DraftPlugin.css';
@@ -43,10 +44,11 @@ const decorator = composeDecorators(
     focusPlugin.decorator,
 );
 const colorBlockPlugin = createColorBlockPlugin({ decorator });
-const linkPlugin = createLinkPlugin({
-    theme: linkStyles,
-    placeholder: 'http://…'
-});
+// const linkPlugin = createLinkPlugin({
+//     theme: linkStyles,
+//     placeholder: 'http://…'
+// });
+const linkPlugin = createLinkPlugin();
 const undoPlugin = createUndoPlugin();
 const { UndoButton, RedoButton } = undoPlugin;
 const toolbarPlugin = createToolbarPlugin({

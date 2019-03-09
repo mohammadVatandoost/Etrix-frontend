@@ -9,6 +9,7 @@ import {stateToHTML} from 'draft-js-export-html';
 import InlineError from '../../messages/InlineError';
 import ContainerSmallSize from '../../Content/ContainerSmallSize/ContainerSmallSize';
 import DraftPlugin from '../TextEditor/DraftPlugin/DraftPlugin';
+import ReactDraftWysiwyg from '../TextEditor/ReactDraftWysiwyg/ReactDraftWysiwyg';
 import URLs from '../../../URLs';
 import './AddContent.css';
 import { connect } from 'react-redux';
@@ -159,7 +160,8 @@ class AddContent extends Component {
                         value={data.category}
                     />
                     <br/>
-                    <DraftPlugin update={this.update} />
+                    {/*<DraftPlugin update={this.update} />*/}
+                    <ReactDraftWysiwyg update={this.update} />
                     <br/>
                     <button hidden={loading} onClick={this.sendData} type="submit" className="btn btn-primary">Send</button>
                     <ClipLoader color={'#123abc'} loading={loading} />
