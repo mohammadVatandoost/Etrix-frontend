@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 class ProductsTable extends Component {
 
     state = {
-        showFixedHeader: false
+        showFixedHeader: false, scrollDivPositinFixed: true
     }
 
     componentDidMount() {
@@ -21,9 +21,19 @@ class ProductsTable extends Component {
 
     trackScrolling = () => {
         const wrappedElement = document.getElementById('table-header');
+        const pagination = document.getElementsByClassName('pagination')[0];
+        const tableBody = document.getElementById('table-body');
+        console.log('tableBody');console.log(tableBody.getBoundingClientRect().bottom);
+        console.log('window.innerHeight');console.log(window.innerHeight);
+        console.log('window.scrollY');console.log(window.scrollY);
+        console.log('pagination');console.log(pagination.getBoundingClientRect().bottom);
         if (this.isBottom(wrappedElement)) {
-            console.log('header bottom reached');
+            // console.log('header bottom reached');
             // document.removeEventListener('scroll', this.trackScrolling);
+        }
+        if(pagination.getBoundingClientRect().bottom < window.innerHeight) {
+            console.log('scrollDivPositinFixed: false');
+            this.setState({scrollDivPositinFixed: false});
         }
     };
 
@@ -33,16 +43,17 @@ class ProductsTable extends Component {
         // console.log('window.scrollY');console.log(window.scrollY);
         if(0 > el.getBoundingClientRect().bottom) {
             this.setState({showFixedHeader: true});
-            console.log("showFixedHeader true");
+            // console.log("showFixedHeader true");
         } else {
             this.setState({showFixedHeader: false});
-            console.log("showFixedHeader false");
+            // console.log("showFixedHeader false");
         }
         return el.getBoundingClientRect().bottom <= window.innerHeight;
     }
 
     render() {
         let fixedHeader;
+        let scrollDiv;
         // dataTables
         let tableHeads = Object.keys(this.props.dataParts[0]).map((property) => {
             let temp = null;
@@ -141,18 +152,26 @@ class ProductsTable extends Component {
                 </table>
             </div>;
         }
+
+        if(this.state.scrollDivPositinFixed) {
+            scrollDiv = <div className="fl-scroll fl-scroll-position-fixed">
+                <div></div>
+            </div>
+        } else {
+            scrollDiv = <div className="fl-scroll">
+                <div></div>
+            </div>
+        }
         return (
            <AuxWrapper>
             <table className="table table-striped table-custom-design">
                 <thead id="table-header">
                   <tr>{tableHeads}</tr>
                 </thead>
-                <tbody style={{direction: "ltr"}}>{dataParts}</tbody>
+                <tbody id="table-body" style={{direction: "ltr"}}>{dataParts}</tbody>
             </table>
                {fixedHeader}
-            <div className="fl-scroll">
-                <div></div>
-            </div>
+               {scrollDiv}
            </AuxWrapper>
         )
     }

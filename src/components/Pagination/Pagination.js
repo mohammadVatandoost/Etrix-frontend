@@ -3,7 +3,7 @@ import React , {Component} from 'react';
 class Pagination extends Component {
     render() {
         return (
-            <ul className="pagination">
+            <ul className="pagination" id="searchTablePagination">
                 <li className="page-item"><a className="page-link" href="#">قبلی</a></li>
                 <li className="page-item"><a className="page-link" href="#">1</a></li>
                 <li className="page-item active"><a className="page-link" href="#">2</a></li>

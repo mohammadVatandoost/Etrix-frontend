@@ -46,6 +46,34 @@
     top: 0px;
     position: fixed;
 }
+/*.fl-scroll {*/
+    /*!*width: 984px;*!*/
+    /*!*left: 20px;*!*/
+    /*!*border-bottom: solid 32px white;*!*/
+    /*!*bottom: 0;*!*/
+    /*!*height: 35px;*!*/
+    /*!*overflow: auto;*!*/
+    /*!*position: fixed;*!*/
+    /*!*font-size: 0;*!*/
+    /*!*line-height: 0;*!*/
+    /*!*margin: 0;*!*/
+    /*!*padding: 0;*!*/
+    /*width: 900px;*/
+    /*height: 20px;*/
+    /*overflow-y: auto;*/
+/*}*/
+
+/*.fl-scroll div {*/
+    /*!*font-size: 0;*!*/
+    /*!*line-height: 0;*!*/
+    /*!*margin: 0;*!*/
+    /*!*padding: 0;*!*/
+    /*!*height: 1px;*!*/
+    /*!*overflow: hidden;*!*/
+    /*height: 20px;*/
+    /*width: 2177px;*/
+/*}*/
+
 .fl-scroll {
     /*width: 984px;*/
     /*left: 20px;*/
@@ -58,9 +86,16 @@
     /*line-height: 0;*/
     /*margin: 0;*/
     /*padding: 0;*/
-    width: 900px;
-    height: 20px;
+    width: 150%;;
+    height: 30px;
     overflow-y: auto;
+
+    z-index: 111111;
+}
+
+.fl-scroll-position-fixed {
+    position: fixed;
+    bottom: 5px;
 }
 
 .fl-scroll div {
@@ -70,8 +105,10 @@
     /*padding: 0;*/
     /*height: 1px;*/
     /*overflow: hidden;*/
-    height: 20px;
-    width: 2177px;
-}
+    height: 30px;
+    margin-top: -10px;
+    width: 200%;
+    background-image: linear-gradient(to right, red , yellow);
 
+}
 
