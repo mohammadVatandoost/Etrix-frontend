@@ -44,12 +44,13 @@ class ProductsTable extends Component {
         // console.log('pagination');console.log(pagination.getBoundingClientRect().bottom);
         // console.log("table fixed header");console.log(this.myRefTableFix.scrollLeft);
         // console.log("table fixed scroll");console.log(this.myRefScroll.scrollLeft);
-        // console.log("table fixed table");console.log(this.myRefTable.scrollLeft);
-        console.log("wrappedElement");
-        console.log('searchResultTable');console.log(searchResultTable.scrollLeft);
+        console.log("searchResultTable");console.log(this.refs.myRefTable);
+        // console.log("wrappedElement");
+        // console.log('searchResultTable');console.log(searchResultTable.scrollLeft);
         // console.log('tableHeader');console.log(tableHeader.scrollLeft);
         console.log('tableScroll');console.log(tableScroll.scrollLeft);
-        searchResultTable.scrollLeft = 100;
+        // this.refs.myRefTable.scrollLeft = 100 ;
+        // searchResultTable.scrollLeft = 100;
         // if(this.state.initialLeft !== tableScroll.scrollLeft) {
         //     this.setState({initialLeft: tableScroll.scrollLeft});
         //     searchResultTable.scrollLeft = tableScroll.scrollLeft;
