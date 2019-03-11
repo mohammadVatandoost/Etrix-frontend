@@ -7,6 +7,8 @@ import OrderProject from './OrderProject/OrderProject';
 import StepProcess from '../../StepProcess/StepProcess';
 import './OrderConfirnation.css';
 import { isObject } from '../../../store/utility';
+import { Redirect } from 'react-router-dom';
+
 
 class OrderConfirnation extends Component {
     state = {
@@ -55,6 +57,13 @@ class OrderConfirnation extends Component {
 
     }
 
+    preStep = () => {
+        
+        this.setState({loading: false, backedData: true});
+        return <Redirect to="/User/setFactorInfo" />;
+    
+    }
+
 
     render() {
         console.log("OrderConfirnation render");
@@ -63,6 +72,11 @@ class OrderConfirnation extends Component {
                 <OrderProject  key={i} project={project} />
             );
         });
+
+        if(this.state.backedData) {
+            
+            return <Redirect to="/User/setFactorInfo" />;
+        }
 
         return (
             <div className="container order-confirmation" style={{direction: 'rtl'}}>
@@ -83,6 +97,7 @@ class OrderConfirnation extends Component {
                         {/*<br/>*/}
                         <form action={URLs.base_URL+URLs.user_cart_confirm} method="post">
                            <input name="token" hidden value={this.props.token} />
+                           <button type="submit" onClick={this.preStep} className="btn btn-success pre-step" style={{display: 'block', margin: 'auto'}}>بازگشت به اطلاعات ارسال</button>
                            <button type="submit" className="btn btn-success" style={{display: 'block', margin: 'auto'}}>پرداخت</button>
                         </form>
                        </CardWrapper>

@@ -5,7 +5,20 @@
     font-size: 1.2rem;
     padding: 1%;
 }
-.setFactor-info button {
+.setFactor-info button:nth-of-type(1) {
+    font-weight: 400;
+    font-size: 1.2rem;
+    display: block;
+    margin: auto;
+    background-color: red;
+    margin-bottom: 2%;
+    border: red;
+}
+.setFactor-info button:nth-of-type(1):hover {
+    background-color: rgb(187, 3, 3)
+}
+
+.setFactor-info button:nth-of-type(2) {
     font-weight: 400;
     font-size: 1.2rem;
 }
@@ -13,6 +26,7 @@
     font-weight: 400;
     font-size: 1.2rem;
 }
+
 
 @media only screen and (max-width: 415px) {
     .setFactor-info h1 {

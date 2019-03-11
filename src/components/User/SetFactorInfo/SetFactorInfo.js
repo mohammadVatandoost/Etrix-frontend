@@ -68,6 +68,14 @@ class SetFactorInfo extends Component {
         }
     }
 
+    selectChange3 = (event) => {
+        console.log("SetFactorInfo select changes2");
+        let temp = event.target.value;
+        if(temp !== 'لطفا شهر خود را انتخاب کنید') {
+            this.setState({chosenCity: temp});
+        }
+    }
+
     sendData = () => {
         // token,phone,address,city,province,pos
         const errors = this.validate(this.state.data);
@@ -97,6 +105,15 @@ class SetFactorInfo extends Component {
         }
     }
 
+    preStep = () => {
+        
+        this.setState({loading: false, backedData: true});
+        return <Redirect to="/basket" />;
+    
+    }
+
+
+
     validate = (data) => {
         const errors = {};
         if (!data.phone) errors.phone = "شماره تلفن را وارد نکرده ابد";
@@ -122,8 +139,20 @@ class SetFactorInfo extends Component {
             <option value={item.name}>{item.name}</option>
           );
         });
+
+        let Address = this.state.cities.map((item) =>{
+            return (
+              <option value={item.name}>{item.name}</option>
+            );
+        });
+
         if (this.state.storedData) {
             return <Redirect to="/User/OrderConfirnation" />;
+        }
+
+        else if(this.state.backedData) {
+            
+                return <Redirect to="/basket" />;
         }
         return (
             <div className="container setFactor-info" style={{direction: 'rtl'}}>
@@ -136,16 +165,23 @@ class SetFactorInfo extends Component {
                             {/*<h2>شماره فاکتور : {this.state.number} </h2>*/}
                             <input name="token" value={this.props.token} hidden />
                             <div className="row">
-                                <div className="col-lg-4 col-md-5 col-sm-10 margin-1">
+                                <div className="col-lg-3.5 col-md-5 col-sm-10 margin-1">
                                     <select className="form-control" value={this.state.chosenProvince} onChange={this.selectChange}>
                                         <option value={null}>لطفا استان خود را انتخاب کنید</option>
                                         {province}
                                     </select>
                                 </div>
-                                <div className="col-lg-4 col-md-5 col-sm-10 margin-1">
+                                <div className="col-lg-3.5 col-md-5 col-sm-10 margin-1">
                                     <select className="form-control" value={this.state.chosenCity} onChange={this.selectChange2}>
                                         <option value={null}>لطفا شهر خود را انتخاب کنید</option>
                                         {cities}
+                                    </select>
+                                </div>
+
+                                <div className="col-lg-3.5 col-md-5 col-sm-10 margin-1">
+                                    <select className="form-control" value={this.state.chosenAddress} onChange={this.selectChange3}>
+                                        <option value={null}>لطفا آدرس خود را انتخاب کنید</option>
+                                        {Address}
                                     </select>
                                 </div>
                             </div>
@@ -153,7 +189,7 @@ class SetFactorInfo extends Component {
                             <br/>
                             {errors.chosenCity && <InlineError text={errors.chosenCity} />}
                             <div className="form-group">
-                                <label>آدرس</label>
+                                <label>آدرس جدید</label>
                                 <input name="address" value={data.address} onChange={this.onChange} type="text" className="form-control"/>
                                 {errors.address && <InlineError text={errors.address} />}
                             </div>
@@ -174,6 +210,7 @@ class SetFactorInfo extends Component {
                             <div className=" text-center">
                                 <h2>جمع کل : {this.state.price} تومان</h2>
                                 <h2>هزینه ارسال : 10 هزار تومان</h2>
+                                <button  hidden={this.state.loading} onClick={this.preStep} className="btn btn-success">بازگشت به سبد خرید</button>
                                 <button  hidden={this.state.loading} onClick={this.sendData} className="btn btn-success">ادامه تکمیل سفارش</button>
                                 <ClipLoader loaderStyle={{size: '200'}} color={'#123abc'} loading={this.state.loading} />
                              </div>

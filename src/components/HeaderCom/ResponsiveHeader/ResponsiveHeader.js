@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import ShoppingCart from '../../../assets/Images/shopping_cart.png';
+import ShoppingCart from '../../../assets/SVG/SVGIcons/shopping-basket-solid.svg';
 import './ResponsiveHeader.css';
 import Search from './Search/Search';
 import Navigation from './Navigation/Navigation'
