@@ -180,49 +180,6 @@ class SetFactorInfo extends Component {
                         </CardWrapper>
                     </div>
                 </div>
-                {/*<CardWrapper>*/}
-                    {/*/!*<form method="post" action={URLs.base_URL+URLs.user_cart_confirm}>*!/*/}
-                        {/*<h2>شماره فاکتور : {this.state.number} </h2>*/}
-                        {/*<input name="token" value={this.props.token} hidden />*/}
-                        {/*<div className="row">*/}
-                            {/*<div className="col-lg-4 col-md-5 col-sm-10 margin-1">*/}
-                                {/*<select className="form-control" value={this.state.chosenProvince} onChange={this.selectChange}>*/}
-                                    {/*<option value={null}>لطفا استان خود را انتخاب کنید</option>*/}
-                                    {/*{province}*/}
-                                {/*</select>*/}
-                            {/*</div>*/}
-                            {/*<div className="col-lg-4 col-md-5 col-sm-10 margin-1">*/}
-                                {/*<select className="form-control" value={this.state.chosenCity} onChange={this.selectChange2}>*/}
-                                    {/*<option value={null}>لطفا شهر خود را انتخاب کنید</option>*/}
-                                    {/*{cities}*/}
-                                {/*</select>*/}
-                            {/*</div>*/}
-                        {/*</div>*/}
-                        {/*{errors.chosenProvince && <InlineError text={errors.chosenProvince} />}*/}
-                        {/*<br/>*/}
-                        {/*{errors.chosenCity && <InlineError text={errors.chosenCity} />}*/}
-                        {/*<div className="form-group">*/}
-                            {/*<label>آدرس</label>*/}
-                            {/*<input name="address" value={data.address} onChange={this.onChange} type="text" className="form-control"/>*/}
-                            {/*{errors.address && <InlineError text={errors.address} />}*/}
-                        {/*</div>*/}
-                        {/*<div className="form-group">*/}
-                            {/*<label>کد پستی</label>*/}
-                            {/*<input name="codePost" value={data.codePost} onChange={this.onChange} type="text" className="form-control"/>*/}
-                            {/*{errors.codePost && <InlineError text={errors.codePost} />}*/}
-                        {/*</div>*/}
-                        {/*<div className="form-group">*/}
-                            {/*<label>شماره تلفن</label>*/}
-                            {/*<input name="phone" value={data.phone} onChange={this.onChange} type="text" className="form-control"/>*/}
-                            {/*{errors.phone && <InlineError text={errors.phone} />}*/}
-                        {/*</div>*/}
-                        {/*/!*<div className="form-group">*!/*/}
-                            {/*/!*<h3>مبلغ پرداختی سفارش : {this.state.price} تومان</h3>*!/*/}
-                        {/*/!*</div>*!/*/}
-                        {/*<button  hidden={this.state.loading} onClick={this.sendData} className="btn btn-primary">ثبت</button>*/}
-                        {/*<ClipLoader loaderStyle={{size: '200'}} color={'#123abc'} loading={this.state.loading} />*/}
-                    {/*/!*</form>*!/*/}
-                {/*</CardWrapper>*/}
                 <br/><br/><br/><br/>
             </div>
         )

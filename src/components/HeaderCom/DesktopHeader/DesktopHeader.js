@@ -6,11 +6,11 @@ import axios from 'axios';
 import * as actions from '../../../store/actions/index';
 import { connect } from 'react-redux';
 import './DesktopHeader.css';
-import ShoppingCart from '../../../assets/Images/shopping_cart.png';
+import ShoppingCart from '../../../assets/SVG/SVGIcons/shopping-basket-solid.svg';
 import Search from './Search/Search';
 import Navigation from './Navigation/Navigation';
 import URLs from "../../../URLs";
-import user_avatar from  "../../../assets/Images/user_avatar.png";
+import user_avatar from  "../../../assets/SVG/user-regular.svg";
 
 class DesktopHeader extends Component {
 
@@ -80,6 +80,9 @@ class DesktopHeader extends Component {
                     <li hidden={this.state.loggingOut} className="breadcrumb-item user-menu">
                         <div className="User-area">
                             <div className="User-avtar">
+                            {/* <i class="fa fa-user-circle-o" ref={node => this.node = node}
+                            onClick={()=> this.setState({userIconClicked: !this.state.userIconClicked})}
+                             aria-hidden="true"></i> */}
                                 <img ref={node => this.node = node} src={user_avatar} alt="user"
                                      onClick={()=> this.setState({userIconClicked: !this.state.userIconClicked})}/>
                             </div>
@@ -106,7 +109,7 @@ class DesktopHeader extends Component {
                     <li className="mr-lg-4 mr-md-3">
                         <Link to="/basket" className="border border-1 rounded pl-2 pr-2 pt-2 pb-2 shopping-cart-border-color">
                             <span className="badge">{this.props.cartLength}</span><span> سبد خرید </span>
-                            <img src={ShoppingCart} alt="سبد خرید" className="img-fluid" width="29"/>
+                            <img src={ShoppingCart} alt="سبد خرید" className="img-fluid" width="20"/>
                         </Link>
                     </li>
                     <li className="breadcrumb-item" style={{color: 'white'}}><Link to="/login">ورود</Link></li>

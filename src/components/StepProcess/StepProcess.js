@@ -9,19 +9,19 @@ class StepProcess extends Component {
         let steps;
         if(parseInt(this.props.number) === 1) {
             steps = <ul className="nav process-model more-icon-preocess" role="tablist">
-                <Step active="process-model-active" text="سبد خرید" icon="fa-search"/>
+                <Step active="process-model-active" text="سبد خرید" icon="fa fa-shopping-basket"/>
                 <Step active="" text="اطلاعات ارسال" icon="fa fa-truck"/>
                 <Step active="" text="پرداخت"  icon="fa fa-credit-card-alt"/>
             </ul>;
         } else if(parseInt(this.props.number) === 2) {
             steps = <ul className="nav process-model more-icon-preocess" role="tablist">
-                <Step active="process-model-active" activeAfter="active-after" text="سبد خرید" icon="fa-search"/>
+                <Step active="process-model-active" activeAfter="active-after" text="سبد خرید" icon="fa fa-shopping-basket"/>
                 <Step active="process-model-active" text="اطلاعات ارسال" icon="fa fa-truck"/>
                 <Step active="" text="پرداخت"  icon="fa fa-credit-card-alt"/>
             </ul>;
         } else {
             steps = <ul className="nav process-model more-icon-preocess" role="tablist">
-                <Step active="process-model-active" text="سبد خرید" activeAfter="active-after" icon="fa-search"/>
+                <Step active="process-model-active" text="سبد خرید" activeAfter="active-after" icon="fa fa-shopping-basket"/>
                 <Step active="process-model-active" text="اطلاعات ارسال" activeAfter="active-after2" icon="fa fa-truck"/>
                 <Step active="process-model-active" text="پرداخت"  icon="fa fa-credit-card-alt"/>
             </ul>;

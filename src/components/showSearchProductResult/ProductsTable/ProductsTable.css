@@ -95,7 +95,7 @@
 
 .fl-scroll-position-fixed {
     position: fixed;
-    bottom: 5px;
+    bottom: 0px;
 }
 
 .fl-scroll div {
