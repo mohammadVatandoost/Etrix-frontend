@@ -41,6 +41,13 @@ class SetFactorInfo extends Component {
             data: { ...this.state.data, [e.target.name]: e.target.value }
         });
 
+    newAddress = () => {
+    //    var showNewAddress = document.getElementsByClassName('form-control');
+    //    var hideDefAddress = document.getElementsByClassName('def-address');
+    //    hideDefAddress.style-display = "none";
+    //    showNewAddress.style.display = "block";
+    }
+
     selectChange = (event) => {
         console.log("SetFactorInfo select changes");
         console.log(event.target.value);
@@ -140,11 +147,6 @@ class SetFactorInfo extends Component {
           );
         });
 
-        let Address = this.state.cities.map((item) =>{
-            return (
-              <option value={item.name}>{item.name}</option>
-            );
-        });
 
         if (this.state.storedData) {
             return <Redirect to="/User/OrderConfirnation" />;
@@ -165,25 +167,29 @@ class SetFactorInfo extends Component {
                             {/*<h2>شماره فاکتور : {this.state.number} </h2>*/}
                             <input name="token" value={this.props.token} hidden />
                             <div className="row">
-                                <div className="col-lg-3.5 col-md-5 col-sm-10 margin-1">
+                                <div className="form-group def-address">
+                                    <h2>آدرس ثبت سفارش</h2>
+                                    
+                                    <p onChange={this.defAddress} className="new-address"/> آدرس خود را انتخاب کرده یا آدرس جدید اضافه کنید<p/>
+                                    <span onClick={this.newAddress}>+آدرس جدید</span>
+                                    {/* {errors.address && <InlineError text={errors.address} />} */}
+                                </div>
+
+                                <div className="col-lg-4 col-md-5 col-sm-10 margin-1">
                                     <select className="form-control" value={this.state.chosenProvince} onChange={this.selectChange}>
                                         <option value={null}>لطفا استان خود را انتخاب کنید</option>
                                         {province}
                                     </select>
                                 </div>
-                                <div className="col-lg-3.5 col-md-5 col-sm-10 margin-1">
+
+                                <div className="col-lg-4 col-md-5 col-sm-10 margin-1">
                                     <select className="form-control" value={this.state.chosenCity} onChange={this.selectChange2}>
                                         <option value={null}>لطفا شهر خود را انتخاب کنید</option>
                                         {cities}
                                     </select>
                                 </div>
 
-                                <div className="col-lg-3.5 col-md-5 col-sm-10 margin-1">
-                                    <select className="form-control" value={this.state.chosenAddress} onChange={this.selectChange3}>
-                                        <option value={null}>لطفا آدرس خود را انتخاب کنید</option>
-                                        {Address}
-                                    </select>
-                                </div>
+                                
                             </div>
                             {errors.chosenProvince && <InlineError text={errors.chosenProvince} />}
                             <br/>

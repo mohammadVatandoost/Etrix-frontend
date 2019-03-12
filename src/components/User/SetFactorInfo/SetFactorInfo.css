@@ -27,7 +27,40 @@
     font-size: 1.2rem;
 }
 
+.setFactor-info .row .form-group  {
+    display: none
+}
+.setFactor-info .row div:nth-child(1) {
+    display: block;
+}
 
+.setFactor-info .row div.def-address {
+    border-bottom: thin solid silver;
+    border-top: thin solid silver;
+    width: 100%;
+
+}
+
+.setFactor-info .def-address p {
+    font-family: sans-serif !important;
+    font-size:2em !important;
+    font-weight: bold !important;
+    display: inline-block;
+
+}
+
+.setFactor-info .def-address span {
+    font-family: sans-serif !important;
+    color: #007bff;
+    display: inline-block;
+    margin-right: 50% !important;
+    cursor: pointer;
+    font-weight: bolder;  
+}
+
+.col-lg-4 .form-control {
+    display:none
+}
 @media only screen and (max-width: 415px) {
     .setFactor-info h1 {
         font-size: 1.8rem;
