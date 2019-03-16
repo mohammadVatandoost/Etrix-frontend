@@ -15,7 +15,7 @@ class SetFactorInfo extends Component {
             address: '', phone: '', codePost: ''
         },
         price: 0, number: '', province: [], chosenProvince: null, cities: [], chosenCity: null,
-        errors: {}, storedData: false, loading: false,
+        errors: {}, storedData: false, loading: false, addNewAddress: false,
     }
 
     componentDidMount() {
@@ -40,12 +40,11 @@ class SetFactorInfo extends Component {
         this.setState({
             data: { ...this.state.data, [e.target.name]: e.target.value }
         });
-
+    //========================= ADD NEW ADDRESS =======================
     newAddress = () => {
-    //    var showNewAddress = document.getElementsByClassName('form-control');
-    //    var hideDefAddress = document.getElementsByClassName('def-address');
-    //    hideDefAddress.style-display = "none";
-    //    showNewAddress.style.display = "block";
+        console.log('newAddress function');
+        this.setState( {addNewAddress: false});
+
     }
 
     selectChange = (event) => {
@@ -156,6 +155,15 @@ class SetFactorInfo extends Component {
             
                 return <Redirect to="/basket" />;
         }
+
+        // if (this.setState({addNewAddress: false}))
+        // {
+        //     let newAddressSection = document.getElementsByClassName('from-control');
+        //     let newAddressSection2 = document.getElementsByClassName('from-group');
+        //     newAddressSection.show();
+        //     newAddressSection2.show();
+        // }
+
         return (
             <div className="container setFactor-info" style={{direction: 'rtl'}}>
                 {/*<SterProcess/>*/}
@@ -166,14 +174,15 @@ class SetFactorInfo extends Component {
                         <CardWrapper>
                             {/*<h2>شماره فاکتور : {this.state.number} </h2>*/}
                             <input name="token" value={this.props.token} hidden />
+                            <div className="def-address">
+                                <h2>آدرس ثبت سفارش</h2>
+
+                                <p onChange={this.defAddress} className="new-address"/> آدرس خود را انتخاب کرده یا آدرس جدید اضافه کنید<p/>
+                                <span onClick={this.newAddress}>+آدرس جدید</span>
+                                {/* {errors.address && <InlineError text={errors.address} />} */}
+                            </div>
+
                             <div className="row">
-                                <div className="form-group def-address">
-                                    <h2>آدرس ثبت سفارش</h2>
-                                    
-                                    <p onChange={this.defAddress} className="new-address"/> آدرس خود را انتخاب کرده یا آدرس جدید اضافه کنید<p/>
-                                    <span onClick={this.newAddress}>+آدرس جدید</span>
-                                    {/* {errors.address && <InlineError text={errors.address} />} */}
-                                </div>
 
                                 <div className="col-lg-4 col-md-5 col-sm-10 margin-1">
                                     <select className="form-control" value={this.state.chosenProvince} onChange={this.selectChange}>
@@ -216,8 +225,9 @@ class SetFactorInfo extends Component {
                             <div className=" text-center">
                                 <h2>جمع کل : {this.state.price} تومان</h2>
                                 <h2>هزینه ارسال : 10 هزار تومان</h2>
-                                <button  hidden={this.state.loading} onClick={this.preStep} className="btn btn-success">بازگشت به سبد خرید</button>
                                 <button  hidden={this.state.loading} onClick={this.sendData} className="btn btn-success">ادامه تکمیل سفارش</button>
+                                <button  hidden={this.state.loading} onClick={this.preStep} className="btn btn-success">بازگشت به سبد خرید</button>
+                                
                                 <ClipLoader loaderStyle={{size: '200'}} color={'#123abc'} loading={this.state.loading} />
                              </div>
                         </CardWrapper>

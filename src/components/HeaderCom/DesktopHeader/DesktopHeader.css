@@ -211,6 +211,13 @@ body, html {
 .breadcrumb {
     background: none !important; }
 .breadcrumb li a { color: white;}
+
+.img-fluid {
+    width: auto;
+    height: 23px;
+    margin-top: -4%;
+}
+
 .navbar-custom a:hover {
     text-decoration: none; }
 
@@ -244,9 +251,12 @@ body, html {
 .navbar-closer:hover {
     color: #4e2d4f; }
 
-.badge {
-    background-color: #2d398b;
-    border-radius: 50%; }
+.badge {;
+    /*border-radius: 50%;*/
+    padding-left: -2%;
+    font-size: 1.2em;
+    margin-top: 0%;
+}
 
 .fixed-navbar-top {
     position: fixed;

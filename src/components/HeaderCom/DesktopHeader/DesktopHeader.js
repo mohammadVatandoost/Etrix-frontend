@@ -72,9 +72,9 @@ class DesktopHeader extends Component {
             authLinks = (
                 <ul className="breadcrumb">
                     <li className="mr-lg-4 mr-md-3">
-                        <Link to="/basket" className="border border-1 rounded pl-2 pr-2 pt-1 pb-1 shopping-cart-border-color">
+                        <Link to="/basket" className="border border-1 rounded pl-2 pr-2 pt-2 pb-2 shopping-cart-border-color">
                             <span className="badge">{this.props.cartLength}</span>
-                            <img src={ShoppingCart} alt="سبد خرید" className="img-fluid" width="29"/>
+                            <img src={ShoppingCart} alt="سبد خرید" className="img-fluid" width="20"/>
                         </Link>
                     </li>
                     <li hidden={this.state.loggingOut} className="breadcrumb-item user-menu">

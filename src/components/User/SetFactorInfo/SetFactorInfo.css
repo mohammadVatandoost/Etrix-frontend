@@ -5,20 +5,20 @@
     font-size: 1.2rem;
     padding: 1%;
 }
-.setFactor-info button:nth-of-type(1) {
+.setFactor-info button:nth-of-type(2) {
     font-weight: 400;
     font-size: 1.2rem;
     display: block;
     margin: auto;
-    background-color: red;
-    margin-bottom: 2%;
-    border: red;
+    background-color: blue;
+    margin-top: 2%;
+    border: blue;
 }
-.setFactor-info button:nth-of-type(1):hover {
-    background-color: rgb(187, 3, 3)
+.setFactor-info button:nth-of-type(2):hover {
+    background-color: rgb(58, 3, 187)
 }
 
-.setFactor-info button:nth-of-type(2) {
+.setFactor-info button:nth-of-type(1) {
     font-weight: 400;
     font-size: 1.2rem;
 }
@@ -27,17 +27,15 @@
     font-size: 1.2rem;
 }
 
-.setFactor-info .row .form-group  {
-    display: none
-}
-.setFactor-info .row div:nth-child(1) {
-    display: block;
-}
+/* .setFactor-info .row .def-address {
+    display: none;
+} */
 
-.setFactor-info .row div.def-address {
+.setFactor-info div.def-address {
     border-bottom: thin solid silver;
     border-top: thin solid silver;
     width: 100%;
+    display: none;
 
 }
 
@@ -58,9 +56,14 @@
     font-weight: bolder;  
 }
 
-.col-lg-4 .form-control {
-    display:none
-}
+/*.col-lg-4 .form-control {*/
+    /*display:none*/
+/*}*/
+
+
+/*.setFactor-info .form-group {*/
+    /*display: none;*/
+/*}*/
 @media only screen and (max-width: 415px) {
     .setFactor-info h1 {
         font-size: 1.8rem;

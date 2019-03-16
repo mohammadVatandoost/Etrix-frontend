@@ -121,9 +121,11 @@ class Cart extends Component {
     render() {
         let cartList;let buyButton = null;let sum = null;let price = 0;
         let cartCard;
+        let steps;
           // console.log("this.props.randomKey");console.log(this.props.randomKey);
           if(!this.props.cartLoading) {
             if(this.props.cartLength > 0){  //} else
+                steps = <StepProcess number="1"/>;
                cartList = this.renderCartTable();
                  this.props.cart.map((project, i) => {
                     project.map((list,j) => {
@@ -147,7 +149,11 @@ class Cart extends Component {
                     </div>
                   </div>
                 </AuxWrapper>
-           } else { cartCard = <h1 className="text-center margin-bottom-4 margin-top-4">سبد خرید شما خالی هست</h1>;}
+           } else {
+                cartCard = <h1 className="text-center margin-bottom-4 margin-top-4">سبد خرید شما خالی هست</h1>;
+                // steps = <h1 className="text-center margin-bottom-4 margin-top-4">سبد خرید شما خالی هست</h1>;
+
+            }
           }
            let projectsOption;
         if(this.state.projects.length > 0) {
@@ -157,7 +163,8 @@ class Cart extends Component {
         }
         return(
             <div className="container table-responsive text-center cart-card-Container">
-                <StepProcess number="1"/>
+                {steps}
+                {/*{steps}*/}
                 {cartCard}
                 <br/><br/>
                 <ClipLoader size="200" color={'#123abc'} loading={this.props.cartLoading} />
