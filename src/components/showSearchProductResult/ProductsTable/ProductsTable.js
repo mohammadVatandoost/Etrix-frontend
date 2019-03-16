@@ -21,9 +21,9 @@ class ProductsTable extends Component {
 
     componentDidMount() {
         document.addEventListener('scroll', this.trackScrolling);
-        let tableScroll = document.getElementById('tableScroll');
+        // let tableScroll = document.getElementById('tableScroll');
         // console.log("************************************************");console.log(tableScroll.scrollLeft);
-        this.setState({initialLeft: tableScroll.scrollLeft});
+        // this.setState({initialLeft: tableScroll.scrollLeft});
     }
 
     componentWillUnmount() {
@@ -31,12 +31,12 @@ class ProductsTable extends Component {
     }
 
     trackScrolling = () => {
-        const wrappedElement = document.getElementById('table-header');
-        const pagination = document.getElementsByClassName('pagination')[0];
-        const tableBody = document.getElementById('table-body');
-        let searchResultTable = document.getElementById('search-result-table');
-        let tableScroll = document.getElementById('tableScroll');
-        let tableFix1 = document.getElementById('tableFix1');
+        // const wrappedElement = document.getElementById('table-header');
+        // const pagination = document.getElementsByClassName('pagination')[0];
+        // const tableBody = document.getElementById('table-body');
+        // let searchResultTable = document.getElementById('search-result-table');
+        // let tableScroll = document.getElementById('tableScroll');
+        // let tableFix1 = document.getElementById('tableFix1');
 
         // console.log('tableBody');console.log(tableBody.getBoundingClientRect().bottom);
         // console.log('window.innerHeight');console.log(window.innerHeight);
@@ -44,11 +44,12 @@ class ProductsTable extends Component {
         // console.log('pagination');console.log(pagination.getBoundingClientRect().bottom);
         // console.log("table fixed header");console.log(this.myRefTableFix.scrollLeft);
         // console.log("table fixed scroll");console.log(this.myRefScroll.scrollLeft);
-        console.log("searchResultTable");console.log(this.refs.myRefTable);
+        // console.log("searchResultTable");console.log(this.myRefTable.current.scrollLeft);
+        // this.myRefTable.current.scrollLeft = this.myRefTable.current.scrollLeft + 1 ;
         // console.log("wrappedElement");
         // console.log('searchResultTable');console.log(searchResultTable.scrollLeft);
         // console.log('tableHeader');console.log(tableHeader.scrollLeft);
-        console.log('tableScroll');console.log(tableScroll.scrollLeft);
+        // console.log('tableScroll');console.log(tableScroll.scrollLeft);
         // this.refs.myRefTable.scrollLeft = 100 ;
         // searchResultTable.scrollLeft = 100;
         // if(this.state.initialLeft !== tableScroll.scrollLeft) {
@@ -60,14 +61,14 @@ class ProductsTable extends Component {
         //     }
         // }
         
-        if (this.isBottom(wrappedElement)) {
-            // console.log('header bottom reached');
-            // document.removeEventListener('scroll', this.trackScrolling);
-        }
-        if(pagination.getBoundingClientRect().bottom < window.innerHeight) {
-            // console.log('scrollDivPositinFixed: false');
-            this.setState({scrollDivPositinFixed: false});
-        }
+        // if (this.isBottom(wrappedElement)) {
+        //     // console.log('header bottom reached');
+        //     // document.removeEventListener('scroll', this.trackScrolling);
+        // }
+        // if(pagination.getBoundingClientRect().bottom < window.innerHeight) {
+        //     // console.log('scrollDivPositinFixed: false');
+        //     this.setState({scrollDivPositinFixed: false});
+        // }
     };
 
     isBottom = (el) => {
@@ -200,14 +201,14 @@ class ProductsTable extends Component {
         }
         return (
            <AuxWrapper>
-            <table ref={this.myRefTable} id="search-result-table" className="table table-striped table-custom-design table1">
+            <table ref={this.myRefTable} id="search-result-table" className="table table-striped table-responsive table-custom-design table1">
                 <thead id="table-header">
                   <tr>{tableHeads}</tr>
                 </thead>
                 <tbody id="table-body" style={{direction: "ltr"}}>{dataParts}</tbody>
             </table>
                {fixedHeader}
-               {scrollDiv}
+               {/*{scrollDiv}*/}
            </AuxWrapper>
         )
     }

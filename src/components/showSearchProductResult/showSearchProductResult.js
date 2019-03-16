@@ -333,7 +333,7 @@ class showSearchProductResult extends Component {
                 {multiCAtegory}
                 {filterProduct}
                 {productsTble}
-                {paginationResult}
+                {/*{paginationResult}*/}
                 <Modal open={this.state.open} onClose={this.onCloseModal} center
                        classNames={{overlay: styles.customOverlay, modal: styles.customModal,}}>
                   <div className="select-project">
