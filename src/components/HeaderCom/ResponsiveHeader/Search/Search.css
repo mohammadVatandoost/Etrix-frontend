@@ -72,13 +72,13 @@
 
 @media only screen and (max-width: 420px) {
      .search-responsive-size {
-       height: 30px !important;
+       height: 31px !important;
        padding: .375rem .75rem;
          /*padding: 0px;*/
      }
      .responsive-search-select select {
          padding: 0px;
-         width: 120px;
+         width: 100%;
      }
     .autocomplete-responsive {
         width:150px;
@@ -88,5 +88,10 @@
         background-color: #f1f1f1;
         padding: 5.5px;
         font-size: 12px;
+    }
+    #responsiveSearch button {
+        padding-bottom: 23px;
+        padding-left: 8px;
+        padding-right: 8px;
     }
 }
