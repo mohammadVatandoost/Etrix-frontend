@@ -67,7 +67,7 @@ class LoginCom extends Component {
                           <button  hidden={this.props.loading} type="submit" className="btn btn-success">ورود</button>
                           <ClipLoader color={'#123abc'} loading={this.props.loading} />
                       </div>
-                      <Link to="/ثبت-نام">ثبت نام نکردم</Link>
+                      <Link to="/register">ثبت نام نکردم</Link>
                   </div>
               </form>
           </div>
