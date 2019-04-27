@@ -134,7 +134,7 @@ class Signup extends Component {
                         <input type="submit" style={{display: 'none'}} />
                         <ClipLoader color={'#123abc'} loading={loading} />
                     </div>
-                    <Link to="/ورود">ثبت نام کرده ام</Link>
+                    <Link to="/login">ثبت نام کرده ام</Link>
                  </div>
                 </form>
                 <br/>
