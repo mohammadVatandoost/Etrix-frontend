@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import URLs from './URLs';
 import ProductBriefInfoContainer from './components/showSearchProductResult/ProductBriefInfoContainer/ProductBriefInfoContainer';
 import dataCode from './dataCode';
+import ProductCard from "./components/ProductsList/ProductCard/ProductCard";
 
 class App extends Component {
     state = {
@@ -74,7 +75,7 @@ class App extends Component {
      <AuxWrapper>
         {/*  Slide Show  */}
        <div style={{backgroundColor: "white"}}>
-        <div className="carousel-container col-lg-8 col-md-8 col-sm-10 col-12 ml-auto mr-auto mt-lg-2 slide-div">
+        <div className="carousel-container col-lg-14 col-md-14 col-sm-16 col-20 ml-auto mr-auto mt-lg-1 slide-div">
           <div className="carousel slide" data-ride="carousel" id="carousel-demo">
             <ul className="carousel-indicators">
               <li data-target="#carousel-demo" data-slide-to="0" className="active"></li>
@@ -119,12 +120,25 @@ class App extends Component {
              {/*{lastProducts}*/}
          {/*</section>*/}
          {/* Articles */}
+         <section className="mainPageSection" style={{backgroundColor: "white"}}>
+             <h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین محصولات</h2>
+             <div className="flex space-around flex-wrap ">
+                 <ProductCard/>
+                 <ProductCard/>
+                 <ProductCard/>
+                 <ProductCard/>
+
+
+             </div>
+             <Link to="products/" className="btn btn-primary col-md-2 col-sm-6 mt-md-2" style={{margin: "auto", display: "block"}}>مشاهده همه محصولات</Link>
+             <br/>
+         </section>
         <section className="mainPageSection" style={{backgroundColor: "white"}}>
           <h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین مقالات</h2>
           <div className="flex space-around flex-wrap">
               {contentsBrief}
           </div>
-          <Link to="/مجله" className="btn btn-primary col-md-2 col-sm-6" style={{margin: "auto", display: "block"}}>مشاهده همه مقالات</Link>
+          <Link to="/مجله" className="btn btn-primary col-md-2 col-sm-6 mt-md-2" style={{margin: "auto", display: "block"}}>مشاهده همه مقالات</Link>
           <br/>
         </section>
          {/* Videos */}
@@ -133,38 +147,38 @@ class App extends Component {
              <div className="flex space-around flex-wrap">
                  {videos}
              </div>
-             <Link to="/ویدیوها" className="btn btn-primary col-md-2 col-sm-6" style={{margin: "auto", display: "block"}}>مشاهده همه ویدیوها</Link>
+             <Link to="/ویدیوها" className="btn btn-primary col-md-2 col-sm-6 mt-md-2" style={{margin: "auto", display: "block"}}>مشاهده همه ویدیوها</Link>
              <br/>
          </section>
        {/*Show Features*/}
        <section className="mainPageSection" style={{backgroundColor: "white"}}>
        <div className="feature-container text-center mt-3 mb-3 mt-lg-5 mb-lg-5 mt-md-4 mb-md-4 mt-sm-3 mb-sm-3 mt-2 mb-2 container-fluid">
-      <div className="row">
-        <div className="feature-card col-lg-4 col-md-4 col-sm-6 col-12 p-lg-0 p-md-0 p-sm-2 pb-3">
-          <div className="feature-icon"><span className="fa fa-truck"></span></div>
-          <div className="feature-text mr-auto ml-auto mt-lg-3 mt-md-2 mt-sm-1 mt-0">
-             ارسال ایگان سفارش های بالا تر از 100هزارتومان
+          <div className="row">
+            <div className="feature-card col-lg-3 col-md-3 col-sm-6 col-12 p-lg-0 p-md-0 p-sm-2 pb-3">
+              <div className="feature-icon"><span className="fa fa-truck"></span></div>
+              <div className="feature-text mr-auto ml-auto mt-lg-3 mt-md-2 mt-sm-1 mt-0">
+                 ارسال ایگان سفارش های بالا تر از 100هزارتومان
+              </div>
+            </div>
+            <div className="feature-card col-lg-3 col-md-4 col-sm-6 col-12 p-lg-0 p-md-0 p-sm-2 pb-3">
+              <div className="feature-icon"><span className="fa fa-search"></span></div>
+              <div className="feature-text mr-auto ml-auto mt-lg-3 mt-md-2 mt-sm-1 mt-0">
+                جستجوی پیشرفته
+              </div>
+            </div>
+            <div className="feature-card col-lg-3 col-md-4 col-sm-6 col-12 p-lg-0 p-md-0 p-sm-2 pb-3">
+              <div className="feature-icon"><span className="fa fa-archive"></span></div>
+              <div className="feature-text mr-auto ml-auto mt-lg-3 mt-md-2 mt-sm-1 mt-0">
+                بیش از 20 هزار قطعه
+              </div>
+            </div>
+            <div className="feature-card col-lg-3 col-md-4 col-sm-6 col-12 p-lg-0 p-md-0 p-sm-2 pb-3">
+              <div className="feature-icon"><span className="fa fa-flag"></span></div>
+              <div className="feature-text mr-auto ml-auto mt-lg-3 mt-md-2 mt-sm-1 mt-0">
+                ارسال به تمام نقاط کشور
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="feature-card col-lg-4 col-md-4 col-sm-6 col-12 p-lg-0 p-md-0 p-sm-2 pb-3">
-          <div className="feature-icon"><span className="fa fa-search"></span></div>
-          <div className="feature-text mr-auto ml-auto mt-lg-3 mt-md-2 mt-sm-1 mt-0">
-            جستجوی پیشرفته              
-          </div>
-        </div>
-        <div className="feature-card col-lg-4 col-md-4 col-sm-6 col-12 p-lg-0 p-md-0 p-sm-2 pb-3">
-          <div className="feature-icon"><span className="fa fa-archive"></span></div>
-          <div className="feature-text mr-auto ml-auto mt-lg-3 mt-md-2 mt-sm-1 mt-0">
-            بیش از 20 هزار قطعه
-          </div>
-        </div>
-        <div className="feature-card col-lg-4 col-md-4 col-sm-6 col-12 p-lg-0 p-md-0 p-sm-2 pb-3">
-          <div className="feature-icon"><span className="fa fa-flag"></span></div>
-          <div className="feature-text mr-auto ml-auto mt-lg-3 mt-md-2 mt-sm-1 mt-0">
-            ارسال به تمام نقاط کشور
-          </div>
-        </div>
-      </div>
     </div>
        </section>
      </AuxWrapper>

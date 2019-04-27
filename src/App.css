@@ -375,6 +375,7 @@
 .carousel-item img {
   height: 400px;
 }
+
 @media only screen and (max-width: 768px) {
   main {
      margin-top: 110px;

@@ -8,6 +8,7 @@ import { ClipLoader } from 'react-spinners';
 import { Redirect } from 'react-router-dom';
 import './SetFactorInfo.css';
 import StepProcess from '../../StepProcess/StepProcess'
+import SavedAddresses from "./SavedAddresses";
 
 class SetFactorInfo extends Component {
     state = {
@@ -15,7 +16,7 @@ class SetFactorInfo extends Component {
             address: '', phone: '', codePost: ''
         },
         price: 0, number: '', province: [], chosenProvince: null, cities: [], chosenCity: null,
-        errors: {}, storedData: false, loading: false, addNewAddress: false,
+        errors: {}, storedData: false, loading: false, addNewAddress: false
     }
 
     componentDidMount() {
@@ -41,11 +42,11 @@ class SetFactorInfo extends Component {
             data: { ...this.state.data, [e.target.name]: e.target.value }
         });
     //========================= ADD NEW ADDRESS =======================
-    newAddress = () => {
-        console.log('newAddress function');
-        this.setState( {addNewAddress: false});
-
-    }
+    // newAddress = () => {
+    //     console.log('newAddress function');
+    //     this.setState( {addNewAddress: false});
+    //
+    // }
 
     selectChange = (event) => {
         console.log("SetFactorInfo select changes");
@@ -66,6 +67,7 @@ class SetFactorInfo extends Component {
         }
 
     }
+
     selectChange2 = (event) => {
         console.log("SetFactorInfo select changes2");
         let temp = event.target.value;
@@ -118,7 +120,9 @@ class SetFactorInfo extends Component {
     
     }
 
-
+    showNewAddress = () => {
+        this.setState({addNewAddress: true});
+    }
 
     validate = (data) => {
         const errors = {};
@@ -133,6 +137,8 @@ class SetFactorInfo extends Component {
 
 
     render() {
+        let showNewAddressForum;
+
         console.log("SetFactorInfo render");
         const { data, errors } = this.state;
         let province = this.state.province.map((item) =>{
@@ -163,6 +169,50 @@ class SetFactorInfo extends Component {
         //     newAddressSection.show();
         //     newAddressSection2.show();
         // }
+        if(this.state.addNewAddress) {
+            showNewAddressForum = <CardWrapper>
+                {/*<h2>شماره فاکتور : {this.state.number} </h2>*/}
+                <input name="token" value={this.props.token} hidden />
+                <div className="row">
+                    <div className="col-lg-4 col-md-5 col-sm-10 margin-2">
+                        <select className="form-control" value={this.state.chosenProvince} onChange={this.selectChange}>
+                            <option value={null}>لطفا استان خود را انتخاب کنید</option>
+                            {province}
+                        </select>
+                    </div>
+                    <div className="col-lg-4 col-md-5 col-sm-10 margin-2">
+                        <select className="form-control" value={this.state.chosenCity} onChange={this.selectChange2}>
+                            <option value={null}>لطفا شهر خود را انتخاب کنید</option>
+                            {cities}
+                        </select>
+                    </div>
+                </div>
+                {errors.chosenProvince && <InlineError text={errors.chosenProvince} />}
+                <br/>
+                {errors.chosenCity && <InlineError text={errors.chosenCity} />}
+                <div className="form-group">
+                    <label>آدرس جدید</label>
+                    <input name="address" value={data.address} onChange={this.onChange} type="text" className="form-control"/>
+                    {errors.address && <InlineError text={errors.address} />}
+                </div>
+                <div className="form-group">
+                    <label> عنوان آدرس</label>
+                    <input name="addressTitle" value={data.title} onChange={this.onChange} type="text" className="form-control"
+                           placeholder="خانه، محل کار یا ..."/>
+
+                </div>
+                <div className="form-group">
+                    <label>کد پستی</label>
+                    <input name="codePost" value={data.codePost} onChange={this.onChange} type="text" className="form-control"/>
+                    {errors.codePost && <InlineError text={errors.codePost} />}
+                </div>
+                <div className="form-group">
+                    <label>شماره تلفن</label>
+                    <input name="phone" value={data.phone} onChange={this.onChange} type="text" className="form-control"/>
+                    {errors.phone && <InlineError text={errors.phone} />}
+                </div>
+            </CardWrapper>;
+        }
 
         return (
             <div className="container setFactor-info" style={{direction: 'rtl'}}>
@@ -172,33 +222,28 @@ class SetFactorInfo extends Component {
                 <div className="row">
                     <div className="col-md-8 col-sm-12">
                         <CardWrapper>
+                            <SavedAddresses showNewAddress={this.showNewAddress} />
+                        </CardWrapper>
+                        <br/>
+
+                        {showNewAddressForum}
+
+                        <CardWrapper>
                             {/*<h2>شماره فاکتور : {this.state.number} </h2>*/}
                             <input name="token" value={this.props.token} hidden />
-                            <div className="def-address">
-                                <h2>آدرس ثبت سفارش</h2>
-
-                                <p onChange={this.defAddress} className="new-address"/> آدرس خود را انتخاب کرده یا آدرس جدید اضافه کنید<p/>
-                                <span onClick={this.newAddress}>+آدرس جدید</span>
-                                {/* {errors.address && <InlineError text={errors.address} />} */}
-                            </div>
-
                             <div className="row">
-
-                                <div className="col-lg-4 col-md-5 col-sm-10 margin-1">
+                                <div className="col-lg-4 col-md-5 col-sm-10 margin-2">
                                     <select className="form-control" value={this.state.chosenProvince} onChange={this.selectChange}>
                                         <option value={null}>لطفا استان خود را انتخاب کنید</option>
                                         {province}
                                     </select>
                                 </div>
-
-                                <div className="col-lg-4 col-md-5 col-sm-10 margin-1">
+                                <div className="col-lg-4 col-md-5 col-sm-10 margin-2">
                                     <select className="form-control" value={this.state.chosenCity} onChange={this.selectChange2}>
                                         <option value={null}>لطفا شهر خود را انتخاب کنید</option>
                                         {cities}
                                     </select>
                                 </div>
-
-                                
                             </div>
                             {errors.chosenProvince && <InlineError text={errors.chosenProvince} />}
                             <br/>
@@ -207,6 +252,12 @@ class SetFactorInfo extends Component {
                                 <label>آدرس جدید</label>
                                 <input name="address" value={data.address} onChange={this.onChange} type="text" className="form-control"/>
                                 {errors.address && <InlineError text={errors.address} />}
+                            </div>
+                            <div className="form-group">
+                                <label> عنوان آدرس</label>
+                                <input name="addressTitle" value={data.title} onChange={this.onChange} type="text" className="form-control"
+                                       placeholder="خانه، محل کار یا ..."/>
+
                             </div>
                             <div className="form-group">
                                 <label>کد پستی</label>
@@ -218,7 +269,7 @@ class SetFactorInfo extends Component {
                                 <input name="phone" value={data.phone} onChange={this.onChange} type="text" className="form-control"/>
                                 {errors.phone && <InlineError text={errors.phone} />}
                             </div>
-                        </CardWrapper>
+                        </CardWrapper>;
                     </div>
                     <div className="col-md-4 col-sm-12 text-center">
                         <CardWrapper>
@@ -227,7 +278,7 @@ class SetFactorInfo extends Component {
                                 <h2>هزینه ارسال : 10 هزار تومان</h2>
                                 <button  hidden={this.state.loading} onClick={this.sendData} className="btn btn-success">ادامه تکمیل سفارش</button>
                                 <button  hidden={this.state.loading} onClick={this.preStep} className="btn btn-success">بازگشت به سبد خرید</button>
-                                
+
                                 <ClipLoader loaderStyle={{size: '200'}} color={'#123abc'} loading={this.state.loading} />
                              </div>
                         </CardWrapper>

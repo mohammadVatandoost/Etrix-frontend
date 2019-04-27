@@ -1,0 +1,87 @@
+
+
+div.ProductCardStyle {
+    border: 2px solid silver;
+    width: 17rem !important;
+    height: auto;
+    text-align: center;
+    padding: 0.5%;
+    display: inline-block;
+    margin-left:20px;
+    margin-top: 0.5em;
+    /*float: left;*/
+}
+div.ProductCardStyle:hover {
+    box-shadow:0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+div.ProductCardStyle img {
+    width: 12em;
+    height: auto;
+}
+
+div.ProductCardStyle  h1 {
+    font-family: sans-serif, serif;
+    font-size:100% !important;
+    font-weight: bolder;
+}
+
+div.ProductCardStyle  h2 {
+    font-family: sans-serif, serif;
+    font-size: 100% !important;
+    font-weight: bolder;
+}
+div.ProductCardStyle  p {
+    font-family: sans-serif, serif;
+    text-align: left;
+    width: 90%;
+    font-size: 100% !important;
+
+}
+
+div.ProductCardStyle .btn-primary2 {
+    border: thin solid #0066ff;
+    background-color: #0066ff;
+    width: 50%;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: .475rem 2rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    color: white;
+    font-weight: bolder;
+    font-family: Cabin,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    text-transform: uppercase;
+    border-radius: 100px 100px 100px 100px;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+}
+
+div.ProductCardStyle .btn-primary2:hover {
+    background-color: #192cff;
+}
+
+@media screen and (max-width:1025px){
+    div.ProductCardStyle {
+        width: 14rem !important;
+    }
+}
+
+
+@media screen and (max-width:768px){
+    div.ProductCardStyle {
+        width: 14rem !important;
+    }
+}

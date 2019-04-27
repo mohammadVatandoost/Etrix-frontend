@@ -4,6 +4,7 @@ import Alert from 'react-s-alert';
 import URLs from '../../../URLs';
 import dataCode from '../../../dataCode';
 import ProductBuy from './ProductBuy/ProductBuy';
+import { ClipLoader } from 'react-spinners';
 import { connect } from 'react-redux';
 import Comment from '../../Comments/Comments';
 import Modal from 'react-responsive-modal';
@@ -134,6 +135,7 @@ class Product extends Component {
     render() {
         let tableData, briefInfo, productFiles, productBuy;
         // console.log("product render");console.log(this.state.dataParts);
+
         if(this.state.dataParts.length > 0) {
           if(Object.keys(this.state.dataParts[0]).length>0) {
               let eachData = Object.keys(this.state.dataParts[0]).map((property,i)=> {
@@ -183,6 +185,9 @@ class Product extends Component {
         return (
             <div className="container product">
                 <br/><br/>
+
+                <ClipLoader size="200" color={'#123abc'} loading={this.props.cartLoading} />
+
                 <h1 className="text-center">{this.props.match.params.keyword}</h1>
                 <br/>
                 <div className="row">
