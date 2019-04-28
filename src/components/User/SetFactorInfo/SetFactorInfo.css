@@ -10,12 +10,12 @@
     font-size: 1.2rem;
     display: block;
     margin: auto;
-    background-color: blue;
+    background-color: #192cff;
     margin-top: 2%;
     border: blue;
 }
 .setFactor-info button:nth-of-type(2):hover {
-    background-color: rgb(58, 3, 187)
+    background-color: #0000ff;
 }
 
 .setFactor-info button:nth-of-type(1) {
@@ -116,7 +116,7 @@
     -ms-user-select: none;
     user-select: none;
     padding: .475rem 2rem;
-    font-size: 1.2rem;
+    font-size: 100% !important;
     line-height: 1.5;
     border-radius: .25rem;
     color: white;
@@ -185,3 +185,37 @@
 
 
 
+@media only screen and (max-width:769px){
+    .savedAddresses .addNewAddressBtn {
+        width: 34%;
+        font-size: 90% !important;
+        padding: .275rem 0.5rem;
+
+    }
+}
+
+
+@media only screen and (max-width:321px){
+
+    [type="checkbox"]:not(:checked) + label:before,
+    [type="checkbox"]:checked + label:before {
+        left: 1.5em; top: 0;
+    }
+    [type="checkbox"]:not(:checked) + label:after,
+    [type="checkbox"]:checked + label:after {
+        top: .15em; left: 1.25em;
+    }
+    .savedAddresses form p {
+        width: 70%;
+    }
+    .savedAddresses p.address {
+        width: 250px !important;
+        font-size: 1em !important;
+        height: 2em;
+    }
+    .savedAddresses .addNewAddressBtn {
+        width: 40%;
+        font-size: 90% !important;
+        padding: .275rem 0.25rem;
+    }
+}

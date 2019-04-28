@@ -41,12 +41,6 @@ class SetFactorInfo extends Component {
         this.setState({
             data: { ...this.state.data, [e.target.name]: e.target.value }
         });
-    //========================= ADD NEW ADDRESS =======================
-    // newAddress = () => {
-    //     console.log('newAddress function');
-    //     this.setState( {addNewAddress: false});
-    //
-    // }
 
     selectChange = (event) => {
         console.log("SetFactorInfo select changes");
@@ -164,10 +158,10 @@ class SetFactorInfo extends Component {
 
         // if (this.setState({addNewAddress: false}))
         // {
-        //     let newAddressSection = document.getElementsByClassName('from-control');
-        //     let newAddressSection2 = document.getElementsByClassName('from-group');
-        //     newAddressSection.show();
-        //     newAddressSection2.show();
+            // let newAddressSection = document.getElementsByClassName('from-control');
+            // let newAddressSection2 = document.getElementsByClassName('from-group');
+            // newAddressSection.show();
+            // newAddressSection2.show();
         // }
         if(this.state.addNewAddress) {
             showNewAddressForum = <CardWrapper>
@@ -228,48 +222,48 @@ class SetFactorInfo extends Component {
 
                         {showNewAddressForum}
 
-                        <CardWrapper>
-                            {/*<h2>شماره فاکتور : {this.state.number} </h2>*/}
-                            <input name="token" value={this.props.token} hidden />
-                            <div className="row">
-                                <div className="col-lg-4 col-md-5 col-sm-10 margin-2">
-                                    <select className="form-control" value={this.state.chosenProvince} onChange={this.selectChange}>
-                                        <option value={null}>لطفا استان خود را انتخاب کنید</option>
-                                        {province}
-                                    </select>
-                                </div>
-                                <div className="col-lg-4 col-md-5 col-sm-10 margin-2">
-                                    <select className="form-control" value={this.state.chosenCity} onChange={this.selectChange2}>
-                                        <option value={null}>لطفا شهر خود را انتخاب کنید</option>
-                                        {cities}
-                                    </select>
-                                </div>
-                            </div>
-                            {errors.chosenProvince && <InlineError text={errors.chosenProvince} />}
-                            <br/>
-                            {errors.chosenCity && <InlineError text={errors.chosenCity} />}
-                            <div className="form-group">
-                                <label>آدرس جدید</label>
-                                <input name="address" value={data.address} onChange={this.onChange} type="text" className="form-control"/>
-                                {errors.address && <InlineError text={errors.address} />}
-                            </div>
-                            <div className="form-group">
-                                <label> عنوان آدرس</label>
-                                <input name="addressTitle" value={data.title} onChange={this.onChange} type="text" className="form-control"
-                                       placeholder="خانه، محل کار یا ..."/>
+                        {/*<CardWrapper>*/}
+                            {/*/!*<h2>شماره فاکتور : {this.state.number} </h2>*!/*/}
+                            {/*<input name="token" value={this.props.token} hidden />*/}
+                            {/*<div className="row">*/}
+                                {/*<div className="col-lg-4 col-md-5 col-sm-10 margin-2">*/}
+                        {/*//             <select className="form-control" value={this.state.chosenProvince} onChange={this.selectChange}>*/}
+                        {/*//                 <option value={null}>لطفا استان خود را انتخاب کنید</option>*/}
+                        {/*//                 {province}*/}
+                                    {/*</select>*/}
+                                {/*</div>*/}
+                                {/*<div className="col-lg-4 col-md-5 col-sm-10 margin-2">*/}
+                                    {/*<select className="form-control" value={this.state.chosenCity} onChange={this.selectChange2}>*/}
+                                        {/*<option value={null}>لطفا شهر خود را انتخاب کنید</option>*/}
+                                        {/*{cities}*/}
+                                    {/*</select>*/}
+                                {/*</div>*/}
+                            {/*</div>*/}
+                            {/*{errors.chosenProvince && <InlineError text={errors.chosenProvince} />}*/}
+                            {/*<br/>*/}
+                            {/*{errors.chosenCity && <InlineError text={errors.chosenCity} />}*/}
+                            {/*<div className="form-group">*/}
+                                {/*<label>آدرس جدید</label>*/}
+                                {/*<input name="address" value={data.address} onChange={this.onChange} type="text" className="form-control"/>*/}
+                                {/*{errors.address && <InlineError text={errors.address} />}*/}
+                            {/*</div>*/}
+                            {/*<div className="form-group">*/}
+                        {/*//         <label> عنوان آدرس</label>*/}
+                        {/*//         <input name="addressTitle" value={data.title} onChange={this.onChange} type="text" className="form-control"*/}
+                                       {/*placeholder="خانه، محل کار یا ..."/>*/}
 
-                            </div>
-                            <div className="form-group">
-                                <label>کد پستی</label>
-                                <input name="codePost" value={data.codePost} onChange={this.onChange} type="text" className="form-control"/>
-                                {errors.codePost && <InlineError text={errors.codePost} />}
-                            </div>
-                            <div className="form-group">
-                                <label>شماره تلفن</label>
-                                <input name="phone" value={data.phone} onChange={this.onChange} type="text" className="form-control"/>
-                                {errors.phone && <InlineError text={errors.phone} />}
-                            </div>
-                        </CardWrapper>;
+                            {/*</div>*/}
+                            {/*<div className="form-group">*/}
+                                {/*<label>کد پستی</label>*/}
+                                {/*<input name="codePost" value={data.codePost} onChange={this.onChange} type="text" className="form-control"/>*/}
+                                {/*{errors.codePost && <InlineError text={errors.codePost} />}*/}
+                            {/*</div>*/}
+                            {/*<div className="form-group">*/}
+                                {/*<label>شماره تلفن</label>*/}
+                                {/*<input name="phone" value={data.phone} onChange={this.onChange} type="text" className="form-control"/>*/}
+                                {/*{errors.phone && <InlineError text={errors.phone} />}*/}
+                            {/*</div>*/}
+                        {/*</CardWrapper>;*/}
                     </div>
                     <div className="col-md-4 col-sm-12 text-center">
                         <CardWrapper>

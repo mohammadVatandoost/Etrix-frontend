@@ -6,7 +6,7 @@ import { ClipLoader } from 'react-spinners';
 import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';
 
-class LoginCom extends Component {
+class ForgotPassword extends Component {
 
   state = {
       data: {
@@ -67,6 +67,7 @@ class LoginCom extends Component {
                           <button  hidden={this.props.loading} type="submit" className="btn btn-success">ورود</button>
                           <ClipLoader color={'#123abc'} loading={this.props.loading} />
                       </div>
+                      <Link to="/forgotPassword">فراموشی رمز عبور</Link>
                       <Link to="/register">ثبت نام نکردم</Link>
                   </div>
               </form>
@@ -89,6 +90,6 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(LoginCom);
+export default connect(mapStateToProps,mapDispatchToProps)(ForgotPassword);
 
 
