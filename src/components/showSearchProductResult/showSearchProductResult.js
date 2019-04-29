@@ -15,6 +15,10 @@ import ProductTable from './ProductsTable/ProductsTable';
 import MultiCategory from './MultiCategory/MultiCategory';
 import QueryString from 'query-string';
 import Pagination from '../Pagination/Pagination';
+import MediaQuery from 'react-responsive';
+import ProductCard from "../ProductsList/ProductCard/ProductCard";
+
+
 
 let prices = {};let counter = 0;
 
@@ -23,10 +27,11 @@ class showSearchProductResult extends Component {
     state  = {
         searchKey: '', data: '', dataParts: [], dataCode: '', dataFilters: [],open: false, prices: {}, projects: [],
         tableHeaderS: '', loading: true, number: 1,loadingAddCart: true,productName: '', category: '',
-        projectName: null, multiCategory: [], filters: '', filteredHeaders: '', priceBuf: 0
+        projectName: null, multiCategory: [], filters: '', filteredHeaders: '', priceBuf: 0,isMobile: false,
     }
 
     componentDidMount() {prices = {};counter = 0;
+
         let url = URLs.base_URL+URLs.search_part_category+this.props.match.params.category;
         // let newURL = {
         //     category: this.props.match.params.category, keyword: this.props.match.params.keyword,
@@ -305,6 +310,7 @@ class showSearchProductResult extends Component {
     }
 
     render() {
+        const { isMobile } = this.state;
         let productsTble , paginationResult;
         let projectsOption;let filterProduct;let multiCAtegory;
         if(parseInt(this.state.dataCode) === dataCode.partSearch || this.state.dataCode === dataCode.partSearchCategory) {
@@ -326,30 +332,44 @@ class showSearchProductResult extends Component {
         }
         //  table-responsive
         return(
+
             <div className="container text-center searchResultContainer">
-               <div>
-                <ClipLoader  sizeUnit={"px"} size={300} color={'#123abc'} loading={this.state.loading} />
-               </div>
-                {multiCAtegory}
-                {filterProduct}
-                {productsTble}
-                {/*{paginationResult}*/}
-                <Modal open={this.state.open} onClose={this.onCloseModal} center
-                       classNames={{overlay: styles.customOverlay, modal: styles.customModal,}}>
-                  <div className="select-project">
-                    <h3 className="text-center"> انتخاب پروژه</h3>
-                    <br/>
-                    <div className="col-lg-4 col-md-6 col-sm-10 horizontal-center">
-                        <select className="form-control" value={this.state.projectName}  onChange={this.selectChange}>
-                            <option value={null}>-</option>
-                            {projectsOption}
-                        </select>
+
+                <MediaQuery query="(min-device-width: 1224px)">
+                    <div>
+                        <ClipLoader  sizeUnit={"px"} size={300} color={'#123abc'} loading={this.state.loading} />
                     </div>
-                    <br/>
-                    <button onClick={()=> this.addToCart(this.state.productName, this.state.priceBuf, this.state.number)} className="btn btn-success horizontal-center">اضافه به سبد خرید</button>
-                    <br/>
-                  </div>
-                </Modal>
+                        {multiCAtegory}
+                        {filterProduct}
+                        {productsTble}
+                    {/*{paginationResult}*/}
+                    <Modal open={this.state.open} onClose={this.onCloseModal} center
+                    classNames={{overlay: styles.customOverlay, modal: styles.customModal,}}>
+                        <div className="select-project">
+                        <h3 className="text-center"> انتخاب پروژه</h3>
+                        <br/>
+                        <div className="col-lg-4 col-md-6 col-sm-10 horizontal-center">
+                            <select className="form-control" value={this.state.projectName}  onChange={this.selectChange}>
+                                <option value={null}>-</option>
+                                {projectsOption}
+                            </select>
+                        </div>
+                        <br/>
+                        <button onClick={()=> this.addToCart(this.state.productName, this.state.priceBuf, this.state.number)} className="btn btn-success horizontal-center">اضافه به سبد خرید</button>
+                        <br/>
+                    </div>
+                    </Modal>
+
+                </MediaQuery>
+                <MediaQuery query="(max-device-width: 1224px)">
+                    {multiCAtegory}
+                    {filterProduct}
+                    <ProductCard/>
+                    <ProductCard/>
+                    <ProductCard/>
+                    <ProductCard/>
+                </MediaQuery>
+
             </div>
         )
     }

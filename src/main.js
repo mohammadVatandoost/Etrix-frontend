@@ -75,7 +75,7 @@ class App extends Component {
      <AuxWrapper>
         {/*  Slide Show  */}
        <div style={{backgroundColor: "white"}}>
-        <div className="carousel-container col-lg-14 col-md-14 col-sm-16 col-20 ml-auto mr-auto mt-lg-1 slide-div">
+        <div className="carousel-container col-lg-8 col-md-8 col-sm-10 col-12 ml-auto mr-auto  slide-div">
           <div className="carousel slide" data-ride="carousel" id="carousel-demo">
             <ul className="carousel-indicators">
               <li data-target="#carousel-demo" data-slide-to="0" className="active"></li>
@@ -84,7 +84,7 @@ class App extends Component {
             </ul>
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img src={SlideImage1} className="img-fluid" alt="slide first"/>
+                <img src={SlideImage1} className="img-fluid mt-lg-1" alt="slide first"/>
                   <div className="carousel-text ml-auto w-100 h-100 text-right text-white m-0">
                     <span className="m-4">جست و جوی پیشرفته میان 20 هزار قطعه</span>
                     {/*<button className="text-center btn btn-primary pt-lg-3 pb-lg-3 pr-lg-5 pl-lg-5*/}
@@ -93,7 +93,7 @@ class App extends Component {
                   </div>
               </div>
               <div className="carousel-item">
-                <img src={SlideImage2} className="img-fluid" alt="slide second"/>
+                <img src={SlideImage2} className="img-fluid mt-lg-1" alt="slide second"/>
                   <div className="carousel-text w-100 h-100 text-right text-white m-0">
                     <span className="m-4">دسته بندی سفارش ها بر اساس پروژه ها</span>
                     {/*<button className="text-center btn btn-primary pt-lg-3 pb-lg-3 pr-lg-5 pl-lg-5*/}
@@ -102,7 +102,7 @@ class App extends Component {
                   </div>
               </div>
               <div className="carousel-item">
-                <img src={SlideImage3} className="img-fluid" alt="slide third" />
+                <img src={SlideImage3} className="img-fluid mt-lg-1" alt="slide third" />
                   <div className="carousel-text ml-auto w-100 h-100 text-right text-white m-0">
                     <span className="m-4">ارسال محصولات با کیفیت به تمام نقاط کشور</span>
                     {/*<button className="text-center btn btn-primary pt-lg-3 pb-lg-3 pr-lg-5 pl-lg-5*/}
