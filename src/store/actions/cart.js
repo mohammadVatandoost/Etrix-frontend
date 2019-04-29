@@ -4,7 +4,7 @@ import URLS from '../../URLs';
 import { isArray, isObject } from '../utility';
 
 export const addToCart = (productName, number, price, projectName) => {
-    console.log("addToCart action");console.log(productName);console.log(number);console.log(price);console.log(projectName);
+    // console.log("addToCart action");console.log(productName);console.log(number);console.log(price);console.log(projectName);
     return {
        type: actionTypes.ADD_TO_CART,
        productName: productName, number: number, price: price, projectName: projectName
@@ -58,14 +58,14 @@ export const getCartFromLocalStorage = (token) => {
 export const getCartFromServer = (token) => {
     return dispatch => {
         dispatch(setLoadingAndError(true, null));
-        console.log("getCartFromServer");
+        // console.log("getCartFromServer");
         axios.post(URLS.base_URL+URLS.user_cart_read, {token: token})
             .then(response => {
                 dispatch(setLoadingAndError(false, null));
                 let cartNumber = 0;
                 // console.log("action2 getCartFromServer cartNumber");console.log(cartNumber);
-                console.log("action2 getCartFromServer response");console.log(URLS.base_URL+URLS.user_cart_read);console.log(response);
-                console.log(response.data);
+                // console.log("action2 getCartFromServer response");console.log(URLS.base_URL+URLS.user_cart_read);console.log(response);
+                // console.log(response.data);
                 let cart = response.data;
                 if(isArray(cart)) {
                     console.log("action2 getCartFromServer response is array");
@@ -75,12 +75,12 @@ export const getCartFromServer = (token) => {
                         cartNumber = cartNumber + cart[j].length;
                     }
                 } else if(isObject(cart)) {
-                    console.log("action2 getCartFromServer response is object");
+                    // console.log("action2 getCartFromServer response is object");
                     let tempCart = [];
                     Object.keys(cart).map((property) => {
                         tempCart.push(cart[property])   ;
                     });
-                    console.log(tempCart);
+                    // console.log(tempCart);
                     cart = tempCart;
                     for (let j = 0; j < cart.length; j++) {
                         // console.log("action2 getCartFromServer for " + j );
@@ -110,7 +110,7 @@ export const getCartFromServer = (token) => {
 }
 
 export const getCartSuccess = (cart,cartLength) => {
-    console.log("action getCartSuccess");
+    // console.log("action getCartSuccess");
     return {
         type: actionTypes.GET_CART_FROM_SERVER,
         cart: cart, cartLength: cartLength
@@ -136,8 +136,8 @@ export const restoreCart = (response) => {
 
 export const sendCartToServer = (cart,token) => {
     return dispatch => {
-        console.log("cart action sendCartToServer");
-        console.log(cart);
+        // console.log("cart action sendCartToServer");
+        // console.log(cart);
         if (cart !== null) {
             if (cart.length > 0) {
                 axios.post(URLS.base_URL + URLS.send_cart_to_server, {cart: cart, token: token})
@@ -148,10 +148,10 @@ export const sendCartToServer = (cart,token) => {
                         dispatch(getCartFromServer(token));
                     })
                     .catch(err => {
-                        // console.log("sendCartToServer err");
+                        console.log("sendCartToServer err");
                         // console.log(cart);
                         // console.log(token);
-                        // console.log(err);
+                        console.log(err);
                         // Alert.error('دوباره امتحن کنید', {
                         //     position: 'bottom-right',
                         //     effect: 'scale',
@@ -169,8 +169,8 @@ export const updateCart = (token) => {
     return dispatch => {
         let cart = localStorage.getItem('cart');
         let cartLength = 0;
-        console.log("updateCart");console.log(cart);
-        if(token !== null) {console.log("token is not null");
+        // console.log("updateCart");console.log(cart);
+        if(token !== null) {//console.log("token is not null");
             if (cart !== null) {
                 // console.log("Cart is not null");
                 cart = JSON.parse(cart);
@@ -226,13 +226,13 @@ export const updateProductPrice = (productName, productPrice) => {
 }
 
 export const getProductCategories = () => {
-    console.log("cart action getProductCategories");
+    // console.log("cart action getProductCategories");
     return dispatch => {
         let url = URLS.base_URL + URLS.get_products_category;
         axios.get(url)
             .then(response => {
-                console.log("cart action getProductCategories done");
-                console.log(response);
+                // console.log("cart action getProductCategories done");
+                // console.log(response);
                 dispatch(storeProductCategories(response.data))
             })
             .catch(err => {

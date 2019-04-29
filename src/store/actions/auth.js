@@ -97,7 +97,7 @@ export const registerUser = (email, password, name, url) => {
         // console.log("auth action");console.log(url);
         axios.post(url, authData)
             .then((response) => {
-                console.log("registerUser");console.log(response);
+                // console.log("registerUser");console.log(response);
                 if(response.data.token && response.data.userData)
                 {
                     const expirationDate = new Date(new Date().getTime() +  10000* 1000);

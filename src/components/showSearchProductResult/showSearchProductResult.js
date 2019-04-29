@@ -87,8 +87,8 @@ class showSearchProductResult extends Component {
                             category: response.data[6], filteredHeaders: response.data[7]
                         });
                     } else if (response.data[0] === dataCode.partSearchMultiCategory) {
+                        console.log("componentDidMount showSearchProductResult multiCategory");
                         this.setState({dataCode: response.data[0], multiCategory: response.data[1]});
-                        // console.log("componentDidMount showSearchProductResult multiCategory");
                     } else if(response.data[2] === dataCode.partNotFound){
                         this.setState({dataCode: dataCode.partNotFound});
                         // console.log("componentDidMount showSearchProductResult does not find any product");
