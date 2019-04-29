@@ -1,4 +1,5 @@
-import React, { Component } from 'react';;
+import React, { Component } from 'react';
+import { isObject, isArray } from '../../../store/utility';
 
 class MultiCategory extends Component {
     state = {
@@ -27,13 +28,26 @@ class MultiCategory extends Component {
                     (item.category === "Tools") || (item.category === "Uncategorized Miscellaneous")
                 )) {
                 console.log("MultiCategory subcategory1");console.log(item.subcategory);
-                let subcategory1 = item.subcategory.map((sub,j) => {
-                    return (
-                        <li>
-                            <a href={"/search/"+this.props.cat+"/"+this.props.keyword+"&subcategory="+sub} target="_blank">{sub.split("_").join(" ")}</a>
-                        </li>
-                    )
-                });
+                let subcategory1;
+                if(isObject(item.subcategory)) {
+                    subcategory1 = Object.keys(item.subcategory).map((sub, j) => {
+                        return (
+                            <li>
+                                <a href={"/search/" + this.props.cat + "/" + this.props.keyword + "&subcategory=" + sub}
+                                   target="_blank">{sub.split("_").join(" ")}</a>
+                            </li>
+                        );
+                    });
+                } else {
+                    subcategory1 = item.subcategory.map((sub, j) => {
+                        return (
+                            <li>
+                                <a href={"/search/" + this.props.cat + "/" + this.props.keyword + "&subcategory=" + sub}
+                                   target="_blank">{sub.split("_").join(" ")}</a>
+                            </li>
+                        )
+                    });
+                }
 
                 return (
                     <div className="text-left margin-2" >
