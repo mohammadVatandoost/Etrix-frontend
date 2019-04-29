@@ -40,7 +40,7 @@ class SavedAddresses extends Component {
                                     <label htmlFor="checkbox" id="checkboxLabel">خانه</label>
                                 </p>
                             </form>
-                            <p>آدرس......................................................</p>
+                            <p className="address">آدرس.................................................</p>
 
                         </div>
 

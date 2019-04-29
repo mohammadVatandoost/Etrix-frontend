@@ -36,7 +36,8 @@ import 'react-s-alert/dist/s-alert-css-effects/flip.css';
 import 'react-s-alert/dist/s-alert-css-effects/genie.css';
 import 'react-s-alert/dist/s-alert-css-effects/jelly.css';
 import 'react-s-alert/dist/s-alert-css-effects/stackslide.css';
-import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+import 'react-confirm-alert/src/react-confirm-alert.css'
+import ForgotPassword from "./components/User/ForgotPassword/ForgotPassword"; // Import css
 
 class RouteAPI extends Component {
 
@@ -140,6 +141,7 @@ class RouteAPI extends Component {
                         <Route path="/online-conversion-calculator" component={Conversions}/>
                         <Route path="/Signup/:message" component={Signup}/>
                         <Route path="/register" component={Signup}/>
+                        <Route path="/forgotPassword" component={ForgotPassword}/>
                         <Route path="/login" component={this.Login}/>
                         <Route path="/magazine/:id/:title" component={this.ContentDetail}/>
                         <Route path="/videos" component={VideoContentContainer}/>
