@@ -12,6 +12,7 @@ import {
 import { ClipLoader } from 'react-spinners';
 // Demo styles, see 'Styles' section below for some notes on use.
 import 'react-accessible-accordion/dist/fancy-example.css';
+import VideoContent from "../../Content/VideoContentContainer/VideoContentContainer";
 
 class ProductListAccordin extends Component {
     state = {
@@ -32,6 +33,7 @@ class ProductListAccordin extends Component {
     }
 
     render() {
+
         let categories = this.state.category.map((item) => {
             if(!( (item.product === "Boxes Enclosures Racks") || (item.product === "Cable Assemblies Coaxial Cables RF") ||
                     (item.product === "Cables Wires") || (item.product === "Connectors Interconnects") ||
@@ -51,9 +53,26 @@ class ProductListAccordin extends Component {
                         let tempLastCategory = null;
                         if (item.category[property].length > 0) {
                             tempLastCategory = item.category[property].map(subcategory => {
+
                                 return (
                                     <li>
                                         <Link to={"/search/category="+item.product+"&subcategory="+subcategory}>{subcategory}</Link>
+                                    </li>
+                                );
+
+                            });
+                            if (tempLastCategory !== null) {
+                                subcategory2 = <ul>
+                                    {tempLastCategory}
+                                </ul>
+                            }
+
+                        }
+                        else  {
+                            tempLastCategory = item.category[property].map(subcategory => {
+                                return (
+                                    <li>
+                                        <Link to={"/search/category="+item.product}>{subcategory}</Link>
                                     </li>
                                 )
                             });
@@ -63,20 +82,6 @@ class ProductListAccordin extends Component {
                                 </ul>
                             }
                         }
-                        // else  {
-                        //     tempLastCategory = item.category[property].map(subcategory => {
-                        //         return (
-                        //             <li>
-                        //
-                        //             </li>
-                        //         )
-                        //     });
-                        //     if (tempLastCategory !== null) {
-                        //         subcategory2 = <ul>
-                        //             {tempLastCategory}
-                        //         </ul>
-                        //     }
-                        // }
                         if (subcategory2 !== null) {
                             return (
                                 <li>
@@ -106,23 +111,32 @@ class ProductListAccordin extends Component {
                     }
                 }
 
+
+
                 return (
-                    <AccordionItem>
-                        <AccordionItemTitle>
-                            <h2>{item.product}</h2>
-                        </AccordionItemTitle>
-                        <AccordionItemBody>
-                           {subcategory1}
-                        </AccordionItemBody>
-                    </AccordionItem>
+
+
+                        <AccordionItem>
+
+                            <AccordionItemTitle>
+                                <h2>{item.product}</h2>
+                            </AccordionItemTitle>
+                            <AccordionItemBody>
+                               {subcategory1}
+                            </AccordionItemBody>
+                        </AccordionItem>
                 )
             }
         });
         return (
             <div>
-            <Accordion>
-                {categories}
-            </Accordion>
+                <div className="text-center container">
+                    <ClipLoader size="200" color={'#123abc'} loading={this.state.loading} />
+                </div>
+
+                <Accordion>
+                    {categories}
+                </Accordion>
            </div>
         )
     }

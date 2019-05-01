@@ -65,7 +65,7 @@ class DesktopHeader extends Component {
     }
 
     render() {
-        // console.log("header");console.log(this.props.cartLength);
+        // console.log("************************");console.log(this.props.userData);
         let authLinks = null;
         let className = this.state.userIconClicked ? 'User-Dropdown U-open' : 'User-Dropdown';
         if(this.props.isAuthenticated) {
@@ -77,9 +77,17 @@ class DesktopHeader extends Component {
                             <img src={ShoppingCart} alt="سبد خرید" className="img-fluid" width="20"/>
                         </Link>
                     </li>
+
+                    <li>
+
+                        <p className="userName"> {this.props.userData.name} </p>
+                    </li>
+
                     <li hidden={this.state.loggingOut} className="breadcrumb-item user-menu">
                         <div className="User-area">
+
                             <div className="User-avtar">
+
                             {/* <i class="fa fa-user-circle-o" ref={node => this.node = node}
                             onClick={()=> this.setState({userIconClicked: !this.state.userIconClicked})}
                              aria-hidden="true"></i> */}
@@ -139,7 +147,8 @@ const mapStateToProps = state => {
         isAuthenticated: state.auth.token !== null,
         userRole: state.auth.userRole,
         cartLength: state.cart.cartLength,
-        token: state.auth.token
+        token: state.auth.token,
+        userData: state.auth.userData
     };
 };
 

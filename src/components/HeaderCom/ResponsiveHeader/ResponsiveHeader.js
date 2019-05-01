@@ -68,12 +68,20 @@ class ResponsiveHeader extends Component {
                     <div className="flex-grow-1">
                         <h1 className="res-header pt-2"><Link to="/" className="text-light">ETRIX</Link></h1>
                     </div>
+
+
                     <div className="shopping-cart-div p-1 mr-5">
                         <Link to="/basket" style={{fontSize: '22px'}}
                               className="border border-1 pr-2 pb-1 pt-2 rounded shopping-cart-border-color">
                             <span className="badge" style={{color: 'white'}}>{this.props.cartLength}</span>
                             <img src={ShoppingCart} alt="سبد خرید" className="img-fluid" width="25"/>
                         </Link>
+
+
+                    </div>
+
+                    <div>
+                        <p className="userName"> Username </p>
                     </div>
                     <div className="iconbar-container">
                         <div className="bar1"></div>

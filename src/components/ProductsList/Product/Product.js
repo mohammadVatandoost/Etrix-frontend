@@ -11,6 +11,7 @@ import Modal from 'react-responsive-modal';
 import './Product.css';
 import styles from '../../showSearchProductResult/custom-styling.css';
 import * as actions from '../../../store/actions/index';
+import Loading from '../../Loading/Loading'
 
 
 class Product extends Component {
@@ -182,13 +183,15 @@ class Product extends Component {
                 return (<option value={project.name} key={project.name}>{project.name}</option>)
             });
         }
+
+
         return (
+
             <div className="container product">
                 <br/><br/>
 
-                <ClipLoader size="200" color={'#123abc'} loading={this.props.cartLoading} />
-
                 <h1 className="text-center">{this.props.match.params.keyword}</h1>
+                    <ClipLoader size="200" color={'#123abc'} loading={this.state.loading} />
                 <br/>
                 <div className="row">
                     <div className="col-md-6 col-sm-12">

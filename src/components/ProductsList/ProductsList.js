@@ -53,6 +53,7 @@ class ProductsList extends Component {
                                 </ul>
                             }
                         }
+
                         if (subcategory2 !== null) {
                             return (
                                 <li>

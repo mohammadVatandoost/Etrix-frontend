@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import URLs from './URLs';
 import ProductBriefInfoContainer from './components/showSearchProductResult/ProductBriefInfoContainer/ProductBriefInfoContainer';
 import dataCode from './dataCode';
+import sliderShow from './components/ProductsList/sliderShow/sliderShow';
 import ProductCard from "./components/ProductsList/ProductCard/ProductCard";
 
 class App extends Component {
@@ -122,12 +123,8 @@ class App extends Component {
           {/*Articles*/}
          {/*<section className="mainPageSection" style={{backgroundColor: "white"}}>*/}
              {/*<h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین محصولات</h2>*/}
-             {/*<div className="flex space-around flex-wrap ">*/}
-                 {/*<ProductCard/>*/}
-                 {/*<ProductCard/>*/}
-                 {/*<ProductCard/>*/}
-                 {/*<ProductCard/>*/}
-
+             {/*<div className="flex space-around flex-nowrap ">*/}
+                 {/*<sliderShow/>*/}
              {/*</div>*/}
              {/*<Link to="products/" className="btn btn-primary col-md-2 col-sm-6 mt-md-2" style={{margin: "auto", display: "block"}}>مشاهده همه محصولات</Link>*/}
              {/*<br/>*/}
