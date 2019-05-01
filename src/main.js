@@ -114,23 +114,25 @@ class App extends Component {
           </div>
         </div>
        </div>
-         {/* Last Products */}
+          {/*Last Products*/}
          {/*<section>*/}
              {/*<h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین محصولات</h2>*/}
              {/*{lastProducts}*/}
          {/*</section>*/}
-         {/* Articles */}
-         <section className="mainPageSection" style={{backgroundColor: "white"}}>
-             <h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین محصولات</h2>
-             <div className="flex space-around flex-wrap ">
-                 <ProductCard/>
-                 <ProductCard/>
-                 <ProductCard/>
-                 <ProductCard/>
-             </div>
-             <Link to="products/" className="btn btn-primary col-md-2 col-sm-6 mt-md-2" style={{margin: "auto", display: "block"}}>مشاهده همه محصولات</Link>
-             <br/>
-         </section>
+
+          {/*Articles*/}
+         {/*<section className="mainPageSection" style={{backgroundColor: "white"}}>*/}
+             {/*<h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین محصولات</h2>*/}
+             {/*<div className="flex space-around flex-wrap ">*/}
+                 {/*<ProductCard/>*/}
+                 {/*<ProductCard/>*/}
+                 {/*<ProductCard/>*/}
+                 {/*<ProductCard/>*/}
+
+             {/*</div>*/}
+             {/*<Link to="products/" className="btn btn-primary col-md-2 col-sm-6 mt-md-2" style={{margin: "auto", display: "block"}}>مشاهده همه محصولات</Link>*/}
+             {/*<br/>*/}
+         {/*</section>*/}
         <section className="mainPageSection" style={{backgroundColor: "white"}}>
           <h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین مقالات</h2>
           <div className="flex space-around flex-wrap">

@@ -63,20 +63,20 @@ class ProductListAccordin extends Component {
                                 </ul>
                             }
                         }
-                        else  {
-                            tempLastCategory = item.category[property].map(subcategory => {
-                                return (
-                                    <li>
-
-                                    </li>
-                                )
-                            });
-                            if (tempLastCategory !== null) {
-                                subcategory2 = <ul>
-                                    {tempLastCategory}
-                                </ul>
-                            }
-                        }
+                        // else  {
+                        //     tempLastCategory = item.category[property].map(subcategory => {
+                        //         return (
+                        //             <li>
+                        //
+                        //             </li>
+                        //         )
+                        //     });
+                        //     if (tempLastCategory !== null) {
+                        //         subcategory2 = <ul>
+                        //             {tempLastCategory}
+                        //         </ul>
+                        //     }
+                        // }
                         if (subcategory2 !== null) {
                             return (
                                 <li>
