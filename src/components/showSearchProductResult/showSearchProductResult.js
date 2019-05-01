@@ -30,12 +30,10 @@ class showSearchProductResult extends Component {
         projectName: null, multiCategory: [], filters: '', filteredHeaders: '', priceBuf: 0,isMobile: false,
     }
 
-    componentDidMount() {prices = {};counter = 0;
-
+    componentDidMount() {
+        prices = {};counter = 0;
+        // build URL API
         let url = URLs.base_URL+URLs.search_part_category+this.props.match.params.category;
-        // let newURL = {
-        //     category: this.props.match.params.category, keyword: this.props.match.params.keyword,
-        // }
         if(this.props.match.params.keyword !== undefined) {
             console.log("componentDidMount() this.props.match.params.keyword:"+this.props.match.params.keyword );
           url = url +'&keyword='+this.props.match.params.keyword;
@@ -48,33 +46,12 @@ class showSearchProductResult extends Component {
             console.log(QueryString.stringify(temp, {arrayFormat: 'bracket'}));
             this.setState({filters: QueryString.parse(this.props.match.params.filter, {arrayFormat: 'bracket'})});
             url = url+"&filters=&"+this.props.match.params.filter
-            // url = url+this.props.match.params.filter;
-            // newURL["filter"] = QueryString.parse(this.props.match.params.filter)
         }
-        // let temp = window.location.href;
-        // temp = temp.replace(URLs.react_search_url+this.props.match.params.category+'/'+this.props.match.params.keyword,'');
-        // temp = temp.replace('/','');
-        // console.log('componentDidMount temp');console.log(temp);
         console.log('componentDidMount newURL');
         console.log(url);
-        // let test = QueryString.stringify({
-        //     category: this.props.match.params.category,
-        //     keyword: this.props.match.params.keyword,
-        //     nested: JSON.stringify({
-        //         filter: this.props.match.params.filter
-        //     })
-        // }, {arrayFormat: 'bracket'});
-        // console.log(test);
-        // // console.log(QueryString.stringify(newURL))
-        // console.log(QueryString.parse(test));
-        // let temp = JSON.parse( QueryString.parse(test).nested );
-        // console.log(temp)
-        // console.log(QueryString.parse( temp.filter));
-        // // if(temp !== '') { url = url + '&filters='+temp; }
+        // send search request
         let keyword = this.props.match.params.keyword;
-        // if(keyword.includes("&subcategory=")) {keyword = keyword.split("&subcategory=")[0];}
         this.setState({searchKey: keyword});
-        // url = "http://localhost/api/search-part-filter?keyword=stm32f4&category=Embedded-Microcontrollers&filters=%7B%22rCl%22:[%2240MHz%22],%22tra%22:[%22Microchip+Technology%22]%7D";
         axios.get(url)
             .then(response => {
                 console.log("componentDidMount showSearchProductResult");
@@ -122,29 +99,21 @@ class showSearchProductResult extends Component {
     }
 
     filterComponent = (filters) => {
-        console.log("filterComponent filters");
-        console.log(filters);
-        console.log("filterComponent new fileters");
-        filters = {...filters, ...this.state.filters};
-        console.log(filters);
-        // let urlParams = Object.keys(filters).map(function(k) {
-        //     return encodeURIComponent(k) + '=' + encodeURIComponent(urlParams[k])
-        // }).join('&')
-        const stringified = QueryString.stringify(filters, {arrayFormat: 'bracket'});
+        // console.log("filterComponent filters");
+        // console.log(filters);
+        // console.log("filterComponent new fileters");
+        // filters = {...filters, ...this.state.filters};
+        // console.log(filters);
 
-        console.log(stringified);
-        console.log("filterComponent new packages parse");
-        console.log(QueryString.parse(stringified));
+        const stringified = QueryString.stringify(filters, {arrayFormat: 'bracket'});
+        //
+        // console.log(stringified);
+        // console.log("filterComponent new packages parse");
+        // console.log(QueryString.parse(stringified));
         let url = '/search/'+this.state.category.name+'/'+this.props.match.params.keyword+'/'+stringified;
-        // url = url.replace('{',"%7B");
-        // url = url.replace('}',"%7D");
-        // let url = buildUrl('/search/'+this.state.dataParts[0].slug+'/'+this.props.match.params.keyword+'/', {
-        //     queryParams: {
-        //         'filters': JSON.stringify(filters)
-        //     }
-        // });
-        console.log("filterComponent url");
-        console.log(url);
+
+        // console.log("filterComponent url");
+        // console.log(url);
         // url = url.replace('?filters=','/');
         // console.log(url);
         this.props.history.push(url);
@@ -252,19 +221,19 @@ class showSearchProductResult extends Component {
     onOpenModal = (productName, category, number, price) => {
         console.log("this.state.category");console.log(this.state.category);
         if(this.props.token) {
-            console.log("showSearchProductResult open Modal with token");
-            console.log("category");console.log(category);
-            console.log("productName");console.log(productName);
-            console.log("number");console.log(number);
-            console.log("price");console.log(price);
+            // console.log("showSearchProductResult open Modal with token");
+            // console.log("category");console.log(category);
+            // console.log("productName");console.log(productName);
+            // console.log("number");console.log(number);
+            // console.log("price");console.log(price);
             this.setState({open: true});
             this.setState({productName: productName, number: number, priceBuf: price});
         } else {
-            console.log("showSearchProductResult open Modal without token");
-            console.log("category");console.log(category);
-            console.log("productName");console.log(productName);
-            console.log("number");console.log(number);
-            console.log("price");console.log(price);
+            // console.log("showSearchProductResult open Modal without token");
+            // console.log("category");console.log(category);
+            // console.log("productName");console.log(productName);
+            // console.log("number");console.log(number);
+            // console.log("price");console.log(price);
             this.props.addToCart(productName, number, price, null);
             Alert.success('به سبد خرید اضافه شد', {
                 position: 'bottom-right',
@@ -283,7 +252,7 @@ class showSearchProductResult extends Component {
     getProjects = () => {
         axios.post(URLs.base_URL+URLs.user_get_projects, {token: this.props.token})
             .then(response => {
-                console.log("projects");console.log(response);
+                // console.log("projects");console.log(response);
                 this.setState({projects: response.data});
             })
             .catch(err => {

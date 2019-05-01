@@ -136,8 +136,8 @@ export const restoreCart = (response) => {
 
 export const sendCartToServer = (cart,token) => {
     return dispatch => {
-        // console.log("cart action sendCartToServer");
-        // console.log(cart);
+        console.log("cart action sendCartToServer");
+        console.log(cart);
         if (cart !== null) {
             if (cart.length > 0) {
                 axios.post(URLS.base_URL + URLS.send_cart_to_server, {cart: cart, token: token})
@@ -169,10 +169,11 @@ export const updateCart = (token) => {
     return dispatch => {
         let cart = localStorage.getItem('cart');
         let cartLength = 0;
-        // console.log("updateCart");console.log(cart);
-        if(token !== null) {//console.log("token is not null");
+        console.log("updateCart");console.log(cart);
+        if(token !== null) {
+            console.log("token is not null");
             if (cart !== null) {
-                // console.log("Cart is not null");
+                console.log("Cart is not null");
                 cart = JSON.parse(cart);
                 if (cart.length > 0) {
                     for (let i = 0; i < cart.length; i++) {
@@ -183,11 +184,13 @@ export const updateCart = (token) => {
                     // dispatch(getCartSuccess(cart, cartLength));
                 }
             } else {
-                // console.log("Cart is  null");
+                console.log("Cart is  null");
                 dispatch(getCartFromServer(token));
             }
-        } else {//console.log("token is  null");
-            if (cart !== null) {//console.log("Cart is not null");
+        } else {
+            console.log("token is  null");
+            if (cart !== null) {
+                console.log("Cart is not null");
                 cart = JSON.parse(cart);
                 if (cart.length > 0) {
                     for (let i = 0; i < cart.length; i++) {
@@ -197,7 +200,7 @@ export const updateCart = (token) => {
                 }
                 dispatch(getCartSuccess(cart, cartLength));
             } else {
-                // console.log("Cart is  null");
+                console.log("Cart is  null");
             }
         }
     }

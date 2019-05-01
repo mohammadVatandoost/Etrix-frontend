@@ -122,7 +122,7 @@ export const registerUser = (email, password, name, url) => {
 
 export const authGoogle = (response) => {
     return dispatch => {
-                    // console.log("authGoogle");console.log(response);
+                    console.log("authGoogle");console.log(response);
                     // response.data.expiresIn
                     const expirationDate = new Date(new Date().getTime() +  10000* 1000);
                     localStorage.setItem('expirationDate', expirationDate);
