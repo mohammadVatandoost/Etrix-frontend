@@ -31,7 +31,7 @@ class ProductsTable extends Component {
     }
 
     trackScrolling = () => {
-        // const wrappedElement = document.getElementById('table-header');
+        const wrappedElement = document.getElementById('table-header');
         // const pagination = document.getElementsByClassName('pagination')[0];
         // const tableBody = document.getElementById('table-body');
         // let searchResultTable = document.getElementById('search-result-table');
@@ -60,10 +60,13 @@ class ProductsTable extends Component {
         //         // console.log('tableFix1');console.log(tableFix1.scrollLeft);
         //     }
         // }
-        
-        // if (this.isBottom(wrappedElement)) {
-        //     // console.log('header bottom reached');
-        //     // document.removeEventListener('scroll', this.trackScrolling);
+
+        // check header is showed
+        this.isBottom(wrappedElement);
+
+        // if () {
+            // console.log('header bottom reached');
+            // document.removeEventListener('scroll', this.trackScrolling);
         // }
         // if(pagination.getBoundingClientRect().bottom < window.innerHeight) {
         //     // console.log('scrollDivPositinFixed: false');
@@ -83,6 +86,17 @@ class ProductsTable extends Component {
             // console.log("showFixedHeader false");
         }
         return el.getBoundingClientRect().bottom <= window.innerHeight;
+    }
+
+    horizontalScroll = (e) => {
+       console.log("horizontalScroll");
+       console.log(e.target.scrollLeft);
+        document.getElementById('search-result-table').scrollLeft = e.target.scrollLeft;
+        if(document.getElementById('tableFix1') !== null) {
+            document.getElementById('tableFix1').scrollLeft = e.target.scrollLeft;
+        }
+        console.log(document.getElementById('search-result-table').scrollLeft);
+        // document.getElementById('search-result-table').scrollLeft -= 20;
     }
 
     render() {
@@ -176,13 +190,11 @@ class ProductsTable extends Component {
 
         });
 
-           
-
         // show fixed header table-responsive
         if(this.state.showFixedHeader) {
             console.log("this.state.showFixedHeader render true");
-            fixedHeader = <div id="tableFix1" ref={this.myRefTableFix} className="stickyTableHeader">
-                <table className="table table-striped table-custom-design table-sticky-header">
+            fixedHeader = <div ref={this.myRefTableFix} className="stickyTableHeader">
+                <table id="tableFix1" className="table table-striped table-custom-design table-sticky-header">
                     <thead>
                     <tr>{tableHeads}</tr>
                     </thead>
@@ -191,11 +203,11 @@ class ProductsTable extends Component {
         }
 
         if(this.state.scrollDivPositinFixed) {
-            scrollDiv = <div id="tableScroll"  ref={this.myRefScroll} className="fl-scroll fl-scroll-position-fixed">
+            scrollDiv = <div id="tableScroll" onScroll={this.horizontalScroll}  ref={this.myRefScroll} className="fl-scroll fl-scroll-position-fixed">
                 <div></div>
             </div>
         } else {
-            scrollDiv = <div id="tableScroll" ref={this.myRefScroll} className="fl-scroll">
+            scrollDiv = <div id="tableScroll" onScroll={this.horizontalScroll} ref={this.myRefScroll} className="fl-scroll">
                 <div></div>
             </div>
         }
@@ -208,7 +220,7 @@ class ProductsTable extends Component {
                 <tbody id="table-body" style={{direction: "ltr"}}>{dataParts}</tbody>
             </table>
                {fixedHeader}
-               {/*{scrollDiv}*/}
+               {scrollDiv}
            </AuxWrapper>
         )
     }

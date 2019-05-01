@@ -30,8 +30,8 @@ class App extends Component {
             });
         axios.get(URLs.base_URL+URLs.get_videos)
             .then((res) => {
-                console.log('res get videos');
-                console.log(res);
+                // console.log('res get videos');
+                // console.log(res);
                 this.setState({videos: res.data});
             })
             .catch((error)=> {
@@ -40,8 +40,8 @@ class App extends Component {
             });
         axios.get(URLs.base_URL+URLs.search_part_category+"category=Integrated Circuits ICs&subcategory=Microcontrollers")
             .then((res) => {
-                console.log('res get last products');
-                console.log(res);
+                // console.log('res get last products');
+                // console.log(res);
                 if(parseInt(res.data[0]) === dataCode.partSearch) {
                   this.setState({lastProducts: res.data[2]});
                 }
