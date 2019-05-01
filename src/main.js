@@ -127,8 +127,6 @@ class App extends Component {
                  <ProductCard/>
                  <ProductCard/>
                  <ProductCard/>
-
-
              </div>
              <Link to="products/" className="btn btn-primary col-md-2 col-sm-6 mt-md-2" style={{margin: "auto", display: "block"}}>مشاهده همه محصولات</Link>
              <br/>
