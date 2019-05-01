@@ -335,7 +335,7 @@ class showSearchProductResult extends Component {
 
             <div className="container text-center searchResultContainer">
 
-                <MediaQuery query="(min-device-width: 1224px)">
+                {/*<MediaQuery query="(min-device-width: 769px)">*/}
                     <div>
                         <ClipLoader  sizeUnit={"px"} size={300} color={'#123abc'} loading={this.state.loading} />
                     </div>
@@ -360,15 +360,15 @@ class showSearchProductResult extends Component {
                     </div>
                     </Modal>
 
-                </MediaQuery>
-                <MediaQuery query="(max-device-width: 1224px)">
-                    {multiCAtegory}
-                    {filterProduct}
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                </MediaQuery>
+                {/*</MediaQuery>*/}
+                {/*<MediaQuery query="(max-device-width: 768px)">*/}
+                    {/*{multiCAtegory}*/}
+                    {/*{filterProduct}*/}
+                    {/*<ProductCard/>*/}
+                    {/*<ProductCard/>*/}
+                    {/*<ProductCard/>*/}
+                    {/*<ProductCard/>*/}
+                {/*</MediaQuery>*/}
 
             </div>
         )
