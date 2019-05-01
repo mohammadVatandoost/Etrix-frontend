@@ -24,7 +24,7 @@ class ForgotPassword extends Component {
     }
 
     componentDidMount() {
-        this.props.checkAuthState();
+        // this.props.checkAuthState();
         if(this.props.match.params.message != null) {
             Alert.info('برای ادامه خرید باید در سایت ثبت نام کنید', {
                 position: 'bottom-right',
@@ -91,9 +91,9 @@ class ForgotPassword extends Component {
     }
 
     render() {
-        if (this.props.token) {
-            return <Redirect to="/" />;
-        }
+        // if (this.props.token) {
+        //     return <Redirect to="/" />;
+        // }
         if(this.props.errosMessage) {this.showErrorMessage();}
         const { data, errors } = this.state;
         const loading = this.props.loading;
