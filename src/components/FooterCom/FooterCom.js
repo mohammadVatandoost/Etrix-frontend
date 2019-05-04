@@ -18,7 +18,7 @@ const FooterCom = (props) => (
                                 <a href="https://t.me/Etrix_official"><span className="fa fa-telegram"></span></a>
                             </div>
                             <div className="social-media-item col-lg-3 col-md-3 col-sm-3 col-12 m-2 m-sm-0 d-flex justify-content-center">
-                                <a href=""><span className="fa fa-instagram"></span></a>
+                                <a href="https://www.instagram.com/etrix_official/"><span className="fa fa-instagram"></span></a>
                             </div>
                             {/*<div className="social-media-item col-lg-3 col-md-3 col-sm-3 col-12 m-2 m-sm-0 d-flex justify-content-center">*/}
                                 {/*<a href=""><span className="fa fa-twitter"></span></a>*/}
@@ -97,7 +97,7 @@ const FooterCom = (props) => (
                                 <a href="https://t.me/Etrix_official"><span className="fa fa-telegram"></span></a>
                             </div>
                             <div className="social-media-item m-md-3 m-1">
-                                <a href=""><span className="fa fa-instagram"></span></a>
+                                <a href="https://www.instagram.com/etrix_official/"><span className="fa fa-instagram"></span></a>
                             </div>
                             {/*<div className="social-media-item m-md-3 m-1">*/}
                                 {/*<a href=""><span className="fa fa-twitter"></span></a>*/}

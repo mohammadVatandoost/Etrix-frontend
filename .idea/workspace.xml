@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6732dff-ee04-4d07-b1e9-e7abe18693e5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ContentManagerPanel/ProductData/AddDataPart/AddDataPart.js" afterPath="$PROJECT_DIR$/src/components/ContentManagerPanel/ProductData/AddDataPart/AddDataPart.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FooterCom/FooterCom.js" afterPath="$PROJECT_DIR$/src/components/FooterCom/FooterCom.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,13 +28,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddDataPart.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AddDataPart.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ContentManagerPanel/ProductData/AddDataPart/AddDataPart.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="683">
               <caret line="150" column="32" lean-forward="true" selection-start-line="150" selection-start-column="32" selection-end-line="150" selection-end-column="32" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FooterCom.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/FooterCom/FooterCom.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="20" column="82" lean-forward="false" selection-start-line="20" selection-start-column="82" selection-end-line="20" selection-end-column="82" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,7 +121,6 @@
         <option value="$PROJECT_DIR$/src/components/Cart/CartProject/CartProject.js" />
         <option value="$PROJECT_DIR$/src/components/User/OrderConfirmation/OrderProject/OrderProject.css" />
         <option value="$PROJECT_DIR$/src/components/User/OrderConfirmation/OrderProject/OrderProject.js" />
-        <option value="$PROJECT_DIR$/src/components/FooterCom/FooterCom.js" />
         <option value="$PROJECT_DIR$/src/components/Content/ContentSmallSize/ContentSmallSize.css" />
         <option value="$PROJECT_DIR$/src/components/Content/ContainerSmallSize/ContainerSmallSize.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
@@ -154,6 +164,7 @@
         <option value="$PROJECT_DIR$/src/components/showSearchProductResult/ProductsTable/ProductsTable.js" />
         <option value="$PROJECT_DIR$/src/components/User/ForgotPassword/ForgotPassword.js" />
         <option value="$PROJECT_DIR$/src/components/ContentManagerPanel/ProductData/AddDataPart/AddDataPart.js" />
+        <option value="$PROJECT_DIR$/src/components/FooterCom/FooterCom.js" />
       </list>
     </option>
   </component>
@@ -219,31 +230,7 @@
               <item name="etrix" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="ContentManagerPanel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="etrix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="etrix" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="ContentManagerPanel" type="462c0819:PsiDirectoryNode" />
-              <item name="ProductData" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="etrix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="etrix" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="ContentManagerPanel" type="462c0819:PsiDirectoryNode" />
-              <item name="ProductData" type="462c0819:PsiDirectoryNode" />
-              <item name="AddDataPart" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="etrix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="etrix" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="ProductsList" type="462c0819:PsiDirectoryNode" />
+              <item name="FooterCom" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="etrix" type="b2602c69:ProjectViewProjectNode" />
@@ -360,12 +347,12 @@
       <workItem from="1556357108450" duration="6450000" />
       <workItem from="1556544054258" duration="3650000" />
       <workItem from="1556693506365" duration="9101000" />
-      <workItem from="1556954113254" duration="3507000" />
+      <workItem from="1556954113254" duration="4121000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="293745000" />
+    <option name="totallyTimeSpent" value="294359000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -422,13 +409,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/User/OrderConfirmation/OrderConfirnation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="806">
-          <caret line="68" column="21" lean-forward="true" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ContentManagerPanel/TextEditor/ReactDraftWysiwyg/ReactDraftWysiwyg.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -833,6 +813,16 @@
           <caret line="150" column="32" lean-forward="true" selection-start-line="150" selection-start-column="32" selection-end-line="150" selection-end-column="32" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/FooterCom/FooterCom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="82" lean-forward="false" selection-start-line="20" selection-start-column="82" selection-end-line="20" selection-end-column="82" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
