@@ -83,9 +83,7 @@ class Conversions extends React.Component {
     render(){
         return(
             <div className="container margin-top-2">
-                <div className="text-center container">
-                    <ClipLoader size="200" color={'#123abc'} loading={this.state.loading} />
-                </div>
+
                 <br/>
 
                 <ul id="conversionList" className="flex-row flex-wrap space-between text-center">
