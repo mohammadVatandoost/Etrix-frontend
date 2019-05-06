@@ -95,17 +95,16 @@ class ProductListAccordin extends Component {
                         return (
                             <li>
                                 <Link to={"/search/category="+item.product+"&subcategory="+property}>{property}</Link>
-                                {subcategory2}
                             </li>
                         )
-                    })
+                    });
                     if (temp !== null) {
                         subcategory1 = <ul>
                             {temp}
                         </ul>
                     }
 
-                    if(temp == "") {
+                    if(temp === "") {
                         subcategory2 = <ul>
 
                         </ul>
@@ -115,10 +114,7 @@ class ProductListAccordin extends Component {
 
 
                 return (
-
-
                         <AccordionItem>
-
                             <AccordionItemTitle>
                                 <h2>{item.product}</h2>
                             </AccordionItemTitle>

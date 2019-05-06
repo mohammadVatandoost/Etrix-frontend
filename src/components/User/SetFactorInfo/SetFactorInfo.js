@@ -63,7 +63,7 @@ class SetFactorInfo extends Component {
                 });
         }
 
-    }
+    };
 
     selectChange2 = (event) => {
         console.log("SetFactorInfo select changes2");
@@ -109,7 +109,7 @@ class SetFactorInfo extends Component {
                     console.log(err);
                 });
         }
-    }
+    };
 
     preStep = () => {
         

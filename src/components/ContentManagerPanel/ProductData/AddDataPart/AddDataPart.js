@@ -3,19 +3,17 @@ import { ClipLoader } from 'react-spinners';
 import axios from 'axios';
 import InlineError from '../../../messages/InlineError';
 import URLs from '../../../../URLs';
+import { connect } from 'react-redux';
 
 class AddDataPart extends Component {
     state = {
-        data: {
-            partName: '',
-            count: 0,
-            category: '',
-            dataSheet: null,
-            imagePart: null
-        },
+        commons: {},
+        separate: {},
+        website: 'Ickala',
+        map_name: '',
         loading: false,
         errors: {},
-        category: [],
+        category: [], chosenCategory: null
     }
 
     componentDidMount() {
@@ -33,9 +31,8 @@ class AddDataPart extends Component {
     }
 
     onChange = e =>
-        this.setState({
-            data: { ...this.state.data, [e.target.name]: e.target.value }
-        });
+        this.setState({ [e.target.name]: e.target.value });
+
     onChangeFile = e =>
         this.setState({
             data: { ...this.state.data, [e.target.name]: e.target.files[0] }
@@ -94,21 +91,75 @@ class AddDataPart extends Component {
             });
     };
 
+    selectChange = (event) => {
+        let temp = event.target.value;
+        if(temp !== 'لطفا نوع محصول را انتخاب کنید') {
+            this.setState({chosenCategory: temp});
+            axios.post(URLs.base_URL+URLs.get_category_columns+temp,{token: this.props.token})
+                .then(response => {
+                    console.log("SetFactorInfo get_category_columns ");console.log(response);
+                    this.setState({separate: this.replaceDashwithNullValue(response.data.separate), commons: this.replaceDashwithNullValue(response.data.commons)});
+                })
+                .catch(err => {
+                    console.log("SetFactorInfo get_category_columns")
+                    console.log(err);
+                });
+        }
+
+    };
+
+    replaceDashwithNullValue = (data) => {
+        let temp = {};
+        Object.keys(data).map((property) => {
+            if(property === 'original') {
+                temp[property] = '1';
+            } else if(data[property] === '') {
+                temp[property] = '-';
+            } else {
+                temp[property] = data[property];
+            }
+        });
+        console.log(temp);
+        return temp;
+    }
+
+    addProduct = () => {
+        axios.post(URLs.base_URL+URLs.add_product,{commons: this.state.commons, separate: this.state.separate, website: this.state.website, map_name: this.state.map_name})
+            .then(response => {
+                console.log("SetFactorInfo  addProduct error");console.log(response);
+            })
+            .catch(err => {
+                console.log("SetFactorInfo addProduct error")
+                console.log(err);
+            });
+    }
+
+    onChangeCommons = (e) => {
+        this.setState({
+            commons: { ...this.state.commons, [e.target.name]: e.target.value }
+        });
+    };
+
+    onChangeSeparate = (e) => {
+        this.setState({
+            separate: { ...this.state.separate, [e.target.name]: e.target.value }
+        });
+    };
 
     render() {
         const { data, errors, loading } = this.state;
-        let category;
+        let category, commons, separate, websiteName, mapName;
         if(this.state.category.length > 0) {
             category = this.state.category.map((item,i) => {
               if(Object.keys(item.category).length > 0) {
                   let temp = Object.keys(item.category).map((property, j) => {
                       if(item.category[property].length>0) {
                           let temp2 =  item.category[property].map((subcategory,t)=> {
-                              return <option key={i+j+t} value={item.product + property+subcategory}>{item.product + " " + property+" "+subcategory}</option>;
+                              return <option key={i+j+t} value={item.product +"*"+ property+" "+subcategory}>{item.product + " " + property+" "+subcategory}</option>;
                           });
                           return temp2;
                       } else {
-                          return <option key={i+j} value={item.product + property}>{item.product + " " + property}</option>;
+                          return <option key={i+j} value={item.product +"*"+ property}>{item.product + " " + property}</option>;
                       }
                   });
                   return temp;
@@ -117,37 +168,54 @@ class AddDataPart extends Component {
               }
             })
         }
+
+        if(Object.keys(this.state.commons).length) {
+           commons = Object.keys(this.state.commons).map((property, i) => {
+               return  <div className="form-group" key={i}>
+                   <label className="text-right" >{property}</label>
+                   <input name={property} value={this.state.commons[property]} onChange={this.onChangeCommons} type="text" className="form-control-file"/>
+               </div>
+           })
+        }
+        if(Object.keys(this.state.separate).length) {
+            separate = Object.keys(this.state.separate).map((property, i) => {
+                return  <div className="form-group" key={i}>
+                    <label className="text-right" >{property}</label>
+                    <input name={property} value={this.state.separate[property]} onChange={this.onChangeSeparate} type="text" className="form-control-file"/>
+                </div>
+            })
+
+            websiteName = <div className="form-group">
+                <label className="text-right" >نام سایت</label>
+                <input name="website" value={this.state.website} onChange={this.onChange} type="text" className="form-control-file"/>
+            </div>;
+
+            mapName = <div className="form-group">
+                <label className="text-right" >نام قطعه در سایت دیگر</label>
+                <input name="map_name" value={this.state.map_name} onChange={this.onChange} type="text" className="form-control-file"/>
+            </div>;
+        }
         return (
           <div className="container">
             <br/>
               <div className="form-group">
-                  <select name="category">
+                  <select name="category" value={this.state.chosenCategory} onChange={this.selectChange}>
+                      <option value={null}>لطفا نوع محصول را انتخاب کنید</option>
                       {category}
                   </select>
               </div>
             <br/>
             <form className="text-right">
-                <div className="form-group">
-                    <label htmlFor="exampleFormControlInput1">Part Name</label>
-                    <input name="partName" value={data.partName} onChange={this.onChange} type="text" className="form-control" id="exampleFormControlInput1" placeholder="Atmega8A"/>
-                    {errors.partName && <InlineError text={errors.partName} />}
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleFormControlInput1">Count</label>
-                    <input name="count" value={data.count} onChange={this.onChange} type="number" className="form-control" id="exampleFormControlInput2"/>
-                    {errors.count && <InlineError text={errors.count} />}
-                </div>
-                <div className="form-group">
-                    <label className="text-right" htmlFor="exampleFormControlFile1">DataSheet</label>
-                    <input name="dataSheet"  onChange={this.onChangeFile} type="file" className="form-control-file" id="exampleFormControlFile1"/>
-                    {errors.dataSheet && <InlineError text={errors.dataSheet} />}
-                </div>
-                <div className="form-group">
-                    <label className="text-right" htmlFor="exampleFormControlFile2">Image Part</label>
-                    <input name="imagePart" onChange={this.onChangeFile} type="file" className="form-control-file" id="exampleFormControlFile2"/>
-                    {errors.imagePart && <InlineError text={errors.imagePart} />}
-                </div>
-                <button hidden={loading} onClick={this.sendData} type="submit" className="btn btn-primary">Send</button>
+                <h2 className="text-center">Commons</h2>
+                {commons}
+                <br/>
+                <h2 className="text-center">Separate</h2>
+                {separate}
+                <br/>
+                <h2 className="text-center">Others</h2>
+                {websiteName}
+                {mapName}
+                <button hidden={loading} onClick={this.addProduct} type="button" className="btn btn-primary">Send</button>
                 <ClipLoader color={'#123abc'} loading={loading} />
             </form>
           </div>
@@ -155,4 +223,10 @@ class AddDataPart extends Component {
     }
 };
 
-export default AddDataPart;
+const mapStateToProps = state => {
+    return {
+        token: state.auth.token,
+    };
+};
+
+export default connect(mapStateToProps,null)(AddDataPart);

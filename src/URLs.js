@@ -50,6 +50,8 @@
 //     // get_products_form_category: '/categoryMenu',  // /categoryMenu/subCategory
 //     get_products_form_category: '/subCategory', // localhost/api/subcategory-menu?subcategory=Clock_Buffers_Drivers&category=Clock_Timing&num=1
 //     get_products_form_two_category: '/categoryMenu', // localhost/api/category-menu?category=Clock_Timing&num=1
+//     add_product: '/add-parts',
+//     get_category_columns: '/get-columns?category='
 // }
 
 export default {
@@ -106,5 +108,6 @@ export default {
     // get_products_form_category: '/categoryMenu',  // /categoryMenu/subCategory
     get_products_form_category: '/subCategory', // localhost/api/subcategory-menu?subcategory=Clock_Buffers_Drivers&category=Clock_Timing&num=1
     get_products_form_two_category: '/categoryMenu', // localhost/api/category-menu?category=Clock_Timing&num=1
-    get_conversions: '/online-conversion-calculator',
+    add_product: '/add-parts',
+    get_category_columns: '/get-columns?category='
 }
