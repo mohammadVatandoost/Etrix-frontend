@@ -25,6 +25,8 @@ class SavedAddresses extends Component {
     }
 
     componentDidMount() {
+        console.log("**************token***********");
+        console.log(this.props.token);
         console.log("SetFactorInfo componentDidMount");
         // axios.post(URLs.base_URL+URLs.get_subject_name, {token: this.props.token})
         //     .then(response => {
