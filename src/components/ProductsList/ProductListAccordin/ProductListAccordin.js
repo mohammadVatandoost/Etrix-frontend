@@ -72,37 +72,39 @@ class ProductListAccordin extends Component {
                                 );
                             }
                         } else  {
-                            tempLastCategory = item.category[property].map(subcategory => {
-                                return (
-                                    <li>
-                                        <Link to={"/search/category="+item.product}>{subcategory}</Link>
-                                    </li>
-                                )
-                            });
-                            if (tempLastCategory !== null) {
-                                subcategory2 = <ul>
-                                    {tempLastCategory}
-                                </ul>
-                            }
+                            // tempLastCategory = item.category[property].map(subcategory => {
+                            //     return (
+                            //         <li>
+                            //             <Link to={"/search/category="+item.product}>{subcategory}</Link>
+                            //         </li>
+                            //     )
+                            // });
+                            // if (tempLastCategory !== null) {
+                            //     subcategory2 = <ul>
+                            //         {tempLastCategory}
+                            //     </ul>
+                            // }
+                            // console.log("item.category[property].length < 0");
+                            // console.log(property);
+                            return (
+                                <li>
+                                    <Link to={"/search/category="+item.product}>{property}</Link>
+                                </li>
+                            );
+
                         }
-                        if(!(property === "Surge Suppression ICs"))
-                        return (
-                            <li>
-                                <Link to={"/search/category="+item.product+"&subcategory="+property}>{property}</Link>
-                            </li>
-                        )
+                        // if(!(property === "Surge Suppression ICs"))
+                        // return (
+                        //     <li>
+                        //         <Link to={"/search/category="+item.product+"&subcategory="+property}>{property}</Link>
+                        //     </li>
+                        // )
                     });
-                    if (temp !== null) {
-                        subcategory1 = <ul>
+
+                     subcategory1 = <ul>
                             {temp}
-                        </ul>
-                    }
+                      </ul>
 
-                    if(temp === "") {
-                        subcategory2 = <ul>
-
-                        </ul>
-                    }
                 }
 
 
