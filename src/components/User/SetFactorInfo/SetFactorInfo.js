@@ -211,15 +211,16 @@ class SetFactorInfo extends Component {
 
         return (
             <div className="container setFactor-info" style={{direction: 'rtl'}}>
-                <div className="text-center container">
-                    <ClipLoader size="200" color={'#123abc'} loading={this.state.loading} />
-                </div>
+
                 {/*<SterProcess/>*/}
                 <StepProcess number="2" />
                 <h1 className="text-right">اطلاعات گیرنده</h1>
                 <div className="row">
                     <div className="col-md-8 col-sm-12">
                         <CardWrapper>
+                            {/*<div className="text-center container">*/}
+                                {/*<ClipLoader size="200" color={'#123abc'} loading={this.state.loading} />*/}
+                            {/*</div>*/}
                             <SavedAddresses showNewAddress={this.showNewAddress} />
                         </CardWrapper>
                         <br/>

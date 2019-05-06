@@ -91,7 +91,7 @@ class DesktopHeader extends Component {
                                      onClick={()=> this.setState({userIconClicked: !this.state.userIconClicked})}/>
                             </div>
                             <ul className={className}>
-                                <li><Link to="">Welcome {this.props.userData.name}</Link></li>
+                                <li><Link to="">{this.props.userData.name}</Link></li>
                                 <li><Link to="/User/Projects">پروژه ها</Link></li>
                                 <li><Link to="/User/Follow-up">پیگیری سفارش ها</Link></li>
                                 <li><Link to="" onClick={this.LogOutHandler}>خروج</Link></li>

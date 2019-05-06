@@ -103,8 +103,8 @@ class OrderConfirnation extends Component {
                         {/*<br/>*/}
                         <form action={URLs.base_URL+URLs.user_cart_confirm} method="post">
                            <input name="token" hidden value={this.props.token} />
-                           <button type="submit" onClick={this.preStep} className="btn btn-success pre-step" style={{display: 'block', margin: 'auto'}}>بازگشت به اطلاعات ارسال</button>
                            <button type="submit" className="btn btn-success" style={{display: 'block', margin: 'auto'}}>پرداخت</button>
+                           <button type="submit" onClick={this.preStep} className="btn btn-success pre-step" style={{display: 'block', margin: 'auto'}}>بازگشت به اطلاعات ارسال</button>
                         </form>
                        </CardWrapper>
                    </div>

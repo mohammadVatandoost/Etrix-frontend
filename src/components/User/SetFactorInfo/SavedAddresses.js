@@ -38,7 +38,11 @@ class SavedAddresses extends Component {
                                     <p>کد پستی: <span id="codePost"  onChange={this.onChange}>31800000</span></p>
                                 </p>
 
-                                <p className="address" onChange={this.onChange}>آدرس..........................</p>
+                                <p className="address" onChange={this.onChange}>آدرس..........................
+                                    <br/> <span className="fullAddress">آدرس............................................................................................................
+                                    </span>
+
+                                </p>
 
                             </form>
 

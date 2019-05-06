@@ -113,7 +113,7 @@ class Projects extends Component {
 
     render() {
         let data = this.state.data; let projects;
-        if(this.state.projects.length > 0) {
+        if(this.state.projects.length > 0 ) {
             projects = this.state.projects.map((project, i) => {
                 return (
                     <li key={i}>
@@ -129,12 +129,11 @@ class Projects extends Component {
                     </li>
                 )
             });
-        } else {projects = <h3 className="text-center">تا حالا پروژه ای ایجاد نکردید.</h3>}
+        }
+        else {projects = <h3 className="text-center">تا حالا پروژه ای ایجاد نکردید.</h3>}
         return (
             <div className="container projects" style={{direction: 'rtl'}}>
-                <div className="text-center container">
-                    <ClipLoader size="200" color={'#123abc'} loading={this.state.loading} />
-                </div>
+
               <br/>
               <div className="flex-row space-around flex-center-align">
                   <label>نام پروژه : </label>
@@ -145,6 +144,9 @@ class Projects extends Component {
               <h2>لیست پروژه ها</h2>
               <hr/>
               <ul>
+                  <div className="text-center container">
+                      <ClipLoader size="200" color={'#123abc'} loading={this.state.loading} />
+                  </div>
                   {projects}
               </ul>
             </div>

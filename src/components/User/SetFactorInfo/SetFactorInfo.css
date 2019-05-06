@@ -111,11 +111,11 @@
 
 .savedAddresses form p span {
     color: green;
-    -webkit-user-modify: read-write;
-    -moz-user-modify: read-write;
-    user-modify: read-write;
+    /*-webkit-user-modify: read-write;*/
+    /*-moz-user-modify: read-write;*/
+    /*user-modify: read-write;*/
 }
-.savedAddresses form p span:placeholder {
+.savedAddresses form p span::placeholder {
     color: orange;
 }
 
@@ -149,10 +149,7 @@
 }
 .addNewAddressBtn:hover {
     background-color: #0000ff;
-
 }
-
-
 
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
@@ -199,6 +196,25 @@
     transform: scale(1);
 }
 
+p.address:hover > span.fullAddress {
+    display: block;
+}
+span.fullAddress {
+    /*margin-top: -4% !important;*/
+    background-color: black !important;
+    color: white !important;
+    /*display: none !important;*/
+    margin:auto;
+    display: none;
+    width: 90%;
+    padding: 0.5%;
+    -webkit-border-radius: 2%;
+    -moz-border-radius: 2%;
+    border-radius: 2%;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: sans-serif, serif;
+}
 
 @media only screen and (max-width:769px){
      .addNewAddressBtn {
