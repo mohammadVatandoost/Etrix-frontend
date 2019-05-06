@@ -65,10 +65,9 @@ class ProductsList extends Component {
                         return (
                             <li>
                                 <Link to="/search/:category">{property}</Link>
-                                {subcategory2}
                             </li>
                         )
-                    })
+                    });
                     if (temp !== null) {
                         subcategory1 = <ul>
                             {temp}

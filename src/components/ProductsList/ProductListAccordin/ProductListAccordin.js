@@ -53,7 +53,6 @@ class ProductListAccordin extends Component {
                         let tempLastCategory = null;
                         if (item.category[property].length > 0) {
                             tempLastCategory = item.category[property].map(subcategory => {
-
                                 return (
                                     <li>
                                         <Link to={"/search/category="+item.product+"&subcategory="+subcategory}>{subcategory}</Link>
@@ -64,11 +63,15 @@ class ProductListAccordin extends Component {
                             if (tempLastCategory !== null) {
                                 subcategory2 = <ul>
                                     {tempLastCategory}
-                                </ul>
+                                </ul>;
+                                return (
+                                    <li>
+                                        {property}
+                                        {subcategory2}
+                                    </li>
+                                );
                             }
-
-                        }
-                        else  {
+                        } else  {
                             tempLastCategory = item.category[property].map(subcategory => {
                                 return (
                                     <li>
@@ -82,29 +85,20 @@ class ProductListAccordin extends Component {
                                 </ul>
                             }
                         }
-                        if (subcategory2 !== null) {
-                            return (
-                                <li>
-                                    {property}
-                                    {subcategory2}
-                                </li>
-                            )
-                        }
                         if(!(property === "Surge Suppression ICs"))
                         return (
                             <li>
                                 <Link to={"/search/category="+item.product+"&subcategory="+property}>{property}</Link>
-                                {subcategory2}
                             </li>
                         )
-                    })
+                    });
                     if (temp !== null) {
                         subcategory1 = <ul>
                             {temp}
                         </ul>
                     }
 
-                    if(temp == "") {
+                    if(temp === "") {
                         subcategory2 = <ul>
 
                         </ul>
@@ -114,10 +108,7 @@ class ProductListAccordin extends Component {
 
 
                 return (
-
-
                         <AccordionItem>
-
                             <AccordionItemTitle>
                                 <h2>{item.product}</h2>
                             </AccordionItemTitle>
