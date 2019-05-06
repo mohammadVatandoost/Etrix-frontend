@@ -438,23 +438,3 @@ ul li ul:hover {
     margin-right: 5px;
 }
 
-
-.userName {
-    color: #f2f2f2;
-    border: 2px solid #0000ff;
-    width: 5.5rem;
-    /*padding: .5rem;*/
-    text-align: center;
-    margin-top: -.2rem;
-    -webkit-border-radius: .25rem;
-    -moz-border-radius: .25rem;
-    border-radius: .25rem;
-    cursor: pointer;
-}
-
-
-.userName:hover {
-    color: #0000ff;
-    border: 2px solid #f2f2f2 ;
-}
-

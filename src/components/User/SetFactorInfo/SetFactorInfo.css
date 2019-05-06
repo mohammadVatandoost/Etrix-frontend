@@ -103,7 +103,23 @@
     margin-bottom: 1%;
 
 }
-.savedAddresses .addNewAddressBtn{
+
+.savedAddresses form p{
+    margin-right: 2rem;
+    display: inline;
+}
+
+.savedAddresses form p span {
+    color: green;
+    -webkit-user-modify: read-write;
+    -moz-user-modify: read-write;
+    user-modify: read-write;
+}
+.savedAddresses form p span:placeholder {
+    color: orange;
+}
+
+.addNewAddressBtn{
     text-align: center;
     border: thin solid #0066ff;
     background-color: #0066ff;
@@ -131,7 +147,7 @@
     margin: auto;
     cursor: pointer;
 }
-.savedAddresses .addNewAddressBtn:hover {
+.addNewAddressBtn:hover {
     background-color: #0000ff;
 
 }
@@ -184,9 +200,8 @@
 }
 
 
-
 @media only screen and (max-width:769px){
-    .savedAddresses .addNewAddressBtn {
+     .addNewAddressBtn {
         width: 34%;
         font-size: 90% !important;
         padding: .275rem 0.5rem;
@@ -213,7 +228,7 @@
         font-size: 1em !important;
         height: 2em;
     }
-    .savedAddresses .addNewAddressBtn {
+    .addNewAddressBtn {
         width: 40%;
         font-size: 90% !important;
         padding: .275rem 0.25rem;

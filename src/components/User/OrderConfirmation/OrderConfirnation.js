@@ -8,13 +8,14 @@ import StepProcess from '../../StepProcess/StepProcess';
 import './OrderConfirnation.css';
 import { isObject } from '../../../store/utility';
 import { Redirect } from 'react-router-dom';
+import {ClipLoader} from "react-spinners";
 
 
 class OrderConfirnation extends Component {
     state = {
         address: '', phone: '', codePost: '', city: '', province: '',
         postPrice: 0,  projects: [],
-        errors: {}, factorNumber: '', priceAllProjects: '',
+        errors: {}, factorNumber: '', priceAllProjects: '', loading:true
     }
 
     componentDidMount() {
@@ -39,13 +40,14 @@ class OrderConfirnation extends Component {
                         factorNumber: response.data.number,
                         province: response.data.province,
                         priceAllProjects: response.data.price,
-                        postPrice: response.data.delivery
+                        postPrice: response.data.delivery,
+                        loading: false
                     });
                 }
             })
             .catch(err => {
                 console.log("OrderConfirnation error");
-                console.log(err);
+                console.log(err);this.setState({loading: false});
             });
     }
     onChange = e =>
@@ -84,8 +86,12 @@ class OrderConfirnation extends Component {
                 <h1 className="text-right">پرداخت</h1>
                <div className="row">
                    <div className="col-md-8 col-sm-12">
+
                        <CardWrapper>
-                       {orderList}
+                           <div className="text-center container">
+                               <ClipLoader size="200" color={'#123abc'} loading={this.state.loading} />
+                           </div>
+                           {orderList}
                        </CardWrapper>
                    </div>
                    <div className="col-md-4 col-sm-12">

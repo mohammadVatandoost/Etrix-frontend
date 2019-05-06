@@ -2,6 +2,13 @@
     width: 60%;
 }
 
+.loginWidth input{
+    border: 2px solid green;
+}
+
+.loginWidth input:placeholder-shown {
+    border-color:red;
+}
 @media only screen and (max-width: 768px) {
     .loginWidth {
         width: 80%;

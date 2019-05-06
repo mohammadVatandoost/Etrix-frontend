@@ -305,7 +305,7 @@ class showSearchProductResult extends Component {
             <div className="container text-center searchResultContainer">
 
                 {/*<MediaQuery query="(min-device-width: 769px)">*/}
-                    <div>
+                    <div className="text-center container">
                         <ClipLoader  sizeUnit={"px"} size={300} color={'#123abc'} loading={this.state.loading} />
                     </div>
                         {multiCAtegory}

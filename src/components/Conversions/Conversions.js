@@ -23,36 +23,100 @@ import Weight from '../../assets/SVG/SVGIcons/Weight.svg';
 // import Presure from '../../assets/SVG/SVGIcons/dbm.svg';
 // import NewReq from '../../assets/SVG/SVGIcons/led.svg';
 import './conversions.css';
+import {ClipLoader} from "react-spinners";
+import URLs from "../../URLs";
+import axios from "axios";
 
-const Conversions = (props) => (
-    <div className="container margin-top-2">
-        <ul id="conversionList" className="flex-row flex-wrap space-between text-center">
-            <li><Link to="/online-conversion-calculator/conversion-calculator-battery-life" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={BatterySVG} alt="محاسبه عمر باتری"/> محاسبه عمر باتری </Link></li>
-            <li><Link to="/online-conversion-calculator/conversion-calculator-parallel-and-series-resistor" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Res} alt="محاسبه مقاومت های سری و موازی"/> محاسبه مقاومت های سری و موازی </Link></li>
-            <li><Link to="/online-conversion-calculator/conversion-calculator-series-and-parallel-capacitor" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Cap} alt="محاسبه خازن های سری و موازی"/> محاسبه خازن های سری و موازی </Link></li>
-            {/*<li><Link to="/online-conversion-calculator/conversion-calculator-current-divider" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={CurrentDiv}/> محاسبه تقسیم جریان </Link></li>*/}
-            {/*<li><Link to="/online-conversion-calculator/conversion-calculator-voltage-divider" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={VoltageDiv}/> محاسبه تقسیم ولتاژ </Link></li>*/}
-            <li><Link to="/online-conversion-calculator/conversion-calculator-length" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Length} alt="تبدیل واحدهای طولی"/> تبدیل واحدهای طولی </Link></li>
-            <li><Link to="/online-conversion-calculator/conversion-calculator-temperature" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Temperture} alt="تبدیل واحدهای دما"/> تبدیل واحدهای دما </Link></li>
-            <li><Link to="/online-conversion-calculator/conversion-calculator-weight" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Weight} alt=" تبدیل واحدهای وزن"/> تبدیل واحدهای وزن </Link></li>
-            <li><Link to="/online-conversion-calculator/conversion-calculator-resistor-color-code" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={ResColorCode} alt="ماشین حساب کد رنگ مقاومتی"/> ماشین حساب کد رنگ مقاومتی </Link></li>
-            {/*<li><Link to="/online-conversion-calculator/conversion-calculator-pressure" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Presure}/> تبدیل واحد های فشار </Link></li>*/}
-            {/*<li><Link to="/online-conversion-calculator/request-new-conversion" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={NewReq}/> درخواست محاسبه جدید </Link></li>*/}
-        </ul>
-        <br/>
-            <Switch>
-                <Route path="/online-conversion-calculator/conversion-calculator-battery-life"  component={BatteryLifeCalculator}/>
-                <Route path="/online-conversion-calculator/conversion-calculator-parallel-and-series-resistor"  component={ParallelandSeriesResistor}/>
-                <Route path="/online-conversion-calculator/conversion-calculator-series-and-parallel-capacitor"  component={ParallelandSeriesCap}/>
-                {/*<Route path="/online-conversion-calculator/conversion-calculator-current-divider"  component={CurrentDividerCalculator}/>*/}
-                <Route path="/online-conversion-calculator/conversion-calculator-temperature"  component={TemperatureCalculator}/>
-                <Route path="/online-conversion-calculator/conversion-calculator-resistor-color-code"  component={ResistorsColorCode}/>
-                <Route path="/online-conversion-calculator/conversion-calculator-length"  component={LengthCalculator}/>
-                {/*<Route path="/online-conversion-calculator/conversion-calculator-voltage-divider"  component={VoltageDividerCalculator}/>*/}
-                <Route path="/online-conversion-calculator/conversion-calculator-weight"  component={WeightCalculator}/>
-                {/*<Route path="/online-conversion-calculator/request-new-conversion"  component={RequestNewConversion}/>*/}
-            </Switch>
-    </div>
-);
+// const Conversions = (props) => (
+//     <div className="container margin-top-2">
+//         <ul id="conversionList" className="flex-row flex-wrap space-between text-center">
+//             <li><Link to="/online-conversion-calculator/conversion-calculator-battery-life" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={BatterySVG} alt="محاسبه عمر باتری"/> محاسبه عمر باتری </Link></li>
+//             <li><Link to="/online-conversion-calculator/conversion-calculator-parallel-and-series-resistor" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Res} alt="محاسبه مقاومت های سری و موازی"/> محاسبه مقاومت های سری و موازی </Link></li>
+//             <li><Link to="/online-conversion-calculator/conversion-calculator-series-and-parallel-capacitor" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Cap} alt="محاسبه خازن های سری و موازی"/> محاسبه خازن های سری و موازی </Link></li>
+//             {/*<li><Link to="/online-conversion-calculator/conversion-calculator-current-divider" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={CurrentDiv}/> محاسبه تقسیم جریان </Link></li>*/}
+//             {/*<li><Link to="/online-conversion-calculator/conversion-calculator-voltage-divider" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={VoltageDiv}/> محاسبه تقسیم ولتاژ </Link></li>*/}
+//             <li><Link to="/online-conversion-calculator/conversion-calculator-length" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Length} alt="تبدیل واحدهای طولی"/> تبدیل واحدهای طولی </Link></li>
+//             <li><Link to="/online-conversion-calculator/conversion-calculator-temperature" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Temperture} alt="تبدیل واحدهای دما"/> تبدیل واحدهای دما </Link></li>
+//             <li><Link to="/online-conversion-calculator/conversion-calculator-weight" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Weight} alt=" تبدیل واحدهای وزن"/> تبدیل واحدهای وزن </Link></li>
+//             <li><Link to="/online-conversion-calculator/conversion-calculator-resistor-color-code" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={ResColorCode} alt="ماشین حساب کد رنگ مقاومتی"/> ماشین حساب کد رنگ مقاومتی </Link></li>
+//             {/*<li><Link to="/online-conversion-calculator/conversion-calculator-pressure" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Presure}/> تبدیل واحد های فشار </Link></li>*/}
+//             {/*<li><Link to="/online-conversion-calculator/request-new-conversion" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={NewReq}/> درخواست محاسبه جدید </Link></li>*/}
+//         </ul>
+//         <br/>
+//             <Switch>
+//                 <Route path="/online-conversion-calculator/conversion-calculator-battery-life"  component={BatteryLifeCalculator}/>
+//                 <Route path="/online-conversion-calculator/conversion-calculator-parallel-and-series-resistor"  component={ParallelandSeriesResistor}/>
+//                 <Route path="/online-conversion-calculator/conversion-calculator-series-and-parallel-capacitor"  component={ParallelandSeriesCap}/>
+//                 {/*<Route path="/online-conversion-calculator/conversion-calculator-current-divider"  component={CurrentDividerCalculator}/>*/}
+//                 <Route path="/online-conversion-calculator/conversion-calculator-temperature"  component={TemperatureCalculator}/>
+//                 <Route path="/online-conversion-calculator/conversion-calculator-resistor-color-code"  component={ResistorsColorCode}/>
+//                 <Route path="/online-conversion-calculator/conversion-calculator-length"  component={LengthCalculator}/>
+//                 {/*<Route path="/online-conversion-calculator/conversion-calculator-voltage-divider"  component={VoltageDividerCalculator}/>*/}
+//                 <Route path="/online-conversion-calculator/conversion-calculator-weight"  component={WeightCalculator}/>
+//                 {/*<Route path="/online-conversion-calculator/request-new-conversion"  component={RequestNewConversion}/>*/}
+//             </Switch>
+//     </div>
+// );
+
+class Conversions extends React.Component {
+    state = {
+        category:[], loading: true,
+    }
+    componentDidMount() {
+        let url = URLs.base_URL + URLs.get_products_category;
+        axios.get(url)
+            .then(response => {
+                console.log("componentDidMount Navigation");
+                console.log(response);
+                this.setState({category: response.data, loading: false });
+            })
+            .catch(err => {
+                console.log("componentDidMount Navigation");console.log(err);
+            });
+    }
+    constructor(props){
+        super(props)
+    }
+
+
+
+    render(){
+        return(
+            <div className="container margin-top-2">
+                <div className="text-center container">
+                    <ClipLoader size="200" color={'#123abc'} loading={this.state.loading} />
+                </div>
+                <br/>
+
+                <ul id="conversionList" className="flex-row flex-wrap space-between text-center">
+                    <li><Link to="/online-conversion-calculator/conversion-calculator-battery-life" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={BatterySVG} alt="محاسبه عمر باتری"/> محاسبه عمر باتری </Link></li>
+                    <li><Link to="/online-conversion-calculator/conversion-calculator-parallel-and-series-resistor" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Res} alt="محاسبه مقاومت های سری و موازی"/> محاسبه مقاومت های سری و موازی </Link></li>
+                    <li><Link to="/online-conversion-calculator/conversion-calculator-series-and-parallel-capacitor" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Cap} alt="محاسبه خازن های سری و موازی"/> محاسبه خازن های سری و موازی </Link></li>
+                    {/*<li><Link to="/online-conversion-calculator/conversion-calculator-current-divider" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={CurrentDiv}/> محاسبه تقسیم جریان </Link></li>*/}
+                    {/*<li><Link to="/online-conversion-calculator/conversion-calculator-voltage-divider" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={VoltageDiv}/> محاسبه تقسیم ولتاژ </Link></li>*/}
+                    <li><Link to="/online-conversion-calculator/conversion-calculator-length" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Length} alt="تبدیل واحدهای طولی"/> تبدیل واحدهای طولی </Link></li>
+                    <li><Link to="/online-conversion-calculator/conversion-calculator-temperature" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Temperture} alt="تبدیل واحدهای دما"/> تبدیل واحدهای دما </Link></li>
+                    <li><Link to="/online-conversion-calculator/conversion-calculator-weight" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Weight} alt=" تبدیل واحدهای وزن"/> تبدیل واحدهای وزن </Link></li>
+                    <li><Link to="/online-conversion-calculator/conversion-calculator-resistor-color-code" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={ResColorCode} alt="ماشین حساب کد رنگ مقاومتی"/> ماشین حساب کد رنگ مقاومتی </Link></li>
+                    {/*<li><Link to="/online-conversion-calculator/conversion-calculator-pressure" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={Presure}/> تبدیل واحد های فشار </Link></li>*/}
+                    {/*<li><Link to="/online-conversion-calculator/request-new-conversion" activeClassName={"conversionListActive"}><img height="40" width="40" className="svg-icon" src={NewReq}/> درخواست محاسبه جدید </Link></li>*/}
+                </ul>
+                <br/>
+                <Switch>
+                    <Route path="/online-conversion-calculator/conversion-calculator-battery-life"  component={BatteryLifeCalculator}/>
+                    <Route path="/online-conversion-calculator/conversion-calculator-parallel-and-series-resistor"  component={ParallelandSeriesResistor}/>
+                    <Route path="/online-conversion-calculator/conversion-calculator-series-and-parallel-capacitor"  component={ParallelandSeriesCap}/>
+                    {/*<Route path="/online-conversion-calculator/conversion-calculator-current-divider"  component={CurrentDividerCalculator}/>*/}
+                    <Route path="/online-conversion-calculator/conversion-calculator-temperature"  component={TemperatureCalculator}/>
+                    <Route path="/online-conversion-calculator/conversion-calculator-resistor-color-code"  component={ResistorsColorCode}/>
+                    <Route path="/online-conversion-calculator/conversion-calculator-length"  component={LengthCalculator}/>
+                    {/*<Route path="/online-conversion-calculator/conversion-calculator-voltage-divider"  component={VoltageDividerCalculator}/>*/}
+                    <Route path="/online-conversion-calculator/conversion-calculator-weight"  component={WeightCalculator}/>
+                    {/*<Route path="/online-conversion-calculator/request-new-conversion"  component={RequestNewConversion}/>*/}
+                </Switch>
+            </div>
+        )
+    }
+}
 
 export default Conversions;

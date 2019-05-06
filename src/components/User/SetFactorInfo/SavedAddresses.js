@@ -15,7 +15,6 @@ class SavedAddresses extends Component {
     constructor(props){
         super(props);
         this.addNewAddress = this.addNewAddress.bind(this);
-
     }
 
     addNewAddress(){
@@ -23,24 +22,26 @@ class SavedAddresses extends Component {
     }
 
     render(){
-        let newAddress;
-        // if() {
-        //     newAddress =
-        // }
+
         return(
 
                     <div className="savedAddresses">
 
                         <h1>انتخاب آدرس</h1>
 
-                        <div>
+                        <div className="Address">
                             <form action="#">
                                 <p>
                                     <input type="checkbox" id="checkbox"/>
                                     <label htmlFor="checkbox" id="checkboxLabel">خانه</label>
+                                    <p>تلفن: <span id="tell"  onChange={this.onChange}>0912345678</span></p>
+                                    <p>کد پستی: <span id="codePost"  onChange={this.onChange}>31800000</span></p>
                                 </p>
+
+                                <p className="address" onChange={this.onChange}>آدرس..........................</p>
+
                             </form>
-                            <p className="address">آدرس.................................................</p>
+
 
                         </div>
 

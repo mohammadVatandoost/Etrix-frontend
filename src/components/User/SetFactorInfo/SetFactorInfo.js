@@ -16,7 +16,7 @@ class SetFactorInfo extends Component {
             address: '', phone: '', codePost: ''
         },
         price: 0, number: '', province: [], chosenProvince: null, cities: [], chosenCity: null,
-        errors: {}, storedData: false, loading: false, addNewAddress: false
+        errors: {}, storedData: false, loading: true, addNewAddress: false, Adresses: [],
     }
 
     componentDidMount() {
@@ -24,17 +24,18 @@ class SetFactorInfo extends Component {
         axios.post(URLs.base_URL+URLs.user_cart_submit, {token: this.props.token})
             .then(response => {
                 console.log("SetFactorInfo componentDidMount done");console.log(response);
-                this.setState({price: response.data.price, number: response.data.number});
+                this.setState({price: response.data.price, number: response.data.number, loading: false});
             })
-            .catch(err => {console.log("SetFactorInfo componentDidMount error"); console.log(err); });
+            .catch(err => {console.log("SetFactorInfo componentDidMount error"); console.log(err);
+                this.setState({loading: true}); });
         axios.get(URLs.base_URL+URLs.get_province_name)
             .then(response => {
                 console.log("SetFactorInfo get province name ");console.log(response);
-                this.setState({province: response.data});
+                this.setState({province: response.data, loading: false});
             })
             .catch(err => {
                 console.log("SetFactorInfo get province name error")
-                console.log(err);
+                console.log(err);this.setState({loading: false});
             });
     }
     onChange = e =>
@@ -105,7 +106,7 @@ class SetFactorInfo extends Component {
                     console.log(err);
                 });
         }
-    }
+    };
 
     preStep = () => {
         
@@ -145,14 +146,10 @@ class SetFactorInfo extends Component {
             <option value={item.name}>{item.name}</option>
           );
         });
-
-
         if (this.state.storedData) {
             return <Redirect to="/User/OrderConfirnation" />;
         }
-
         else if(this.state.backedData) {
-            
                 return <Redirect to="/basket" />;
         }
 
@@ -205,11 +202,18 @@ class SetFactorInfo extends Component {
                     <input name="phone" value={data.phone} onChange={this.onChange} type="text" className="form-control"/>
                     {errors.phone && <InlineError text={errors.phone} />}
                 </div>
+
+                <div className="form-group">
+                    <button className="addNewAddressBtn">ثبت</button>
+                </div>
             </CardWrapper>;
         }
 
         return (
             <div className="container setFactor-info" style={{direction: 'rtl'}}>
+                <div className="text-center container">
+                    <ClipLoader size="200" color={'#123abc'} loading={this.state.loading} />
+                </div>
                 {/*<SterProcess/>*/}
                 <StepProcess number="2" />
                 <h1 className="text-right">اطلاعات گیرنده</h1>
@@ -273,7 +277,7 @@ class SetFactorInfo extends Component {
                                 <button  hidden={this.state.loading} onClick={this.sendData} className="btn btn-success">ادامه تکمیل سفارش</button>
                                 <button  hidden={this.state.loading} onClick={this.preStep} className="btn btn-success">بازگشت به سبد خرید</button>
 
-                                <ClipLoader loaderStyle={{size: '200'}} color={'#123abc'} loading={this.state.loading} />
+                                {/*<ClipLoader loaderStyle={{size: '200'}} color={'#123abc'} loading={this.state.loading} />*/}
                              </div>
                         </CardWrapper>
                     </div>
