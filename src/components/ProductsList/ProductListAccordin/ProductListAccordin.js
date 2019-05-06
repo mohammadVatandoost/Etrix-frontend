@@ -53,35 +53,36 @@ class ProductListAccordin extends Component {
                         let tempLastCategory = null;
                         if (item.category[property].length > 0) {
                             tempLastCategory = item.category[property].map(subcategory => {
-
                                 return (
                                     <li>
                                         <Link to={"/search/category="+item.product+"&subcategory="+subcategory}>{subcategory}</Link>
                                     </li>
-                                );
-
-                            });
-                            if (tempLastCategory !== null) {
-                                subcategory2 = <ul>
-                                    {tempLastCategory}
-                                </ul>
-                            }
-
-                        }
-                        else  {
-                            tempLastCategory = item.category[property].map(subcategory => {
-                                return (
-                                    <li>
-                                        <Link to={"/search/category="+item.product}>{subcategory}</Link>
-                                    </li>
                                 )
                             });
                             if (tempLastCategory !== null) {
+                                console.log('give subctegory if');
                                 subcategory2 = <ul>
                                     {tempLastCategory}
                                 </ul>
                             }
                         }
+                        // else  {
+                        //     console.log("else3");
+                        //     console.log(subcategory1)
+                        //     tempLastCategory = item.category[property].map(subcategory => {
+                        //         return (
+                        //             <li>
+                        //                 <Link to={"/search/category="+item.product}>{subcategory}</Link>
+                        //             </li>
+                        //         )
+                        //     });
+                        //     if (tempLastCategory !== null) {
+                        //         subcategory2 = <ul>
+                        //             {tempLastCategory}
+                        //         </ul>
+                        //     }
+                        //
+                        // }
                         if (subcategory2 !== null) {
                             return (
                                 <li>

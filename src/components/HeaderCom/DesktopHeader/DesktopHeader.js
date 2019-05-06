@@ -105,7 +105,7 @@ class DesktopHeader extends Component {
                             {/*<li><Link to="" onClick={this.LogOutHandler}>خروج</Link></li>*/}
                         {/*</ul>*/}
                     </li>
-                    <ClipLoader color={'#123abc'} loading={this.state.loggingOut} />
+                    <ClipLoader color={'#123abc'} size="20" loading={this.state.loggingOut} />
                 </ul>
             );
         } else {

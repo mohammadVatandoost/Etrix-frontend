@@ -16,27 +16,29 @@ class SetFactorInfo extends Component {
             address: '', phone: '', codePost: ''
         },
         price: 0, number: '', province: [], chosenProvince: null, cities: [], chosenCity: null,
-        errors: {}, storedData: false, loading: true, addNewAddress: false, Adresses: [],
+        errors: {}, storedData: false, loading: true, addNewAddress: false, defAddress: [],
     }
 
-    componentDidMount() {
-        console.log("SetFactorInfo componentDidMount");
-        axios.post(URLs.base_URL+URLs.user_cart_submit, {token: this.props.token})
-            .then(response => {
-                console.log("SetFactorInfo componentDidMount done");console.log(response);
-                this.setState({price: response.data.price, number: response.data.number, loading: false});
-            })
-            .catch(err => {console.log("SetFactorInfo componentDidMount error"); console.log(err);
-                this.setState({loading: true}); });
-        axios.get(URLs.base_URL+URLs.get_province_name)
-            .then(response => {
-                console.log("SetFactorInfo get province name ");console.log(response);
-                this.setState({province: response.data, loading: false});
-            })
-            .catch(err => {
-                console.log("SetFactorInfo get province name error")
-                console.log(err);this.setState({loading: false});
-            });
+           componentDidMount() {
+            console.log("SetFactorInfo componentDidMount");
+            axios.post(URLs.base_URL+URLs.user_cart_submit, {token: this.props.token})
+                .then(response => {
+                    console.log("SetFactorInfo componentDidMount done");console.log(response);
+                    this.setState({price: response.data.price, number: response.data.number, loading: false});
+                })
+                .catch(err => {console.log("SetFactorInfo componentDidMount error"); console.log(err);
+                    this.setState({loading: true}); });
+            axios.get(URLs.base_URL+URLs.get_province_name)
+                .then(response => {
+                    console.log("SetFactorInfo get province name ");console.log(response);
+                    this.setState({province: response.data, loading: false});
+                })
+                .catch(err => {
+                    console.log("SetFactorInfo get province name error")
+                    console.log(err);this.setState({loading: false});
+                });
+
+
     }
     onChange = e =>
         this.setState({
@@ -95,6 +97,7 @@ class SetFactorInfo extends Component {
             axios.post(URLs.base_URL + URLs.user_set_order_address, {
                 token: this.props.token, phone: this.state.data.phone, post: this.state.data.codePost,
                 address: this.state.data.address, city: this.state.chosenCity, province: this.state.chosenProvince,
+                defAddress: this.state.data.defAddress,
             })
                 .then(response => {
                     console.log("SetFactorInfo sendData done");
@@ -221,7 +224,7 @@ class SetFactorInfo extends Component {
                             {/*<div className="text-center container">*/}
                                 {/*<ClipLoader size="200" color={'#123abc'} loading={this.state.loading} />*/}
                             {/*</div>*/}
-                            <SavedAddresses showNewAddress={this.showNewAddress} />
+                            <SavedAddresses value={data.defAddress} showNewAddress={this.showNewAddress} />
                         </CardWrapper>
                         <br/>
 

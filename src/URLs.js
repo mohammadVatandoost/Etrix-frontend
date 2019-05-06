@@ -44,6 +44,7 @@
 //     user_set_order_address: '/user/cart/address', // post token, address,
 //     get_cities_name: '/city', //get ?province=provinceName =>  cities name
 //     get_province_name: '/province', //  get province name
+//     get_address_tag: '/get-address-tag', // get address name
 //     get_products_category: '/subMenu',  //
 //     // get_products_form_category: '/product-menu',  // /categoryMenu/subCategory
 //     // get_products_form_category: '/categoryMenu',  // /categoryMenu/subCategory
@@ -96,6 +97,10 @@ export default {
     user_set_order_address: '/user/cart/address', // post token, address,
     get_cities_name: '/city', //get ?province=provinceName =>  cities name
     get_province_name: '/province', //  get province name
+    get_address_tag: '/user/cart/get-address-tag', // get address tag
+    // get_tell_name: '/tell', // get tell
+    // get_postCode_name: '/postCode', // get postCode
+    // get_subject_name: '/subject', // get subject
     get_products_category: '/subMenu',  //
     // get_products_form_category: '/product-menu',  // /categoryMenu/subCategory
     // get_products_form_category: '/categoryMenu',  // /categoryMenu/subCategory
