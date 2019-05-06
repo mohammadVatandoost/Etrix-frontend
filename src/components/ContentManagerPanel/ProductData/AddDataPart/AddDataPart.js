@@ -9,6 +9,8 @@ class AddDataPart extends Component {
     state = {
         commons: {},
         separate: {},
+        website: 'Ickala',
+        map_name: '',
         loading: false,
         errors: {},
         category: [], chosenCategory: null
@@ -29,9 +31,8 @@ class AddDataPart extends Component {
     }
 
     onChange = e =>
-        this.setState({
-            data: { ...this.state.data, [e.target.name]: e.target.value }
-        });
+        this.setState({ [e.target.name]: e.target.value });
+
     onChangeFile = e =>
         this.setState({
             data: { ...this.state.data, [e.target.name]: e.target.files[0] }
@@ -97,7 +98,7 @@ class AddDataPart extends Component {
             axios.post(URLs.base_URL+URLs.get_category_columns+temp,{token: this.props.token})
                 .then(response => {
                     console.log("SetFactorInfo get_category_columns ");console.log(response);
-                    this.setState({separate: response.data.separate, commons: response.data.commons});
+                    this.setState({separate: this.replaceDashwithNullValue(response.data.separate), commons: this.replaceDashwithNullValue(response.data.commons)});
                 })
                 .catch(err => {
                     console.log("SetFactorInfo get_category_columns")
@@ -107,8 +108,23 @@ class AddDataPart extends Component {
 
     };
 
+    replaceDashwithNullValue = (data) => {
+        let temp = {};
+        Object.keys(data).map((property) => {
+            if(property === 'original') {
+                temp[property] = '1';
+            } else if(data[property] === '') {
+                temp[property] = '-';
+            } else {
+                temp[property] = data[property];
+            }
+        });
+        console.log(temp);
+        return temp;
+    }
+
     addProduct = () => {
-        axios.post(URLs.base_URL+URLs.add_product,{commons: this.state.commons, separate: this.state.separate})
+        axios.post(URLs.base_URL+URLs.add_product,{commons: this.state.commons, separate: this.state.separate, website: this.state.website, map_name: this.state.map_name})
             .then(response => {
                 console.log("SetFactorInfo  addProduct error");console.log(response);
             })
@@ -132,7 +148,7 @@ class AddDataPart extends Component {
 
     render() {
         const { data, errors, loading } = this.state;
-        let category, commons, separate;
+        let category, commons, separate, websiteName, mapName;
         if(this.state.category.length > 0) {
             category = this.state.category.map((item,i) => {
               if(Object.keys(item.category).length > 0) {
@@ -168,6 +184,16 @@ class AddDataPart extends Component {
                     <input name={property} value={this.state.separate[property]} onChange={this.onChangeSeparate} type="text" className="form-control-file"/>
                 </div>
             })
+
+            websiteName = <div className="form-group">
+                <label className="text-right" >نام سایت</label>
+                <input name="website" value={this.state.website} onChange={this.onChange} type="text" className="form-control-file"/>
+            </div>;
+
+            mapName = <div className="form-group">
+                <label className="text-right" >نام قطعه در سایت دیگر</label>
+                <input name="map_name" value={this.state.map_name} onChange={this.onChange} type="text" className="form-control-file"/>
+            </div>;
         }
         return (
           <div className="container">
@@ -185,7 +211,11 @@ class AddDataPart extends Component {
                 <br/>
                 <h2 className="text-center">Separate</h2>
                 {separate}
-                <button hidden={loading} onClick={this.sendData} type="submit" className="btn btn-primary">Send</button>
+                <br/>
+                <h2 className="text-center">Others</h2>
+                {websiteName}
+                {mapName}
+                <button hidden={loading} onClick={this.addProduct} type="button" className="btn btn-primary">Send</button>
                 <ClipLoader color={'#123abc'} loading={loading} />
             </form>
           </div>

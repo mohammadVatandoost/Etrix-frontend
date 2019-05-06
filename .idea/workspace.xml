@@ -3,26 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a6732dff-ee04-4d07-b1e9-e7abe18693e5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/URLs.js" afterPath="$PROJECT_DIR$/src/URLs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Conversions/Conversions.js" afterPath="$PROJECT_DIR$/src/components/Conversions/Conversions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/HeaderCom/DesktopHeader/DesktopHeader.css" afterPath="$PROJECT_DIR$/src/components/HeaderCom/DesktopHeader/DesktopHeader.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/HeaderCom/DesktopHeader/DesktopHeader.js" afterPath="$PROJECT_DIR$/src/components/HeaderCom/DesktopHeader/DesktopHeader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/HeaderCom/DesktopHeader/Navigation/Navigation.css" afterPath="$PROJECT_DIR$/src/components/HeaderCom/DesktopHeader/Navigation/Navigation.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/HeaderCom/ResponsiveHeader/Navigation/Navigation.js" afterPath="$PROJECT_DIR$/src/components/HeaderCom/ResponsiveHeader/Navigation/Navigation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/HeaderCom/ResponsiveHeader/ResponsiveHeader.css" afterPath="$PROJECT_DIR$/src/components/HeaderCom/ResponsiveHeader/ResponsiveHeader.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/HeaderCom/ResponsiveHeader/ResponsiveHeader.js" afterPath="$PROJECT_DIR$/src/components/HeaderCom/ResponsiveHeader/ResponsiveHeader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/Followup/Followup.js" afterPath="$PROJECT_DIR$/src/components/User/Followup/Followup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/ForgotPassword/ForgotPassword.js" afterPath="$PROJECT_DIR$/src/components/User/ForgotPassword/ForgotPassword.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/Login/Login.css" afterPath="$PROJECT_DIR$/src/components/User/Login/Login.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/OrderConfirmation/OrderConfirnation.js" afterPath="$PROJECT_DIR$/src/components/User/OrderConfirmation/OrderConfirnation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/Projects/Projects.js" afterPath="$PROJECT_DIR$/src/components/User/Projects/Projects.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/SetFactorInfo/SavedAddresses.js" afterPath="$PROJECT_DIR$/src/components/User/SetFactorInfo/SavedAddresses.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/SetFactorInfo/SetFactorInfo.css" afterPath="$PROJECT_DIR$/src/components/User/SetFactorInfo/SetFactorInfo.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/SetFactorInfo/SetFactorInfo.js" afterPath="$PROJECT_DIR$/src/components/User/SetFactorInfo/SetFactorInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/Signup/Signup.css" afterPath="$PROJECT_DIR$/src/components/User/Signup/Signup.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/Signup/Signup.js" afterPath="$PROJECT_DIR$/src/components/User/Signup/Signup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/showSearchProductResult/ProductsTable/ProductsTable.css" afterPath="$PROJECT_DIR$/src/components/showSearchProductResult/ProductsTable/ProductsTable.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/showSearchProductResult/showSearchProductResult.js" afterPath="$PROJECT_DIR$/src/components/showSearchProductResult/showSearchProductResult.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ContentManagerPanel/ProductData/AddDataPart/AddDataPart.js" afterPath="$PROJECT_DIR$/src/components/ContentManagerPanel/ProductData/AddDataPart/AddDataPart.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,25 +17,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="URLs.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="URLs.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/URLs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="722">
-              <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="-34">
+              <caret line="56" column="18" lean-forward="false" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddDataPart.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AddDataPart.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/ContentManagerPanel/ProductData/AddDataPart/AddDataPart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="37" column="10" lean-forward="false" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
+            <state relative-caret-position="273">
+              <caret line="116" column="37" lean-forward="true" selection-start-line="116" selection-start-column="37" selection-end-line="116" selection-end-column="37" />
               <folding>
-                <element signature="e#0#40#0" expanded="true" />
+                <element signature="e#1138#2882#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -63,7 +42,7 @@
       <file leaf-file-name="SetFactorInfo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/User/SetFactorInfo/SetFactorInfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3213">
+            <state relative-caret-position="2058">
               <caret line="108" column="6" lean-forward="false" selection-start-line="108" selection-start-column="6" selection-end-line="108" selection-end-column="6" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -87,7 +66,7 @@
       <file leaf-file-name="showSearchProductResult.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/showSearchProductResult/showSearchProductResult.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2226">
+            <state relative-caret-position="2478">
               <caret line="299" column="18" lean-forward="false" selection-start-line="299" selection-start-column="18" selection-end-line="299" selection-end-column="18" />
               <folding>
                 <element signature="e#5024#5118#0" expanded="false" />
@@ -99,25 +78,6 @@
                 <element signature="e#11489#11880#0" expanded="false" />
                 <element signature="e#11912#12151#0" expanded="false" />
                 <element signature="e#12188#12538#0" expanded="false" />
-                <marker date="1557134798880" expanded="true" signature="12553:16329" ph="{...}" />
-                <marker date="1557134798880" expanded="true" signature="14362:16313" ph="&lt;div/&gt;" />
-                <marker date="1557134798880" expanded="true" signature="14514:14694" ph="&lt;div/&gt;" />
-                <marker date="1557134798880" expanded="true" signature="14835:14857" ph="/*...*/" />
-                <marker date="1557134798880" expanded="true" signature="14879:15903" ph="&lt;Modal/&gt;" />
-                <marker date="1557134798880" expanded="true" signature="15062:15874" ph="&lt;div/&gt;" />
-                <marker date="1557134798880" expanded="true" signature="15220:15588" ph="&lt;div/&gt;" />
-                <marker date="1557134798880" expanded="true" signature="15312:15557" ph="&lt;select/&gt;" />
-                <marker date="1557134798880" expanded="true" signature="15922:15939" ph="/*...*/" />
-                <marker date="1557134798880" expanded="true" signature="15958:16008" ph="/*...*/" />
-                <marker date="1557134798880" expanded="true" signature="16031:16050" ph="/*...*/" />
-                <marker date="1557134798880" expanded="true" signature="16073:16092" ph="/*...*/" />
-                <marker date="1557134798880" expanded="true" signature="16115:16133" ph="/*...*/" />
-                <marker date="1557134798880" expanded="true" signature="16156:16174" ph="/*...*/" />
-                <marker date="1557134798880" expanded="true" signature="16197:16215" ph="/*...*/" />
-                <marker date="1557134798880" expanded="true" signature="16238:16256" ph="/*...*/" />
-                <marker date="1557134798880" expanded="true" signature="16275:16292" ph="/*...*/" />
-                <marker date="1557134798880" expanded="true" signature="16372:16523" ph="{...}" />
-                <marker date="1557134798880" expanded="true" signature="16559:16615" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -221,9 +181,9 @@
         <option value="$PROJECT_DIR$/src/components/showSearchProductResult/ProductsTable/ProductsTable.js" />
         <option value="$PROJECT_DIR$/src/components/User/ForgotPassword/ForgotPassword.js" />
         <option value="$PROJECT_DIR$/src/components/FooterCom/FooterCom.js" />
-        <option value="$PROJECT_DIR$/src/components/ContentManagerPanel/ProductData/AddDataPart/AddDataPart.js" />
         <option value="$PROJECT_DIR$/src/components/User/SetFactorInfo/SetFactorInfo.js" />
         <option value="$PROJECT_DIR$/src/URLs.js" />
+        <option value="$PROJECT_DIR$/src/components/ContentManagerPanel/ProductData/AddDataPart/AddDataPart.js" />
       </list>
     </option>
   </component>
@@ -259,7 +219,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -330,6 +289,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -422,18 +382,19 @@
       <workItem from="1556544054258" duration="3650000" />
       <workItem from="1556693506365" duration="9101000" />
       <workItem from="1556954113254" duration="11435000" />
-      <workItem from="1557134440506" duration="474000" />
+      <workItem from="1557134440506" duration="1884000" />
+      <workItem from="1557138876526" duration="3185000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="302147000" />
+    <option name="totallyTimeSpent" value="306742000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20208333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0859375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -639,7 +600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -827,7 +787,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
           <caret line="143" column="52" lean-forward="false" selection-start-line="143" selection-start-column="38" selection-end-line="143" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -850,7 +809,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/showSearchProductResult/showSearchProductResult.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2226">
+        <state relative-caret-position="2478">
           <caret line="299" column="18" lean-forward="false" selection-start-line="299" selection-start-column="18" selection-end-line="299" selection-end-column="18" />
           <folding>
             <element signature="e#5024#5118#0" expanded="false" />
@@ -862,42 +821,13 @@
             <element signature="e#11489#11880#0" expanded="false" />
             <element signature="e#11912#12151#0" expanded="false" />
             <element signature="e#12188#12538#0" expanded="false" />
-            <marker date="1557134798880" expanded="true" signature="12553:16329" ph="{...}" />
-            <marker date="1557134798880" expanded="true" signature="14362:16313" ph="&lt;div/&gt;" />
-            <marker date="1557134798880" expanded="true" signature="14514:14694" ph="&lt;div/&gt;" />
-            <marker date="1557134798880" expanded="true" signature="14835:14857" ph="/*...*/" />
-            <marker date="1557134798880" expanded="true" signature="14879:15903" ph="&lt;Modal/&gt;" />
-            <marker date="1557134798880" expanded="true" signature="15062:15874" ph="&lt;div/&gt;" />
-            <marker date="1557134798880" expanded="true" signature="15220:15588" ph="&lt;div/&gt;" />
-            <marker date="1557134798880" expanded="true" signature="15312:15557" ph="&lt;select/&gt;" />
-            <marker date="1557134798880" expanded="true" signature="15922:15939" ph="/*...*/" />
-            <marker date="1557134798880" expanded="true" signature="15958:16008" ph="/*...*/" />
-            <marker date="1557134798880" expanded="true" signature="16031:16050" ph="/*...*/" />
-            <marker date="1557134798880" expanded="true" signature="16073:16092" ph="/*...*/" />
-            <marker date="1557134798880" expanded="true" signature="16115:16133" ph="/*...*/" />
-            <marker date="1557134798880" expanded="true" signature="16156:16174" ph="/*...*/" />
-            <marker date="1557134798880" expanded="true" signature="16197:16215" ph="/*...*/" />
-            <marker date="1557134798880" expanded="true" signature="16238:16256" ph="/*...*/" />
-            <marker date="1557134798880" expanded="true" signature="16275:16292" ph="/*...*/" />
-            <marker date="1557134798880" expanded="true" signature="16372:16523" ph="{...}" />
-            <marker date="1557134798880" expanded="true" signature="16559:16615" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ContentManagerPanel/ProductData/AddDataPart/AddDataPart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="37" column="10" lean-forward="false" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/User/SetFactorInfo/SetFactorInfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3213">
+        <state relative-caret-position="2058">
           <caret line="108" column="6" lean-forward="false" selection-start-line="108" selection-start-column="6" selection-end-line="108" selection-end-column="6" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -907,10 +837,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/URLs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+        <state relative-caret-position="-34">
+          <caret line="56" column="18" lean-forward="false" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ContentManagerPanel/ProductData/AddDataPart/AddDataPart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="116" column="37" lean-forward="true" selection-start-line="116" selection-start-column="37" selection-end-line="116" selection-end-column="37" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1138#2882#0" expanded="false" />
           </folding>
         </state>
       </provider>
