@@ -67,10 +67,14 @@ class Followup extends Component {
         }
         return (
             <div className="container responsive-margin" style={{direction: "ltr"}}>
+
                 <h1 className="text-center">سفارش ها </h1>
                 {factors}
                 <br/>
-                <ClipLoader style={{margin: 'auto', display: 'block'}} size="200" color={'#123abc'} loading={this.state.loading} />
+                <div className="text-center container">
+                    <ClipLoader size="200" color={'#123abc'} loading={this.state.loading} />
+                </div>
+                {/*<ClipLoader style={{margin: 'auto', display: 'block'}} size="200" color={'#123abc'} loading={this.state.loading} />*/}
                 <br/><br/>
             </div>
         )

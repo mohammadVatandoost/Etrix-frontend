@@ -107,15 +107,11 @@ class ForgotPassword extends Component {
 
                         <div className="form-group text-right">
                             <label htmlFor="exampleInputEmail1">ایمیل</label>
-                            <input name="email" value={data.email} onChange={this.onChange} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            <input name="email" onChange={this.onChange} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                                    placeholder="ایمیل خود را وارد کنید"/>
                             {errors.email && <InlineError text={errors.email} />}
                         </div>
-                        <div className="form-group text-right">
-                            <label htmlFor="exampleInputPassword1">تلفن همراه</label>
-                            <input name="tell" value={data.tell} onChange={this.onChange} type="tell" className="form-control" id="exampleInputPassword1" placeholder="Ex: +989123456789"/>
-                            {errors.tell && <InlineError text={errors.tell} />}
-                        </div>
+
                         <div className="flex-row space-between">
                             <div>
                                 <button hidden={loading} onClick={this.sendData} type="submit" className="btn btn-success">بازیابی رمز عبور</button>

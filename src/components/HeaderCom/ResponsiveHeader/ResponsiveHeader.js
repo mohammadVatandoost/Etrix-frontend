@@ -80,9 +80,7 @@ class ResponsiveHeader extends Component {
 
                     </div>
 
-                    <div>
-                        <p className="userName"> Username </p>
-                    </div>
+
                     <div className="iconbar-container">
                         <div className="bar1"></div>
                         <div className="bar2"></div>
@@ -103,7 +101,8 @@ const mapStateToProps = state => {
         isAuthenticated: state.auth.token !== null,
         userRole: state.auth.userRole,
         cartLength: state.cart.cartLength,
-        token: state.auth.token
+        token: state.auth.token,
+        userData: state.auth.userData,
     };
 };
 

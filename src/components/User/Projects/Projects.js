@@ -7,6 +7,7 @@ import './Projects.css';
 import axios from "axios";
 import URLs from "../../../URLs";
 import Alert from 'react-s-alert';
+import {ClipLoader} from "react-spinners";
 
 class Projects extends Component {
     state = {
@@ -14,7 +15,8 @@ class Projects extends Component {
         data: {
             projectName: '',
         },
-        errors: {}
+        errors: {},
+        loading: true,
     }
 
     componentDidMount() {
@@ -25,7 +27,7 @@ class Projects extends Component {
         axios.post(URLs.base_URL+URLs.user_get_projects, {token: this.props.token})
             .then(response => {
                 console.log("projects");console.log(response);
-                this.setState({projects: response.data});
+                this.setState({projects: response.data, loading: false});
             })
             .catch(err => {
                 console.log(err);
@@ -130,6 +132,9 @@ class Projects extends Component {
         } else {projects = <h3 className="text-center">تا حالا پروژه ای ایجاد نکردید.</h3>}
         return (
             <div className="container projects" style={{direction: 'rtl'}}>
+                <div className="text-center container">
+                    <ClipLoader size="200" color={'#123abc'} loading={this.state.loading} />
+                </div>
               <br/>
               <div className="flex-row space-around flex-center-align">
                   <label>نام پروژه : </label>

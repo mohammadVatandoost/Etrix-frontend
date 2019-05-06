@@ -45,7 +45,7 @@
 .table-sticky-header {
     top: 0px;
     position: fixed;
-    overflow-x: auto;
+    overflow-x: hidden;
 }
 /*.fl-scroll {*/
     /*!*width: 984px;*!*/
@@ -109,6 +109,5 @@
     height: 30px;
     margin-top: -10px;
     width: 200%;
-    background-image: linear-gradient(to right, red , yellow);
 }
 

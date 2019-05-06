@@ -125,7 +125,7 @@ class Signup extends Component {
                  </div>
                  <div className="form-group text-right">
                     <label htmlFor="exampleInputPassword1">رمز</label>
-                    <input name="password" value={data.password} onChange={this.onChange} type="password" className="form-control" id="exampleInputPassword1" placeholder="رمز خود را وارد کنید"/>
+                    <input name="password" value={data.password} onChange={this.onChange} type="password" className="form-control" min="8" id="exampleInputPassword1" placeholder="رمز خود را وارد کنید"/>
                     {errors.password && <InlineError text={errors.password} />}
                  </div>
                  <div className="flex-row space-between">
