@@ -60,7 +60,7 @@ class SetFactorInfo extends Component {
                 });
         }
 
-    }
+    };
 
     selectChange2 = (event) => {
         console.log("SetFactorInfo select changes2");
