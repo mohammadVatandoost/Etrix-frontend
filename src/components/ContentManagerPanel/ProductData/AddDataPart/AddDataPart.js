@@ -2,7 +2,7 @@ import React , {Component} from 'react';
 import { ClipLoader } from 'react-spinners';
 import axios from 'axios';
 import InlineError from '../../../messages/InlineError';
-
+import URLs from '../../../../URLs';
 
 class AddDataPart extends Component {
     state = {
@@ -14,7 +14,12 @@ class AddDataPart extends Component {
             imagePart: null
         },
         loading: false,
-        errors: {}
+        errors: {},
+        category: [],
+    }
+
+    componentDidMount() {
+        this.getProductsCategory();
     }
 
     validate = (data) => {
@@ -74,14 +79,52 @@ class AddDataPart extends Component {
                 });
         }
 
-    }
+    };
+
+    getProductsCategory = () => {
+        let url = URLs.base_URL + URLs.get_products_category;
+        axios.get(url)
+            .then(response => {
+                console.log("componentDidMount AddData part get category");
+                console.log(response);
+                this.setState({category: response.data});
+            })
+            .catch(err => {
+                console.log("componentDidMount AddData part get category");console.log(err);
+            });
+    };
 
 
     render() {
         const { data, errors, loading } = this.state;
+        let category;
+        if(this.state.category.length > 0) {
+            category = this.state.category.map((item,i) => {
+              if(Object.keys(item.category).length > 0) {
+                  let temp = Object.keys(item.category).map((property, j) => {
+                      if(item.category[property].length>0) {
+                          let temp2 =  item.category[property].map((subcategory,t)=> {
+                              return <option key={i+j+t} value={item.product + property+subcategory}>{item.product + " " + property+" "+subcategory}</option>;
+                          });
+                          return temp2;
+                      } else {
+                          return <option key={i+j} value={item.product + property}>{item.product + " " + property}</option>;
+                      }
+                  });
+                  return temp;
+              } else {
+                  return <option key={i} value={item.product}>{item.product}</option>;
+              }
+            })
+        }
         return (
           <div className="container">
             <br/>
+              <div className="form-group">
+                  <select name="category">
+                      {category}
+                  </select>
+              </div>
             <br/>
             <form className="text-right">
                 <div className="form-group">
@@ -103,13 +146,6 @@ class AddDataPart extends Component {
                     <label className="text-right" htmlFor="exampleFormControlFile2">Image Part</label>
                     <input name="imagePart" onChange={this.onChangeFile} type="file" className="form-control-file" id="exampleFormControlFile2"/>
                     {errors.imagePart && <InlineError text={errors.imagePart} />}
-                </div>
-                <div className="form-group">
-                  <select name="category">
-                    <option value="australia">همه</option>
-                    <option value="canada">IC</option>
-                    <option value="usa">مقاومت ها</option>
-                  </select>
                 </div>
                 <button hidden={loading} onClick={this.sendData} type="submit" className="btn btn-primary">Send</button>
                 <ClipLoader color={'#123abc'} loading={loading} />
