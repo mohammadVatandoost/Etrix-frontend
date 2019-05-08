@@ -13,7 +13,7 @@ import SavedAddresses from "./SavedAddresses";
 class SetFactorInfo extends Component {
     state = {
         data: {
-            address: '', phone: '', codePost: ''
+            address: '', phone: '', codePost: '', tag: ''
         },
         price: 0, number: '', province: [], chosenProvince: null, cities: [], chosenCity: null,
         errors: {}, storedData: false, loading: true, addNewAddress: false, defAddress: [],
@@ -97,12 +97,12 @@ class SetFactorInfo extends Component {
             axios.post(URLs.base_URL + URLs.user_set_order_address, {
                 token: this.props.token, phone: this.state.data.phone, post: this.state.data.codePost,
                 address: this.state.data.address, city: this.state.chosenCity, province: this.state.chosenProvince,
-                defAddress: this.state.data.defAddress,
+                tag: this.state.data.tag,
             })
                 .then(response => {
                     console.log("SetFactorInfo sendData done");
                     console.log(response);
-                    this.setState({loading: false, storedData: true});
+                    // this.setState({loading: false, storedData: true});
                 })
                 .catch(err => {
                     console.log("SetFactorInfo sendData error");
@@ -191,8 +191,9 @@ class SetFactorInfo extends Component {
                 </div>
                 <div className="form-group">
                     <label> عنوان آدرس</label>
-                    <input name="addressTitle" value={data.title} onChange={this.onChange} type="text" className="form-control"
+                    <input name="tag" value={data.tag} onChange={this.onChange} type="text" className="form-control"
                            placeholder="خانه، محل کار یا ..."/>
+                    {errors.tag && <InlineError text={errors.tag} />}
 
                 </div>
                 <div className="form-group">
@@ -207,7 +208,7 @@ class SetFactorInfo extends Component {
                 </div>
 
                 <div className="form-group">
-                    <button className="addNewAddressBtn">ثبت</button>
+                    <button className="addNewAddressBtn" onClick={this.sendData}>ثبت</button>
                 </div>
             </CardWrapper>;
         }

@@ -28,26 +28,10 @@ class SavedAddresses extends Component {
         console.log("**************token***********");
         console.log(this.props.token);
         console.log("SetFactorInfo componentDidMount");
-        // axios.post(URLs.base_URL+URLs.get_subject_name, {token: this.props.token})
-        //     .then(response => {
-        //         console.log("SetFactorInfo componentDidMount done");console.log(response);
-        //         this.setState({subject: response.data.subject, loading: false});
-        //     })
-        //     .catch(err => {console.log("SetFactorInfo componentDidMount error"); console.log(err);
-        //         this.setState({loading: true}); });
-        // axios.post(URLs.base_URL+URLs.get_tell_name, {token: this.props.token})
-        //     .then(response => {
-        //         console.log("SetFactorInfo get tell name ");console.log(response);
-        //         this.setState({tell: response.data, loading: false});
-        //     })
-        //     .catch(err => {
-        //         console.log("SetFactorInfo get tell name error")
-        //         console.log(err);this.setState({loading: false});
-        //     });
         axios.post(URLs.base_URL+URLs.get_address_tag, {token: this.props.token})
             .then(response => {
                 console.log("SetFactorInfo get address tag ");console.log(response);
-                // this.setState({defAddress: response.data, loading: false});
+                this.setState({defAddress: response.data, loading: false});
             })
             .catch(err => {
                 console.log("SetFactorInfo get address tag error")
@@ -66,30 +50,45 @@ class SavedAddresses extends Component {
     }
 
     render(){
-        const { data } = this.state;
-        let defAddress = this.state.defAddress.map((item) =>{
-            return (
-                <span value={item.name}>{item.name}</span>
-            );
-        });
-
-        let tell = this.state.tell.map((item) =>{
-            return (
-                <span value={item.name}>{item.name}</span>
-            );
-        });
-
-        let postCode = this.state.post.map((item) =>{
-            return (
-                <span value={item.name}>{item.name}</span>
-            );
-        });
-
-        let subject = this.state.subject.map((item) =>{
-            return (
-                <span value={item.name}>{item.name}</span>
-            );
-        });
+        let defAddress;
+        if(this.state.defAddress.length>0) {
+            defAddress = this.state.defAddress.map((address,i) => {
+               return (
+                   <div>
+                       <p>
+                           <input type="checkbox" id="checkbox"/>
+                           <label htmlFor="checkbox" id="checkboxLabel">{address.name}</label>
+                           <p id="tell"  onChange={this.onChange}>تلفن: {address.name}</p>
+                           <p id="postCode" onChange={this.onChange}>کد پستی: {address.name}</p>
+                       </p>
+                       <p className="address" onChange={this.onChange}>{address.name}</p>
+                   </div>
+               );
+            });
+        }
+        // let defAddress = this.state.defAddress.map((item) =>{
+        //     return (
+        //         <span value={item.name}>{item.name}</span>
+        //     );
+        // });
+        //
+        // let tell = this.state.tell.map((item) =>{
+        //     return (
+        //         <span value={item.name}>{item.name}</span>
+        //     );
+        // });
+        //
+        // let postCode = this.state.post.map((item) =>{
+        //     return (
+        //         <span value={item.name}>{item.name}</span>
+        //     );
+        // });
+        //
+        // let subject = this.state.subject.map((item) =>{
+        //     return (
+        //         <span value={item.name}>{item.name}</span>
+        //     );
+        // });
         return(
 
                     <div className="savedAddresses">
@@ -97,24 +96,7 @@ class SavedAddresses extends Component {
                         <h1>انتخاب آدرس</h1>
 
                         <div className="Address">
-                            <form action="#">
-                                <p>
-                                    <input type="checkbox" id="checkbox"/>
-                                    <label htmlFor="checkbox" value={data.subject} id="checkboxLabel">{subject}</label>
-                                    <p id="tell" value={data.tell} onChange={this.onChange}>تلفن: {tell}</p>
-                                    <p id="postCode"  value={data.post} onChange={this.onChange}>کد پستی: {postCode}</p>
-                                </p>
-
-                                <p className="address" value={data.defAddress} onChange={this.onChange}>{defAddress}
-                                    {/*<br/> <span className="fullAddress" value={data.defAddress}>
-                                    آدرس....................................................
-                                    ........................................................</span>*/}
-
-                                </p>
-
-                            </form>
-
-
+                            {defAddress}
                         </div>
 
                         <button onClick={this.addNewAddress} className="addNewAddressBtn">+افزودن آدرس جدید</button>
