@@ -5,8 +5,9 @@
     /*src: url("../fonts/(33).ttf");*/
     /*font-family: iransans-33; }*/
 body, html {
-    font-family: iransans-33;
-    height: 100%; }
+    /*font-family: iransans-33;*/
+    height: 100%;
+}
 
 .dropdown-submenu > .dropdown-menu {
     position: absolute; }
@@ -21,7 +22,8 @@ body, html {
 
 .feature-text {
     font-size: large;
-    font-family: iransans-33; }
+    /*font-family: iransans-33; */
+}
 
 .feature-icon {
     -webkit-transition: transform ease .3s;
@@ -77,10 +79,11 @@ body, html {
     height: 98px;
     background-color: black;
     padding: 0px auto;
-    font-family: iransans-33; }
+    /*font-family: iransans-33; */
+}
 
 .navbar-list-item-link {
-    font-family: iransans-33;
+    /*font-family: iransans-33;*/
     display: block;
     /*background-color: green;*/
     /*width: 100%;*/
