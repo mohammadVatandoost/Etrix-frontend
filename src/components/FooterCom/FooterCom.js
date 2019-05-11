@@ -70,15 +70,15 @@ const FooterCom = (props) => (
                             </div>
 
                             <div className="contact-us-item col-12 d-flex justify-content-between p-1">
-                                <div className="contact-us-icon">
-                                    <span className="fa fa-map-marker"></span>
-                                </div>
-                                <div className="contact-us-text">
-                                    تهران، میدان ونک، خیابان ملاصدرا،
-                                    <br/>
-                                    خیابان پردیس، پلاک ۷
-                                </div>
+                            <div className="contact-us-icon">
+                                <span className="fa fa-map-marker"></span>
                             </div>
+                            <div className="contact-us-text">
+                                تهران، میدان ونک، خیابان ملاصدرا،
+                                <br/>
+                                خیابان پردیس، پلاک ۷
+                            </div>
+                        </div>
                         </div>
                 </div>
             </div>
