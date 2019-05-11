@@ -40,7 +40,7 @@
 }
 
 .setFactor-info .def-address p {
-    font-family: sans-serif !important;
+    /*font-family: sans-serif !important;*/
     font-size:2em !important;
     font-weight: bold !important;
     display: inline-block;
@@ -48,7 +48,7 @@
 }
 
 .setFactor-info .def-address span {
-    font-family: sans-serif !important;
+    /*font-family: sans-serif !important;*/
     color: #007bff;
     display: inline-block;
     margin-right: 50% !important;
@@ -87,13 +87,13 @@
 .savedAddresses h1{
     text-align: right;
     color: #000;
-    font-family: sans-serif, serif;
+    /*font-family: sans-serif, serif;*/
 
 }
 
 
 .savedAddresses p {
-    font-family: sans-serif, serif;
+    /*font-family: sans-serif, serif;*/
     font-weight: bold;
     padding-right: 0em;
     border-radius: .25em;
@@ -137,7 +137,7 @@
     border-radius: .25rem;
     color: white;
     font-weight: bolder;
-    font-family: Cabin,Helvetica Neue,Helvetica,Arial,sans-serif;
+    /*font-family: Cabin,Helvetica Neue,Helvetica,Arial,sans-serif;*/
     transition: all .3s ease-in-out;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
@@ -185,7 +185,7 @@
     line-height: 0.8;
     color: #09ad7e;
     transition: all .2s;
-    font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
+    /*font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;*/
 }
 [type="checkbox"]:not(:checked) + label:after {
     opacity: 0;
@@ -213,7 +213,7 @@ span.fullAddress {
     border-radius: 2%;
     box-sizing: border-box;
     overflow: hidden;
-    font-family: sans-serif, serif;
+    /*font-family: sans-serif, serif;*/
 }
 
 @media only screen and (max-width:769px){

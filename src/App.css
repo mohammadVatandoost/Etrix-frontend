@@ -76,7 +76,7 @@
 .slick-prev:before,
 .slick-next:before
 {
-  font-family: 'slick';
+  /*font-family: 'slick';*/
   font-size: 25px;
   line-height: 1;
 
@@ -180,7 +180,7 @@
 }
 .slick-dots li button:before
 {
-  font-family: 'slick';
+  /*font-family: 'slick';*/
   font-size: 6px;
   line-height: 20px;
 
@@ -364,7 +364,7 @@
 }
 
 .carousel-container .carousel-text span {
-  font-family: "Calibri Light";
+  /*font-family: "Calibri Light";*/
   position: absolute;
   width: 40%;
   top: 0;
