@@ -15,7 +15,6 @@
 }
 .table-custom-design {
     display: block;
-    width: 100%;
 }
 
 .table-custom-design thead {
@@ -46,6 +45,10 @@
     top: 0px;
     position: fixed;
     overflow-x: hidden;
+}
+
+#tableFix1 {
+    width:3338
 }
 /*.fl-scroll {*/
     /*!*width: 984px;*!*/
@@ -87,7 +90,7 @@
     /*line-height: 0;*/
     /*margin: 0;*/
     /*padding: 0;*/
-    width: 106%;
+    width: 100%;
     height: 30px;
     overflow-y: auto;
 
@@ -113,6 +116,9 @@
     /*overflow: hidden;*/
     height: 30px;
     margin-top: -10px;
-    width: 217%;
-}
+    width: 277%;
+    }
 
+    #table-header {
+        height:115px !important
+    }

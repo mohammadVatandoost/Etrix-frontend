@@ -207,6 +207,16 @@
 }
 
 
+.carousel-indicators .active {
+  background-color: #007bff !important;
+  opacity: 0.8;
+}
+
+.carousel-indicators li {
+  width:20px;
+  height:20px;
+  border-radius:100%
+}
 /***************************************/
 /* Slider */
 .slick-slider

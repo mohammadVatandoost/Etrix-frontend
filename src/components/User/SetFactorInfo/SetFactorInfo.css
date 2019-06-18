@@ -35,25 +35,24 @@
     border-bottom: thin solid silver;
     border-top: thin solid silver;
     width: 100%;
-    display: none;
-
+    /*display: none;*/
 }
 
 .setFactor-info .def-address p {
     /*font-family: sans-serif !important;*/
     font-size:2em !important;
     font-weight: bold !important;
-    display: inline-block;
+    /*display: inline-block;*/
 
 }
 
 .setFactor-info .def-address span {
     /*font-family: sans-serif !important;*/
-    color: #007bff;
-    display: inline-block;
+    /*color: #007bff;*/
     margin-right: 50% !important;
     cursor: pointer;
-    font-weight: bolder;  
+    font-size:2em !important;
+    font-weight: bold !important;
 }
 
 /*.col-lg-4 .form-control {*/
@@ -104,12 +103,11 @@
 
 }
 
-.savedAddresses form p{
+.savedAddresses form span{
     margin-right: 2rem;
-    display: inline;
 }
 
-.savedAddresses form p span {
+.savedAddresses form span span {
     color: green;
     /*-webkit-user-modify: read-write;*/
     /*-moz-user-modify: read-write;*/

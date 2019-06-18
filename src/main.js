@@ -80,8 +80,8 @@ class App extends Component {
           <div className="carousel slide" data-ride="carousel" id="carousel-demo">
             <ul className="carousel-indicators">
               <li data-target="#carousel-demo" data-slide-to="0" className="active"></li>
-              <li data-target="#carousel-demo" data-slide-to="1"></li>
-              <li data-target="#carousel-demo" data-slide-to="2"></li>
+              <li data-target="#carousel-demo" data-slide-to="1" ></li>
+              <li data-target="#carousel-demo" data-slide-to="2" ></li>
             </ul>
             <div className="carousel-inner">
               <div className="carousel-item active">
@@ -115,21 +115,12 @@ class App extends Component {
           </div>
         </div>
        </div>
-          {/*Last Products*/}
-         {/*<section>*/}
-             {/*<h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین محصولات</h2>*/}
-             {/*{lastProducts}*/}
-         {/*</section>*/}
+         {/* <section> */}
+             {/* <h2 className="text-center mt-3 mb-2" >آخرین محصولات</h2> */}
+              {/* <ProductCard/> */}
+         {/* </section> */}
 
-          {/*Articles*/}
-         {/*<section className="mainPageSection" style={{backgroundColor: "white"}}>*/}
-             {/*<h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین محصولات</h2>*/}
-             {/*<div className="flex space-around flex-nowrap ">*/}
-                 {/*<sliderShow/>*/}
-             {/*</div>*/}
-             {/*<Link to="products/" className="btn btn-primary col-md-2 col-sm-6 mt-md-2" style={{margin: "auto", display: "block"}}>مشاهده همه محصولات</Link>*/}
-             {/*<br/>*/}
-         {/*</section>*/}
+        
         <section className="mainPageSection" style={{backgroundColor: "white"}}>
           <h2 className="text-center" style={{marginTop: "1%", marginBottom: '1%'}}>آخرین مقالات</h2>
           <div className="flex space-around flex-wrap">

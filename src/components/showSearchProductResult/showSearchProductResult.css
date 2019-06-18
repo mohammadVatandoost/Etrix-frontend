@@ -1,6 +1,6 @@
 .searchResultContainer {
-    width: 100%;margin: 0 !important; padding-left: 1%;padding-right: 1%;
-    max-width: 2400px;
+    width: 100%;margin: 0 !important;
+    max-width: 2350px;
 }
 .rowScrollable {
     flex-wrap: nowrap;
@@ -25,4 +25,3 @@
 .btnHoverRed:hover {
     background-color: red;
 }
-

@@ -90,10 +90,11 @@ class ProductsTable extends Component {
 
     horizontalScroll = (e) => {
        console.log("horizontalScroll");
+       console.log('################################')
        console.log(e.target.scrollLeft);
-        document.getElementById('search-result-table').scrollLeft = e.target.scrollLeft;
+        document.getElementById('search-result-table').scrollLeft = e.target.scrollLeft ;
         if(document.getElementById('tableFix1') !== null) {
-            document.getElementById('tableFix1').scrollLeft = e.target.scrollLeft;
+            document.getElementById('tableFix1').scrollLeft = e.target.scrollLeft ;
         }
         console.log(document.getElementById('search-result-table').scrollLeft);
         // document.getElementById('search-result-table').scrollLeft -= 20;
@@ -109,7 +110,7 @@ class ProductsTable extends Component {
             Object.keys(this.props.tableHeaderS).map((property2,i) => {
                 if( (this.props.tableHeaderS[property2] === property) && (this.props.tableHeaderS[property2] !== "part_status")) {
                   if(property === "unit_price")  {
-                      temp = <th style={{minWidth: '110px'  }} key={property+'1'}>
+                      temp = <th style={{minWidth: '110px' }} key={property+'1'}>
                           <p>قیمت</p><button className="btn btnHoverGreen" style={{margin: '2px' }}
                                                                         onClick={() => {this.props.sort(property,'increase')}}>
                           <i className="fa fa-arrow-up" aria-hidden="true"></i></button>
@@ -118,34 +119,34 @@ class ProductsTable extends Component {
                           </button>
                       </th> ;
                   } else if(property === "ld_image") {
-                      temp = <th style={{minWidth: '110px'  }} key={property+'1'}><p>عکس</p></th> ;
+                      temp = <th style={{minWidth: '150px'}} key={property+'1'}><p>عکس</p></th> ;
                   } else if(property === "datasheet") {
-                      temp = <th style={{minWidth: '110px'  }} key={property+'1'}><p>دیتاشیت</p></th> ;
+                      temp = <th style={{minWidth: '150px'  }} key={property+'1'}><p>دیتاشیت</p></th> ;
                   } else if(property === "manufacturer_part_number") {
-                      temp = <th style={{minWidth: '110px'  }} key={property+'1'}><p>نام قطعه</p></th> ;
+                      temp = <th style={{minWidth: '150px'  }} key={property+'1'}><p>نام قطعه</p></th> ;
                   } else if(property === "quantity_available") {
-                      temp = <th style={{minWidth: '110px'  }} key={property+'1'}>
+                      temp = <th style={{minWidth: '150px' }} key={property+'1'}>
                           <p>تعداد موجود</p><button className="btn btnHoverGreen" style={{margin: '2px' }} onClick={() => {this.props.sort(property,'increase')}}>
                           <i className="fa fa-arrow-up" aria-hidden="true"></i></button>
                           <button className="btn btnHoverRed" onClick={() => {this.props.sort(property,'increase')}}>
                               <i className="fa fa-arrow-down" aria-hidden="true"></i>
                           </button></th> ;
                   } else if(property === "manufacturer") {
-                      temp = <th style={{minWidth: '110px'  }} key={property+'1'}><p>سازنده</p></th> ;
+                      temp = <th style={{minWidth: '165px'  }} key={property+'1'}><p className="text-center">سازنده</p></th> ;
                   } else if(property === "description") {
-                      temp = <th style={{minWidth: '110px'  }} key={property+'1'}><p>توضیح</p></th> ;
+                      temp = <th style={{minWidth: '165px'  }} key={property+'1'}><p>توضیح</p></th> ;
                   } else if(property === "packaging") {
 
                   } else if(property === "series") {
-                      temp = <th style={{minWidth: '110px'  }} key={property+'1'}><p>سری قطعه</p></th> ;
+                      temp = <th style={{minWidth: '165px'  }} key={property+'1'}><p>سری قطعه</p></th> ;
                   } else if(property === "core_processor") {
-                      temp = <th style={{minWidth: '110px'  }} key={property+'1'}><p>هسته پردازنده</p></th> ;
+                      temp = <th style={{minWidth: '165px'  }} key={property+'1'}><p>هسته پردازنده</p></th> ;
                   } else if(property === "speed") {
-                      temp = <th style={{minWidth: '110px'  }} key={property+'1'}><p>سرعت</p></th> ;
+                      temp = <th style={{minWidth: '165px'  }} key={property+'1'}><p>سرعت</p></th> ;
                   } else if(property === "operating_temperature") {
-                      temp = <th style={{minWidth: '110px'  }} key={property+'1'}><p>دمای کاری</p></th> ;
+                      temp = <th style={{minWidth: '165px'  }} key={property+'1'}><p>دمای کاری</p></th> ;
                   } else {
-                      temp = <th style={{minWidth: '110px'  }} key={property+'1'}>
+                      temp = <th style={{minWidth: '165px'  }} key={property+'1'}>
                           <p>{property.split("_").join(" ")}</p><button className="btn btnHoverGreen" style={{margin: '2px' }}
                                                                         onClick={() => {this.props.sort(property,'increase')}}>
                           <i className="fa fa-arrow-up" aria-hidden="true"></i></button>
@@ -190,13 +191,15 @@ class ProductsTable extends Component {
 
         });
 
+        
+
         // show fixed header table-responsive
         if(this.state.showFixedHeader) {
             console.log("this.state.showFixedHeader render true");
             fixedHeader = <div ref={this.myRefTableFix} className="stickyTableHeader">
-                <table id="tableFix1" className="table table-striped table-custom-design table-sticky-header">
-                    <thead>
-                    <tr>{tableHeads}</tr>
+                <table id="tableFix1" className="table table-striped table-custom-design table-sticky-header ">
+                    <thead className=" p-0">
+                    <tr className="pt-0">{tableHeads}</tr>
                     </thead>
                 </table>
             </div>;

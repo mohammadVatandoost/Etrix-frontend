@@ -85,6 +85,7 @@ class showSearchProductResult extends Component {
                     // this.setState({dataCode: response.data[0]});
                 }
                 this.setState({loading: false});
+                // if(response.data[2]["quantity_available"] == 0) {}
             })
             .catch(err => {
                 console.log("componentDidMount searchKey");console.log(err);
@@ -304,14 +305,12 @@ class showSearchProductResult extends Component {
 
             <div className="container text-center searchResultContainer">
 
-                {/*<MediaQuery query="(min-device-width: 769px)">*/}
                     <div className="text-center container">
                         <ClipLoader  sizeUnit={"px"} size={300} color={'#123abc'} loading={this.state.loading} />
                     </div>
                         {multiCAtegory}
                         {filterProduct}
                         {productsTble}
-                    {/*{paginationResult}*/}
                     <Modal open={this.state.open} onClose={this.onCloseModal} center
                     classNames={{overlay: styles.customOverlay, modal: styles.customModal,}}>
                         <div className="select-project">
@@ -328,16 +327,6 @@ class showSearchProductResult extends Component {
                         <br/>
                     </div>
                     </Modal>
-
-                {/*</MediaQuery>*/}
-                {/*<MediaQuery query="(max-device-width: 768px)">*/}
-                    {/*{multiCAtegory}*/}
-                    {/*{filterProduct}*/}
-                    {/*<ProductCard/>*/}
-                    {/*<ProductCard/>*/}
-                    {/*<ProductCard/>*/}
-                    {/*<ProductCard/>*/}
-                {/*</MediaQuery>*/}
 
             </div>
         )
